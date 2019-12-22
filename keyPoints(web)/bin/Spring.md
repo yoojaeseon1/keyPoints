@@ -4,6 +4,14 @@ STS가 3버전인거다.
 
 -----
 
+##### 인코딩 방식 변경(UTF-8로)
+
+window -> Preferences -> General -> Appearance -> Content Type 
+
+-> Text클릭한 상태에서 맨 밑 Default encoding : UTF-8 쓰고 Update
+
+---
+
 ##### HTTP 메소드
 
 GET : select
