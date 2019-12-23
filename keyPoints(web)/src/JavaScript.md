@@ -51,6 +51,10 @@ $.getJSON("/replies/all/"+bno, function(data) {
 	
 * 주의 사항
 
+객체의 필드 값을 출력하고 싶을 땐 ${인스턴스.필드} 로 검색해야 한다.
+
+예시의 경우처럼 선언한 변수 또는 메소드의 인자의 경우는 바로 변수 명을 입력해야된다.
+
 객체의 변경사항이 실시간으로 반영된다.
 
 
@@ -59,6 +63,12 @@ $.getJSON("/replies/all/"+bno, function(data) {
 객체를 로깅할 경우 필드 값을 정리해서 출력한다.
 
 객체는 dir, 나머지는 log로 로깅하면 편리하다.
+
+ex)
+
+	console.dir("${alist}");
+	
+alist는 ArrayList 인스턴스다.
 
 ###### console.count
 
