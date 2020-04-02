@@ -208,3 +208,65 @@ ex)
 
 -----
 
+404 Not Found : The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+
+프로젝트 우클릭 -> Properties -> Web Project Settings -> Context root를 '/'로 변경
+
+-----
+
+Current request is not of type [org.springframework.web.multipart.MultipartHttpServletRequest]
+
+1. 전송하는 <form> 태그에서 enctype="multipart/form-data"로 속성 값을 입력해준다.
+
+2. applicationContext.xml 파일에 멀티 파일 전송을 위한 bean 객체를 추가해준다.
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+---
+
+##### 한글 깨질 때
+
+window -> preferences 에서 할 수 있는 모든 것들 UTF-8로 설정
+
+그래도 안되면
+
+server.xml 파일에서
+
+<connector> 태그에 URIEncoding="UTF-8" 추가
+
+그래도 안되면
+
+web.xml 파일에
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+추가 하면 왠만하면 된다.
+
+---
+
+##### javax.el.PropertyNotFoundException: [com.bit.yes.model.entity.ReviewVo] 타입에서 프로퍼티 [idx]을(를) 찾을 수 없습니다.
+
+review_comment.jsp 파일에서
+
+주석으로 된 부분에 bean.idx가 있는데 그 주석을 지우거나, bean.reviewIndex로 vo 필드값을 정확히 써주면 해결
+
+왜 주석인데 오류가 발생하는지 모르겠다.
+
+---
+
+##### JSP파일 갱신 안될 때
+
+\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\www\org\apache\jsp 에 있는 폴더 지우기
+
+컴파일하면 다시 생긴다.

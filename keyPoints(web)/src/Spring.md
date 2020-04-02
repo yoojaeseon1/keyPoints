@@ -10,6 +10,11 @@ window -> Preferences -> General -> Appearance -> Content Type
 
 -> Text클릭한 상태에서 맨 밑 Default encoding : UTF-8 쓰고 Update
 
+
+.java 파일 중에 default 인코딩 방식이 바뀌지 않은 것들이 있으면
+
+Content Type -> Text-> Java Source File의 인코딩 방식을 변경해주면 된다.
+
 ---
 
 ##### HTTP 메소드
@@ -491,4 +496,17 @@ Rest방식은 @Controller처럼 controller에서 JSP파일(view)을 반환하는
 JSON타입의 데이터를 ajax방식으로 보낼 때 유용(댓글달기)
 
 -----
+
+##### HttpServletRequest의 getParameter(parameter) vs getAttrubute(parameter)
+
+###### getParameter
+
+JSP파일에서 <form> 태그안에 전송하는 태그에서 name이 parameter와 일치하는 값을 가져온다.
+
+
+###### getAttribute
+
+JSP파일의 스크립트릿에서 setAttribute("attribute", value) 를 통해 설정된 value값을 가져온다.
+
+---
 

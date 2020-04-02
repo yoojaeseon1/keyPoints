@@ -1,53 +1,53 @@
-##### JQuery(JavaScript¸¦ Æí¸®ÇÏ°Ô ¾²±âÀ§ÇÑ ¶óÀÌºê·¯¸®, ¶È°°ÀÌ <script>ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÑ´Ù.)
+##### JQuery(JavaScriptë¥¼ íŽ¸ë¦¬í•˜ê²Œ ì“°ê¸°ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬, ë˜‘ê°™ì´ <script>íƒœê·¸ ì•ˆì—ë‹¤ ìž‘ì„±í•œë‹¤.)
 
-<script> ÅÂ±×·Î µÑ·¯½Ñ ½ºÅ©¸³Æ® ¾ð¾î´Ù. 
+<script> íƒœê·¸ë¡œ ë‘˜ëŸ¬ì‹¼ ìŠ¤í¬ë¦½íŠ¸ ì–¸ì–´ë‹¤. 
 
-jQuery ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â <script>ÅÂ±×¸¦ ¸ÕÀú ½áÁÖ°í ±× ¹Ø¿¡ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â <Script>ÅÂ±×¸¦ ¾²ÀÚ(±×·¡¾ß µÑ´Ù ÀÎ½ÄÇÑ´Ù.)
+jQuery ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” <script>íƒœê·¸ë¥¼ ë¨¼ì € ì¨ì£¼ê³  ê·¸ ë°‘ì— ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” <Script>íƒœê·¸ë¥¼ ì“°ìž(ê·¸ëž˜ì•¼ ë‘˜ë‹¤ ì¸ì‹í•œë‹¤.)
 
 ex)
 
 <head>
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â ÅÂ±×¸¦ ¸ÕÀú ÀÔ·Â ÈÄ
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” íƒœê·¸ë¥¼ ë¨¼ì € ìž…ë ¥ í›„
 <script>
 	var bno=10;
 	
 	$.getJSON("/replies/all/"+bno, function(data) {
 		console.log(data.length);
 	});
-</script>								// ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ÅÂ±× ÀÔ·Â
+</script>								// ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” íƒœê·¸ ìž…ë ¥
 
-ÀÏ¹ÝÀûÀ¸·Î <head> ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÏ°í <body> ÅÂ±×¿¡´Ù ÀÛ¼ºÇØµµ ¹«°üÇÏ´Ù.
+ì¼ë°˜ì ìœ¼ë¡œ <head> íƒœê·¸ ì•ˆì—ë‹¤ ìž‘ì„±í•˜ê³  <body> íƒœê·¸ì—ë‹¤ ìž‘ì„±í•´ë„ ë¬´ê´€í•˜ë‹¤.
 
-À§Ä¡
+ìœ„ì¹˜
 
-1. ³»ºÎ : <head>¼½¼Ç ¶Ç´Â <body>¼½¼Ç¿¡´Ù ÀÛ¼º
+1. ë‚´ë¶€ : <head>ì„¹ì…˜ ë˜ëŠ” <body>ì„¹ì…˜ì—ë‹¤ ìž‘ì„±
 
-2. ¿ÜºÎ : ÀÏ¹ÝÀûÀ¸·Î <head>¼½¼Ç¿¡ ÀÛ¼ºÇÏ°í ¿ÜºÎ ÆÄÀÏÀÇ ½ºÅ©¸³Æ®¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+2. ì™¸ë¶€ : ì¼ë°˜ì ìœ¼ë¡œ <head>ì„¹ì…˜ì— ìž‘ì„±í•˜ê³  ì™¸ë¶€ íŒŒì¼ì˜ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
 	  ex) <script src="myscript.js"></script>
 
-3. ÀÎ¶óÀÎ : HTML ÅÂ±× ³»ºÎ¿¡ ÀÌº¥Æ® ¼Ó¼ºÀ¸·Î »ðÀÔÇÑ´Ù.
-	    ex) onclick¼Ó¼º : <button type="button" onclick="alert('¹Ý°©½À´Ï´Ù.')">¹öÆ°À» ´©¸£¼¼¿ä!</button>
+3. ì¸ë¼ì¸ : HTML íƒœê·¸ ë‚´ë¶€ì— ì´ë²¤íŠ¸ ì†ì„±ìœ¼ë¡œ ì‚½ìž…í•œë‹¤.
+	    ex) onclickì†ì„± : <button type="button" onclick="alert('ë°˜ê°‘ìŠµë‹ˆë‹¤.')">ë²„íŠ¼ì„ ëˆ„ë¥´ì„¸ìš”!</button>
 
 
 -----
 
-##### °ª °¡Á®¿À´Â ¹æ¹ý
+##### ê°’ ê°€ì ¸ì˜¤ëŠ” ë°©ë²•
 
-Å¬·¡½º : $(".ÇØ´çclass");
+í´ëž˜ìŠ¤ : $(".í•´ë‹¹class");
 
-¾ÆÀÌµð : $("#ÇØ´çid");
+ì•„ì´ë”” : $("#í•´ë‹¹id");
 
-ÀÌ¸§ : $('[name="ÇØ´çname"]');
+ì´ë¦„ : $('[name="í•´ë‹¹name"]');
 
-¿ªÇÒ(role) : $("form[role='ÇØ´çrole']");
+ì—­í• (role) : $("form[role='í•´ë‹¹role']");
 
 -----
 
-##### ÀÚÁÖ ¾²ÀÌ´Â ¸Þ¼­µå
+##### ìžì£¼ ì“°ì´ëŠ” ë©”ì„œë“œ
 
-###### $("#ÇØ´çid").val();
+###### $("#í•´ë‹¹id").val();
 
- : ÇØ´ç id¿¡ ÀÔ·ÂµÈ °ª(input ÅÂ±×ÀÇ °ª)À» °¡Á®¿Â´Ù.
+ : í•´ë‹¹ idì— ìž…ë ¥ëœ ê°’(input íƒœê·¸ì˜ ê°’)ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 ex)
 
@@ -56,15 +56,15 @@ var replyer = $("#newReplyWriter").val();
 
 -----
 
-###### $("#ÇØ´çid").val(data);
+###### $("#í•´ë‹¹id").val(data);
 
- : ¾ÆÀÌµð°¡ ÇØ´çidÀÎ ¿ä¼ÒÀÇ °ªÀ» data·Î Á¤ÇÑ´Ù.
+ : ì•„ì´ë””ê°€ í•´ë‹¹idì¸ ìš”ì†Œì˜ ê°’ì„ dataë¡œ ì •í•œë‹¤.
 
 -----
 
 ###### $("#testId").html() 
 
-: ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ ÀÚ½ÄÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù(ÅÂ±× Æ÷ÇÔ, ÀÚ½ÄÅÂ±× ¾øÀÌ ÇØ´ç ÅÂ±×ÀÇ °ª¸¸ ÀÖÀ¸¸é ±× °ª¸¸ °¡Á®¿Â´Ù.)
+: í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ìžì‹íƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤(íƒœê·¸ í¬í•¨, ìžì‹íƒœê·¸ ì—†ì´ í•´ë‹¹ íƒœê·¸ì˜ ê°’ë§Œ ìžˆìœ¼ë©´ ê·¸ ê°’ë§Œ ê°€ì ¸ì˜¨ë‹¤.)
 
 ex) <div class="test">haha</div>
 
@@ -78,25 +78,25 @@ console.log($(".test").html); // output : <button>test button</button>
 
 
 
-$("#testId").html(html data) : ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ ³»¿ëÀ» ÀÎÀÚÀÇ °ªÀ¸·Î ¹Ù²Û´Ù.
+$("#testId").html(html data) : í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ë‚´ìš©ì„ ì¸ìžì˜ ê°’ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 
 
-$("#testId").text() : ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù(ÅÂ±× Á¦¿ÜÇÏ°í ÅÂ±× ³»ÀÇ °ª¸¸) 
+$("#testId").text() : í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤(íƒœê·¸ ì œì™¸í•˜ê³  íƒœê·¸ ë‚´ì˜ ê°’ë§Œ) 
 
 -----
 
-.val()°ú .text()ÀÇ Â÷ÀÌ : val()Àº »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ inputÅÂ±×ÀÇ °ªÀ» °¡Á®¿À°í, text()´Â ÀÌ¹Ì ÁöÁ¤µÇ¾î ÀÖ´Â textÀÇ °ªÀ» °¡Á®¿Â´Ù.
+.val()ê³¼ .text()ì˜ ì°¨ì´ : val()ì€ ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ inputíƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¤ê³ , text()ëŠ” ì´ë¯¸ ì§€ì •ë˜ì–´ ìžˆëŠ” textì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 
 -----
 
 $(class or id or name).on(event, selector, data);
 
-event : È°¼ºÈ­ µÇ´Â ÀÌº¥Æ®(ex) "click")
+event : í™œì„±í™” ë˜ëŠ” ì´ë²¤íŠ¸(ex) "click")
 
-select : ½ÇÇà ÇÒ ÅÂ±×
+select : ì‹¤í–‰ í•  íƒœê·¸
 
-data : ÀÌº¥Æ®°¡ ½ÇÇà µÉ ¶§ Àü´ÞµÇ´Â data(function(data)) ¸¦ ÅëÇØ data¸¦ »ç¿ëÇÑ ½ÇÇà ³»¿ëÀ» ¸¸µé ¼öµµ ÀÖ´Ù.
+data : ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ ë  ë•Œ ì „ë‹¬ë˜ëŠ” data(function(data)) ë¥¼ í†µí•´ dataë¥¼ ì‚¬ìš©í•œ ì‹¤í–‰ ë‚´ìš©ì„ ë§Œë“¤ ìˆ˜ë„ ìžˆë‹¤.
 
 
 
@@ -106,12 +106,12 @@ data : ÀÌº¥Æ®°¡ ½ÇÇà µÉ ¶§ Àü´ÞµÇ´Â data(function(data)) ¸¦ ÅëÇØ data¸¦ »ç¿ëÇÑ ½
 
 $(class or id or name).attr(tag's name)
 
-ÇØ´ç ÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù.
+í•´ë‹¹ íƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 
 -----
 
-##### JQuery¸¦ »ç¿ëÇØ view¿¡¼­ JSON°´Ã¼¸¦ ¹Þ´Â ¹æ¹ý(getJSON() ¸Þ¼Òµå »ç¿ë)
+##### JQueryë¥¼ ì‚¬ìš©í•´ viewì—ì„œ JSONê°ì²´ë¥¼ ë°›ëŠ” ë°©ë²•(getJSON() ë©”ì†Œë“œ ì‚¬ìš©)
 
 $.getJSON("/replies/all/" + bno, function(data) {
 
@@ -119,15 +119,15 @@ $.getJSON("/replies/all/" + bno, function(data) {
 
 });
 
-viewÀÌ¸§ÀÌ test¶ó¸é path¸¦ /test·Î Á¢±ÙÇßÀ» ¶§ /replies/all/ÇØ´çbno·Î Á¢±ÙÇØ¼­ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù´Â ÀÇ¹Ì´Ù.
+viewì´ë¦„ì´ testë¼ë©´ pathë¥¼ /testë¡œ ì ‘ê·¼í–ˆì„ ë•Œ /replies/all/í•´ë‹¹bnoë¡œ ì ‘ê·¼í•´ì„œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤ëŠ” ì˜ë¯¸ë‹¤.
 
 -----
 
-##### Ajax Àü¼Û Çü½Ä 
+##### Ajax ì „ì†¡ í˜•ì‹ 
 
-: jqueryÀÇ ºñµ¿±â Àü¼Û¹æ½Ä Áß ÇÑ°³($.ajax(), $.get(), $.post() ÃÑ 3°¡Áö°¡ ÀÖ´Ù.)
+: jqueryì˜ ë¹„ë™ê¸° ì „ì†¡ë°©ì‹ ì¤‘ í•œê°œ($.ajax(), $.get(), $.post() ì´ 3ê°€ì§€ê°€ ìžˆë‹¤.)
 
-headers¿¡¼­ content-Type(context-TypeÀ¸·Î Çò°¥·È¾ú´Ù. ÁÖÀÇÇÏÀÚ)
+headersì—ì„œ content-Type(context-Typeìœ¼ë¡œ í—·ê°ˆë ¸ì—ˆë‹¤. ì£¼ì˜í•˜ìž)
 
 ex)
 
@@ -146,56 +146,56 @@ data : JSON.stringify({
 }),
 success : function(result) {
 	if(result == 'SUCCESS') {
-		alert("µî·ÏµÇ¾ú½À´Ï´Ù.")
+		alert("ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.")
 	}
 }
    }); // ajax end
 });
 
 
-data¿¡¼­ JSONÇü½ÄÀ¸·Î º¸³¾ ¶§´Â {VO°´Ã¼ÀÇ ÇÊµå : º¸³¾ °ª}À¸·Î ÇØ¾ß µÈ´Ù.
+dataì—ì„œ JSONí˜•ì‹ìœ¼ë¡œ ë³´ë‚¼ ë•ŒëŠ” {VOê°ì²´ì˜ í•„ë“œ : ë³´ë‚¼ ê°’}ìœ¼ë¡œ í•´ì•¼ ëœë‹¤.
 
 -----
 
 
-##### ajax ±¸¼º¿ä¼Ò
+##### ajax êµ¬ì„±ìš”ì†Œ
 
-type : Àü¼Û¹æ½Ä
+type : ì „ì†¡ë°©ì‹
 
-url : ÀÔ·ÂÇÑ url·Î data¸¦ Àü¼Û
+url : ìž…ë ¥í•œ urlë¡œ dataë¥¼ ì „ì†¡
 
-headers : ¾ÆÁ÷ Àß ¸ð¸£°Ú´Ù.
+headers : ì•„ì§ ìž˜ ëª¨ë¥´ê² ë‹¤.
 
-dataType : Àü¼ÛÇÒ µ¥ÀÌÅÍÀÇ Å¸ÀÔ
+dataType : ì „ì†¡í•  ë°ì´í„°ì˜ íƒ€ìž…
 
-data : Àü¼ÛÇÏ°íÀÚ ÇÏ´Â µ¥ÀÌÅÍ
+data : ì „ì†¡í•˜ê³ ìž í•˜ëŠ” ë°ì´í„°
 
-success : ¼º°øÇßÀ» ¶§ ½ÇÇàÇÒ ³»¿ë
+success : ì„±ê³µí–ˆì„ ë•Œ ì‹¤í–‰í•  ë‚´ìš©
 
 processData
 
-- µ¥ÀÌÅÍ¸¦ ÀÏ¹ÝÀûÀÎ query stringÀ¸·Î º¯È¯ÇÒ °ÍÀÎÁö¸¦ °áÁ¤
+- ë°ì´í„°ë¥¼ ì¼ë°˜ì ì¸ query stringìœ¼ë¡œ ë³€í™˜í•  ê²ƒì¸ì§€ë¥¼ ê²°ì •
 
-- ±âº»°ª : 'application / x-www-form-urlencoded'
+- ê¸°ë³¸ê°’ : 'application / x-www-form-urlencoded'
 
-- ´Ù¸¥ Çü½ÄÀÇ µ¥ÀÌÅÍ¸¦ º¸³»±â À§ÇØ ÀÚµ¿ º¯È¯ÇÏ°í ½ÍÁö ¾ÊÀº °æ¿ì false¸¦ ÁöÁ¤ÇÏ¸é µÈ´Ù.
+- ë‹¤ë¥¸ í˜•ì‹ì˜ ë°ì´í„°ë¥¼ ë³´ë‚´ê¸° ìœ„í•´ ìžë™ ë³€í™˜í•˜ê³  ì‹¶ì§€ ì•Šì€ ê²½ìš° falseë¥¼ ì§€ì •í•˜ë©´ ëœë‹¤.
 
 contentType
 
-- ±âº»°ª : 'application / x-wwwform-urlencoded'
+- ê¸°ë³¸ê°’ : 'application / x-wwwform-urlencoded'
 
-- ÆÄÀÏÀÇ °æ¿ì multipart/form-data ¹æ½ÄÀ¸·Î Àü¼ÛÇÏ±â À§ÇØ false·Î ÁöÁ¤ÇØ¾ß ÇÑ´Ù.
+- íŒŒì¼ì˜ ê²½ìš° multipart/form-data ë°©ì‹ìœ¼ë¡œ ì „ì†¡í•˜ê¸° ìœ„í•´ falseë¡œ ì§€ì •í•´ì•¼ í•œë‹¤.
 
 
 
 
 -----
 
-##### Ajax°¡ ¹«¹ÝÀÀ ÀÏ¶§
+##### Ajaxê°€ ë¬´ë°˜ì‘ ì¼ë•Œ
 
-<sciprt>ÅÂ±×¸¦ <body>ÅÂ±× ¾È¿¡¼­
+<sciprt>íƒœê·¸ë¥¼ <body>íƒœê·¸ ì•ˆì—ì„œ
 
-view°ü·Ã ÅÂ±×¸¦ ¸ðµÎ ÀÛ¼ºÇÏ°í ¾Æ·¡¿¡´Ù ½áÁØ´Ù.
+viewê´€ë ¨ íƒœê·¸ë¥¼ ëª¨ë‘ ìž‘ì„±í•˜ê³  ì•„ëž˜ì—ë‹¤ ì¨ì¤€ë‹¤.
 
 -----
 
@@ -213,9 +213,9 @@ $.getJSON(URL, function(data) {
 
 });
 
-data : uri¿¡ Á¢±Ù ÇßÀ» ¶§ Controller¿¡¼­ mappingµÇ´Â ¸Þ¼­µåÀÇ return °ªÀ» ¾òÀ» ¼ö ÀÖ´Ù.
+data : uriì— ì ‘ê·¼ í–ˆì„ ë•Œ Controllerì—ì„œ mappingë˜ëŠ” ë©”ì„œë“œì˜ return ê°’ì„ ì–»ì„ ìˆ˜ ìžˆë‹¤.
 
-data.list : ¿¹Á¦¿¡¼­ Controller¿¡¼­ mappingµÇ´Â ¸Þ¼­µåÀÇ ¸®ÅÏ °ªÀÌ mapÀÎµ¥ key°ªÀ¸·Î list°¡ ÀÖ¾î¼­ ¹Ù·Î Á¢±ÙÇØ ¹Ýº¹¹®À» µ¹¸®´Â °ÍÀÌ´Ù.
+data.list : ì˜ˆì œì—ì„œ Controllerì—ì„œ mappingë˜ëŠ” ë©”ì„œë“œì˜ ë¦¬í„´ ê°’ì´ mapì¸ë° keyê°’ìœ¼ë¡œ listê°€ ìžˆì–´ì„œ ë°”ë¡œ ì ‘ê·¼í•´ ë°˜ë³µë¬¸ì„ ëŒë¦¬ëŠ” ê²ƒì´ë‹¤.
 
 
 
@@ -224,8 +224,8 @@ data.list : ¿¹Á¦¿¡¼­ Controller¿¡¼­ mappingµÇ´Â ¸Þ¼­µåÀÇ ¸®ÅÏ °ªÀÌ mapÀÎµ¥ key°ª
 $.getJSON(URL, function(data)
 $.each(data, fucntion(key,value))
 
-¿Í °°Àº jQueryÀÇ Ã¹ ¹øÂ° ÀÎÀÚ¿¡¼­ ¹ÝÈ¯ÇÏ´Â µ¥ÀÌÅÍ¸¦ functionÀÇ ÀÎÀÚ·Î ³ÖÀ» ¼ö ÀÖ´Ù.
-(µû·Î ÀÎÀÚ¸¦ ³Ö¾îÁà¾ß ÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó Ã¹ ¹øÂ° ÀÎÀÚ¿¡¼­ functionÀÇ ÀÎÀÚ·Î ¾Ë¾Æ¼­ ÀÎ½ÄÇÑ´Ù.)
+ì™€ ê°™ì€ jQueryì˜ ì²« ë²ˆì§¸ ì¸ìžì—ì„œ ë°˜í™˜í•˜ëŠ” ë°ì´í„°ë¥¼ functionì˜ ì¸ìžë¡œ ë„£ì„ ìˆ˜ ìžˆë‹¤.
+(ë”°ë¡œ ì¸ìžë¥¼ ë„£ì–´ì¤˜ì•¼ í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ì²« ë²ˆì§¸ ì¸ìžì—ì„œ functionì˜ ì¸ìžë¡œ ì•Œì•„ì„œ ì¸ì‹í•œë‹¤.)
 
 
 -----
@@ -237,9 +237,9 @@ $(document).ready(function(){
 });
 
 
-ÇÁ·ÎÁ§Æ®¸¦ ½ÇÇàÇÔ°ú µ¿½Ã¿¡ ½ÇÇàµÇ´Â ºÎºÐ
+í”„ë¡œì íŠ¸ë¥¼ ì‹¤í–‰í•¨ê³¼ ë™ì‹œì— ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„
 
-Java ScriptÀÇ
+Java Scriptì˜
 
 window.onload = function(){
 
@@ -247,7 +247,7 @@ window.onload = function(){
 
 }
 
-¿Í µ¿ÀÏÇÑ ±â´ÉÀ» ÇÏÁö¸¸ window.onloadº¸´Ù document°¡ ¸ÕÀú ½ÇÇàµÈ´Ù.(1.document > 2.window.onload)
+ì™€ ë™ì¼í•œ ê¸°ëŠ¥ì„ í•˜ì§€ë§Œ window.onloadë³´ë‹¤ documentê°€ ë¨¼ì € ì‹¤í–‰ëœë‹¤.(1.document > 2.window.onload)
 
 
 
@@ -258,22 +258,22 @@ ex)
 that.parent("div").remove();
 
 
-: that ÀÌ <small> ÅÂ±×¿´À» °æ¿ì <small>ÅÂ±× ¹Ù±ùÂÊ(ºÎ¸ð)¿¡¼­ °¡Àå °¡±îÀÌ ÀÖ´Â <div>ÅÂ±×¸¦ Áö¿ì´Â ±â´ÉÀ» ÇÑ´Ù.
+: that ì´ <small> íƒœê·¸ì˜€ì„ ê²½ìš° <small>íƒœê·¸ ë°”ê¹¥ìª½(ë¶€ëª¨)ì—ì„œ ê°€ìž¥ ê°€ê¹Œì´ ìžˆëŠ” <div>íƒœê·¸ë¥¼ ì§€ìš°ëŠ” ê¸°ëŠ¥ì„ í•œë‹¤.
 
 
 -----
 
-##### jQuery¸¦ »ç¿ëÇÏ´Â <script>´Â <body> ÃÖÇÏ´Ü¿¡ ÀÛ¼ºÇÏÀÚ(<head>¿¡´Ù ÀÛ¼ºÇÏ¸é ÀÎ½ÄÇÏÁö ¸øÇÏ´Â °æ¿ì°¡ ÀÖ´Ù.)
+##### jQueryë¥¼ ì‚¬ìš©í•˜ëŠ” <script>ëŠ” <body> ìµœí•˜ë‹¨ì— ìž‘ì„±í•˜ìž(<head>ì—ë‹¤ ìž‘ì„±í•˜ë©´ ì¸ì‹í•˜ì§€ ëª»í•˜ëŠ” ê²½ìš°ê°€ ìžˆë‹¤.)
 
 -----
-$(".class b") : ÇØ´ç class¸íÀ» °¡Áö´Â ÅÂ±× ³»ºÎÀÇ b ÅÂ±×(id ¶Ç´Â class) 
+$(".class b") : í•´ë‹¹ classëª…ì„ ê°€ì§€ëŠ” íƒœê·¸ ë‚´ë¶€ì˜ b íƒœê·¸(id ë˜ëŠ” class) 
 
 
 $(".uploadedList li").each(function(index) {
 			arr.push($(this)("data-src"))
 		});
 
-ÀÇ °æ¿ì class¸íÀÌ uploadedListÀÎ ÅÂ±× ¾È¿¡ ¼±¾ðµÇ¾î ÀÖ´Â liÅÂ±×¿¡ ´ëÇØ Àû¿ëÇÏ´Â ÇÔ¼ö´Ù.
+ì˜ ê²½ìš° classëª…ì´ uploadedListì¸ íƒœê·¸ ì•ˆì— ì„ ì–¸ë˜ì–´ ìžˆëŠ” liíƒœê·¸ì— ëŒ€í•´ ì ìš©í•˜ëŠ” í•¨ìˆ˜ë‹¤.
 
 -----
 

@@ -1,8 +1,7 @@
 ##### Access denied for user 'root'@'localhost
 
-root·Î ·Î±×ÀÎ -> Navigator ¸Þ´º Áß Administration -> User and Privileges
+rootë¡œ ë¡œê·¸ì¸ -> Navigator ë©”ë‰´ ì¤‘ Administration -> User and Privileges
 
--> ÇØ´ç ¾ÆÀÌµð / ºñ¹Ð¹øÈ£, Limit to Host Matching : localhost·Î ¼³Á¤ ÈÄ Apply
+-> í•´ë‹¹ ì•„ì´ë”” / ë¹„ë°€ë²ˆí˜¸, Limit to Host Matching : localhostë¡œ ì„¤ì • í›„ Apply
 
--> ¸ÞÀÎ È­¸é¿¡¼­ »ý¼ºÇÑ ¾ÆÀÌµð/ºñ¹Ð¹øÈ£ µ¿ÀÏÇÏ°Ô »ý¼º
-
+-> ë©”ì¸ í™”ë©´ì—ì„œ ìƒì„±í•œ ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ë™ì¼í•˜ê²Œ ìƒì„±

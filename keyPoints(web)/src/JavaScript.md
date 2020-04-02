@@ -1,35 +1,35 @@
-##### <script> ÅÂ±×·Î µÑ·¯½Ñ ½ºÅ©¸³Æ® ¾ð¾î´Ù. 
+##### <script> íƒœê·¸ë¡œ ë‘˜ëŸ¬ì‹¼ ìŠ¤í¬ë¦½íŠ¸ ì–¸ì–´ë‹¤. 
 
-jQuery ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â <script>ÅÂ±×¸¦ ¸ÕÀú ½áÁÖ°í ±× ¹Ø¿¡ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â <Script>ÅÂ±×¸¦ ¾²ÀÚ(±×·¡¾ß µÑ´Ù ÀÎ½ÄÇÑ´Ù.)
+jQuery ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” <script>íƒœê·¸ë¥¼ ë¨¼ì € ì¨ì£¼ê³  ê·¸ ë°‘ì— ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” <Script>íƒœê·¸ë¥¼ ì“°ìž(ê·¸ëž˜ì•¼ ë‘˜ë‹¤ ì¸ì‹í•œë‹¤.)
 
 ex)
 
 <head>
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â ÅÂ±×¸¦ ¸ÕÀú ÀÔ·Â ÈÄ
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” íƒœê·¸ë¥¼ ë¨¼ì € ìž…ë ¥ í›„
 <script>
 	var bno=10;
 	
 $.getJSON("/replies/all/"+bno, function(data) {
 		console.log(data.length);
 	});
-</script>								// ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ÅÂ±× ÀÔ·Â
+</script>								// ì½”ë“œë¥¼ ìž‘ì„±í•˜ëŠ” íƒœê·¸ ìž…ë ¥
 
 ---
 
-##### ÀÏ¹ÝÀûÀ¸·Î <head> ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÏ°í <body> ÅÂ±×¿¡´Ù ÀÛ¼ºÇØµµ ¹«°üÇÏ´Ù.
+##### ì¼ë°˜ì ìœ¼ë¡œ <head> íƒœê·¸ ì•ˆì—ë‹¤ ìž‘ì„±í•˜ê³  <body> íƒœê·¸ì—ë‹¤ ìž‘ì„±í•´ë„ ë¬´ê´€í•˜ë‹¤.
 
-À§Ä¡
+ìœ„ì¹˜
 
-1. ³»ºÎ : <head>¼½¼Ç ¶Ç´Â <body>¼½¼Ç¿¡´Ù ÀÛ¼º
+1. ë‚´ë¶€ : <head>ì„¹ì…˜ ë˜ëŠ” <body>ì„¹ì…˜ì—ë‹¤ ìž‘ì„±
 
-2. ¿ÜºÎ : ÀÏ¹ÝÀûÀ¸·Î <head>¼½¼Ç¿¡ ÀÛ¼ºÇÏ°í ¿ÜºÎ ÆÄÀÏÀÇ ½ºÅ©¸³Æ®¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+2. ì™¸ë¶€ : ì¼ë°˜ì ìœ¼ë¡œ <head>ì„¹ì…˜ì— ìž‘ì„±í•˜ê³  ì™¸ë¶€ íŒŒì¼ì˜ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìžˆë‹¤.
 	  ex) <script src="myscript.js"></script>
 
-3. ÀÎ¶óÀÎ : HTML ÅÂ±× ³»ºÎ¿¡ ÀÌº¥Æ® ¼Ó¼ºÀ¸·Î »ðÀÔÇÑ´Ù.
-	    ex) onclick¼Ó¼º :    <button type="button" onclick="alert('¹Ý°©½À´Ï´Ù.')">¹öÆ°À» ´©¸£¼¼¿ä!</button>
+3. ì¸ë¼ì¸ : HTML íƒœê·¸ ë‚´ë¶€ì— ì´ë²¤íŠ¸ ì†ì„±ìœ¼ë¡œ ì‚½ìž…í•œë‹¤.
+	    ex) onclickì†ì„± :    <button type="button" onclick="alert('ë°˜ê°‘ìŠµë‹ˆë‹¤.')">ë²„íŠ¼ì„ ëˆ„ë¥´ì„¸ìš”!</button>
 
 
-##### JSPÆÄÀÏ °ü·Ã ¿À·ù´Â À¥ ºê¶ó¿ìÀúÀÇ F12¸¦ ´­·¯ Console¿¡¼­ È®ÀÎÇÏÀÚ(STSÀÇ ÄÜ¼ÖÃ¢¿¡¼­´Â viewÆÄÀÏ¿¡¼­ ¹ß»ýÇÑ ¿À·ù¸¦ È®ÀÎÇÒ ¼ö ¾ø´Ù.)
+##### JSPíŒŒì¼ ê´€ë ¨ ì˜¤ë¥˜ëŠ” ì›¹ ë¸Œë¼ìš°ì €ì˜ F12ë¥¼ ëˆŒëŸ¬ Consoleì—ì„œ í™•ì¸í•˜ìž(STSì˜ ì½˜ì†”ì°½ì—ì„œëŠ” viewíŒŒì¼ì—ì„œ ë°œìƒí•œ ì˜¤ë¥˜ë¥¼ í™•ì¸í•  ìˆ˜ ì—†ë‹¤.)
 
 ##### console
 
@@ -39,69 +39,69 @@ $.getJSON("/replies/all/"+bno, function(data) {
 	var b = "hello";
 	var c = true;
 
-	console.log(a); // ÇÏ³ª¸¸ ·Î±×
+	console.log(a); // í•˜ë‚˜ë§Œ ë¡œê·¸
 	
-	console.log(a,b,c); // ¿©·¯ °³ µ¿½Ã¿¡ ·Î±×
+	console.log(a,b,c); // ì—¬ëŸ¬ ê°œ ë™ì‹œì— ë¡œê·¸
 	
-	console.log("idx : ", idx) // ÅØ½ºÆ®¿Í º¯¼ö µ¿½Ã Ãâ·Â
+	console.log("idx : ", idx) // í…ìŠ¤íŠ¸ì™€ ë³€ìˆ˜ ë™ì‹œ ì¶œë ¥
 	
-	console.log("idx : ", idx, ", val : ", val); // ¿©·¯ ÅØ½ºÆ®/º¯¼ö µ¿½Ã Ãâ·Â
+	console.log("idx : ", idx, ", val : ", val); // ì—¬ëŸ¬ í…ìŠ¤íŠ¸/ë³€ìˆ˜ ë™ì‹œ ì¶œë ¥
 	
-	console.log("${a}´Â ¼ýÀÚ, ${b}´Â ¹®ÀÚ¿­"); // º¯¼ö¿Í ÅØ½ºÆ® µ¿½Ã Ãâ·Â(¾ÈµÇ´Âµ¥?)
+	console.log("${a}ëŠ” ìˆ«ìž, ${b}ëŠ” ë¬¸ìžì—´"); // ë³€ìˆ˜ì™€ í…ìŠ¤íŠ¸ ë™ì‹œ ì¶œë ¥(ì•ˆë˜ëŠ”ë°?)
 	
-* ÁÖÀÇ »çÇ×
+* ì£¼ì˜ ì‚¬í•­
 
-°´Ã¼ÀÇ ÇÊµå °ªÀ» Ãâ·ÂÇÏ°í ½ÍÀ» ¶© ${ÀÎ½ºÅÏ½º.ÇÊµå} ·Î °Ë»öÇØ¾ß ÇÑ´Ù.
+ê°ì²´ì˜ í•„ë“œ ê°’ì„ ì¶œë ¥í•˜ê³  ì‹¶ì„ ë• ${ì¸ìŠ¤í„´ìŠ¤.í•„ë“œ} ë¡œ ê²€ìƒ‰í•´ì•¼ í•œë‹¤.
 
-¿¹½ÃÀÇ °æ¿ìÃ³·³ ¼±¾ðÇÑ º¯¼ö ¶Ç´Â ¸Þ¼ÒµåÀÇ ÀÎÀÚÀÇ °æ¿ì´Â ¹Ù·Î º¯¼ö ¸íÀ» ÀÔ·ÂÇØ¾ßµÈ´Ù.
+ì˜ˆì‹œì˜ ê²½ìš°ì²˜ëŸ¼ ì„ ì–¸í•œ ë³€ìˆ˜ ë˜ëŠ” ë©”ì†Œë“œì˜ ì¸ìžì˜ ê²½ìš°ëŠ” ë°”ë¡œ ë³€ìˆ˜ ëª…ì„ ìž…ë ¥í•´ì•¼ëœë‹¤.
 
-°´Ã¼ÀÇ º¯°æ»çÇ×ÀÌ ½Ç½Ã°£À¸·Î ¹Ý¿µµÈ´Ù.
+ê°ì²´ì˜ ë³€ê²½ì‚¬í•­ì´ ì‹¤ì‹œê°„ìœ¼ë¡œ ë°˜ì˜ëœë‹¤.
 
 
 ###### console.dir
 
-°´Ã¼¸¦ ·Î±ëÇÒ °æ¿ì ÇÊµå °ªÀ» Á¤¸®ÇØ¼­ Ãâ·ÂÇÑ´Ù.
+ê°ì²´ë¥¼ ë¡œê¹…í•  ê²½ìš° í•„ë“œ ê°’ì„ ì •ë¦¬í•´ì„œ ì¶œë ¥í•œë‹¤.
 
-°´Ã¼´Â dir, ³ª¸ÓÁö´Â log·Î ·Î±ëÇÏ¸é Æí¸®ÇÏ´Ù.
+ê°ì²´ëŠ” dir, ë‚˜ë¨¸ì§€ëŠ” logë¡œ ë¡œê¹…í•˜ë©´ íŽ¸ë¦¬í•˜ë‹¤.
 
 ex)
 
 	console.dir("${alist}");
 	
-alist´Â ArrayList ÀÎ½ºÅÏ½º´Ù.
+alistëŠ” ArrayList ì¸ìŠ¤í„´ìŠ¤ë‹¤.
 
 ###### console.count
 
-¸î¹øÀÌ³ª Ä«¿îÆ®µÇ¾ú´ÂÁö È®ÀÎÇÏ°í ½ÍÀ» ¶§ »ç¿ëÇÑ´Ù.
+ëª‡ë²ˆì´ë‚˜ ì¹´ìš´íŠ¸ë˜ì—ˆëŠ”ì§€ í™•ì¸í•˜ê³  ì‹¶ì„ ë•Œ ì‚¬ìš©í•œë‹¤.
 
-	console.count('Ä«¿îÅÍ1'); // Ä«¿îÅÍ1: 1
-	console.count('Ä«¿îÅÍ1'); // Ä«¿îÅÍ1: 2
-	console.count('Ä«¿îÅÍ2'); // Ä«¿îÅÍ2: 1
-	console.count('Ä«¿îÅÍ2'); // Ä«¿îÅÍ2: 2
-	console.count('Ä«¿îÅÍ1'); // Ä«¿îÅÍ1: 3
+	console.count('ì¹´ìš´í„°1'); // ì¹´ìš´í„°1: 1
+	console.count('ì¹´ìš´í„°1'); // ì¹´ìš´í„°1: 2
+	console.count('ì¹´ìš´í„°2'); // ì¹´ìš´í„°2: 1
+	console.count('ì¹´ìš´í„°2'); // ì¹´ìš´í„°2: 2
+	console.count('ì¹´ìš´í„°1'); // ì¹´ìš´í„°1: 3
 
 ###### console.time, console.timeEnd
 
-ÄÚµåÀÇ ¼öÇà½Ã°£À» È®ÀÎÇÒ ¶§ »ç¿ëÇÑ´Ù.
+ì½”ë“œì˜ ìˆ˜í–‰ì‹œê°„ì„ í™•ì¸í•  ë•Œ ì‚¬ìš©í•œë‹¤.
 
-	console.time('Å¸ÀÌ¸Ó');
+	console.time('íƒ€ì´ë¨¸');
 	for (var i = 0; i < 1000000; i++) z = 5;
-	console.timeEnd('Å¸ÀÌ¸Ó'); // Å¸ÀÌ¸Ó: 6.76611328125ms
+	console.timeEnd('íƒ€ì´ë¨¸'); // íƒ€ì´ë¨¸: 6.76611328125ms
 
 
-##### JQuery(JavaScript¸¦ Æí¸®ÇÏ°Ô ¾²±âÀ§ÇÑ ¶óÀÌºê·¯¸®, ¶È°°ÀÌ <script>ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÑ´Ù.)
+##### JQuery(JavaScriptë¥¼ íŽ¸ë¦¬í•˜ê²Œ ì“°ê¸°ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬, ë˜‘ê°™ì´ <script>íƒœê·¸ ì•ˆì—ë‹¤ ìž‘ì„±í•œë‹¤.)
 
-###### °ª °¡Á®¿À´Â ¹æ¹ý
+###### ê°’ ê°€ì ¸ì˜¤ëŠ” ë°©ë²•
 
-Å¬·¡½º : $(".ÇØ´çclass");
+í´ëž˜ìŠ¤ : $(".í•´ë‹¹class");
 
-¾ÆÀÌµð : $("#ÇØ´çid");
+ì•„ì´ë”” : $("#í•´ë‹¹id");
 
-ÀÌ¸§ : $('[name="ÇØ´çname"]');
+ì´ë¦„ : $('[name="í•´ë‹¹name"]');
 
-¿ªÇÒ(role) : $("form[role='ÇØ´çrole']");
+ì—­í• (role) : $("form[role='í•´ë‹¹role']");
 
-###### JQuery¸¦ »ç¿ëÇØ view¿¡¼­ JSON°´Ã¼¸¦ ¹Þ´Â ¹æ¹ý(getJSON(uri,function(data)) ¸Þ¼Òµå »ç¿ë)
+###### JQueryë¥¼ ì‚¬ìš©í•´ viewì—ì„œ JSONê°ì²´ë¥¼ ë°›ëŠ” ë°©ë²•(getJSON(uri,function(data)) ë©”ì†Œë“œ ì‚¬ìš©)
 
 $.getJSON("/replies/all/" + bno, function(data) {
 
@@ -109,43 +109,43 @@ $.getJSON("/replies/all/" + bno, function(data) {
 
 });
 
-viewÀÌ¸§ÀÌ test¶ó¸é path¸¦ /test·Î Á¢±ÙÇßÀ» ¶§ /replies/all/ÇØ´çbno·Î Á¢±ÙÇØ¼­ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù´Â ÀÇ¹Ì´Ù.
+viewì´ë¦„ì´ testë¼ë©´ pathë¥¼ /testë¡œ ì ‘ê·¼í–ˆì„ ë•Œ /replies/all/í•´ë‹¹bnoë¡œ ì ‘ê·¼í•´ì„œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤ëŠ” ì˜ë¯¸ë‹¤.
 
 
 ##### document.
 
-write(text) : text¸¦ À¥ÆäÀÌÁö¿¡ ¶ç¿î´Ù.
+write(text) : textë¥¼ ì›¹íŽ˜ì´ì§€ì— ë„ìš´ë‹¤.
 
-getElementById(id) : id°¡ idÀÎ ¿ä¼Ò¸¦ °¡Á®¿Â´Ù.
+getElementById(id) : idê°€ idì¸ ìš”ì†Œë¥¼ ê°€ì ¸ì˜¨ë‹¤.
 
-
------
-
-alert(text) : text¸¦ ¸Þ¼¼Áö·Î ÇÏ´Â °æ°íÃ¢À» È­¸é¿¡ Ãâ·Â
-
-confirm(text) : text¸¦ ¸Þ¼¼Áö·Î ÇÏ´Â Ã¢À» Ãâ·Â È®ÀÎ / Ãë¼Ò¸¦ ´©¸¦ ¼ö ÀÖ°í true / false¸¦ ¹ÝÈ¯ÇÑ´Ù.
 
 -----
 
-prompt(text, defaultText) : dialbox¸¦ ¶ç¿î´Ù. »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ ÅØ½ºÆ®¸¦ ¹ÝÈ¯ÇÑ´Ù.
+alert(text) : textë¥¼ ë©”ì„¸ì§€ë¡œ í•˜ëŠ” ê²½ê³ ì°½ì„ í™”ë©´ì— ì¶œë ¥
 
-text : ÀÔ·ÂÄ­ À§¿¡ ¾È³» ¸Þ¼¼Áö
-
-defautText(¼±ÅÃ) : ÀÔ·ÂÄ­¿¡ ÃÊ±â ¸Þ¼¼Áö Ãâ·Â
+confirm(text) : textë¥¼ ë©”ì„¸ì§€ë¡œ í•˜ëŠ” ì°½ì„ ì¶œë ¥ í™•ì¸ / ì·¨ì†Œë¥¼ ëˆ„ë¥¼ ìˆ˜ ìžˆê³  true / falseë¥¼ ë°˜í™˜í•œë‹¤.
 
 -----
 
-¿ä¼Ò(Elements) : 
+prompt(text, defaultText) : dialboxë¥¼ ë„ìš´ë‹¤. ì‚¬ìš©ìžê°€ ìž…ë ¥í•œ í…ìŠ¤íŠ¸ë¥¼ ë°˜í™˜í•œë‹¤.
 
-HTML¿¡¼­ ½ÃÀÛ ÅÂ±×¿Í Á¾·áÅÂ±×·Î ÀÌ·ç¾îÁø ¸ðµç ¸í·É¾îµéÀ» ÀÇ¹ÌÇÕ´Ï´Ù.
+text : ìž…ë ¥ì¹¸ ìœ„ì— ì•ˆë‚´ ë©”ì„¸ì§€
 
-ÅÂ±×(Tag) : 
+defautText(ì„ íƒ) : ìž…ë ¥ì¹¸ì— ì´ˆê¸° ë©”ì„¸ì§€ ì¶œë ¥
 
-¿ä¼Ò(Elements)ÀÇ ÀÏºÎ·Î ½ÃÀÛ ÅÂ±×¿Í Á¾·á ÅÂ±× µÎ Á¾·ù°¡ ÀÖ½À´Ï´Ù.
+-----
 
-¼Ó¼º(Attributes) : 
+ìš”ì†Œ(Elements) : 
 
-¿ä¼ÒÀÇ ½ÃÀÛ ÅÂ±× ¾È¿¡¼­ »ç¿ëµÇ´Â °ÍÀ¸·Î Á» ´õ ±¸Ã¼È­µÈ ¸í·É¾î Ã¼°è¸¦ ÀÇ¹ÌÇÕ´Ï´Ù.
+HTMLì—ì„œ ì‹œìž‘ íƒœê·¸ì™€ ì¢…ë£Œíƒœê·¸ë¡œ ì´ë£¨ì–´ì§„ ëª¨ë“  ëª…ë ¹ì–´ë“¤ì„ ì˜ë¯¸í•©ë‹ˆë‹¤.
+
+íƒœê·¸(Tag) : 
+
+ìš”ì†Œ(Elements)ì˜ ì¼ë¶€ë¡œ ì‹œìž‘ íƒœê·¸ì™€ ì¢…ë£Œ íƒœê·¸ ë‘ ì¢…ë¥˜ê°€ ìžˆìŠµë‹ˆë‹¤.
+
+ì†ì„±(Attributes) : 
+
+ìš”ì†Œì˜ ì‹œìž‘ íƒœê·¸ ì•ˆì—ì„œ ì‚¬ìš©ë˜ëŠ” ê²ƒìœ¼ë¡œ ì¢€ ë” êµ¬ì²´í™”ëœ ëª…ë ¹ì–´ ì²´ê³„ë¥¼ ì˜ë¯¸í•©ë‹ˆë‹¤.
 
 section : http://webdir.tistory.com/310
 
@@ -153,34 +153,34 @@ section : http://webdir.tistory.com/310
 
 for/in loop
 
-for(º¯¼ö in °´Ã¼) {} : º¯¼ö¿¡ °´Ã¼ÀÇ ¸ðµç ¼Ó¼ºÀÌ ÇÏ³ª¾¿ ´ëÀÔµÇ¸é¼­ ¹Ýº¹ÇÑ´Ù.
+for(ë³€ìˆ˜ in ê°ì²´) {} : ë³€ìˆ˜ì— ê°ì²´ì˜ ëª¨ë“  ì†ì„±ì´ í•˜ë‚˜ì”© ëŒ€ìž…ë˜ë©´ì„œ ë°˜ë³µí•œë‹¤.
 
 
 ------
 
 self.location = "path";
 
-: ÇØ´ç path·Î redirection ÇÑ´Ù.
+: í•´ë‹¹ pathë¡œ redirection í•œë‹¤.
 
 ------
 
 
 ##### JSTL
 
-<C:ooo> ÅÂ±×¸¦ »ç¿ëÇÏ´Â ¶óÀÌºê·¯¸®
+<C:ooo> íƒœê·¸ë¥¼ ì‚¬ìš©í•˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬
 
 ex) 
 
-<c:forEach></c:forEach> : <c:forEach items="${list}" var="boardVO"> ¶Ç´Â <c:forEach begin="startNum" end="endNum"></c:forEach>
+<c:forEach></c:forEach> : <c:forEach items="${list}" var="boardVO"> ë˜ëŠ” <c:forEach begin="startNum" end="endNum"></c:forEach>
 
 
-<c:if></c:if> : <c:if test="Á¶°Ç¹®"> trueÀÏ°æ¿ì ½ÇÇà </c:if>
+<c:if></c:if> : <c:if test="ì¡°ê±´ë¬¸"> trueì¼ê²½ìš° ì‹¤í–‰ </c:if>
 
-<c:out></c:out> : <c:out value="Ãâ·ÂÇÒ °ª(3Ç× ¿¬»êÀÚ »ç¿ë°¡´É)"></c:out>
+<c:out></c:out> : <c:out value="ì¶œë ¥í•  ê°’(3í•­ ì—°ì‚°ìž ì‚¬ìš©ê°€ëŠ¥)"></c:out>
 
 -----
 
-¸Þ¼­µå ¼±¾ð
+ë©”ì„œë“œ ì„ ì–¸
 
 var methodName = function(params) {
 
@@ -188,20 +188,20 @@ var methodName = function(params) {
 
 }
 
-¸Þ¼­µå¸¦ Àç»ç¿ëÇÏ±â À§ÇØ¼­´Â À§¿Í °°ÀÌ ¼±¾ðÇØ¾ß ÇÑ´Ù.
+ë©”ì„œë“œë¥¼ ìž¬ì‚¬ìš©í•˜ê¸° ìœ„í•´ì„œëŠ” ìœ„ì™€ ê°™ì´ ì„ ì–¸í•´ì•¼ í•œë‹¤.
 
 
 -----
 
-modal : »ç¿ëÀÚÀÇ ÀÔ·ÂÀ» µ¶Á¡ÇÏ´Â UI(ÆË¾÷Ã¢)
+modal : ì‚¬ìš©ìžì˜ ìž…ë ¥ì„ ë…ì í•˜ëŠ” UI(íŒì—…ì°½)
 
-modality : modalÀÇ Æ¯¼º
+modality : modalì˜ íŠ¹ì„±
 
 
 -----
 
 
-DOM(Document Object Model) : Java Script¸¦ »ç¿ëÇÑ ÀÛ¾÷ÀÌ ÀÌ·ç¾îÁö´Â Àå¼Ò. Java Script·Î ÇÏ´Â ÀÛ¾÷ = DOM API
+DOM(Document Object Model) : Java Scriptë¥¼ ì‚¬ìš©í•œ ìž‘ì—…ì´ ì´ë£¨ì–´ì§€ëŠ” ìž¥ì†Œ. Java Scriptë¡œ í•˜ëŠ” ìž‘ì—… = DOM API
 
 ex)
 
@@ -217,77 +217,77 @@ ex)
 </script>
 
 
-// ºê¶ó¿ìÀúÀÇ °³¹ß Åø
+// ë¸Œë¼ìš°ì €ì˜ ê°œë°œ íˆ´
 
-<div id="container">New Content!</div>  // ÀÌ°Ô DOM
+<div id="container">New Content!</div>  // ì´ê²Œ DOM
 
-º¸Åë viewÆÄÀÏÀÇ ÄÚµå¿Í´Â ´Ù¸£´Ù.
+ë³´í†µ viewíŒŒì¼ì˜ ì½”ë“œì™€ëŠ” ë‹¤ë¥´ë‹¤.
 
-
-
------
-
-parent.¸Þ¼Òµå¸í
-
-: ÇöÀç ÆäÀÌÁö·Î ¿À±â ¹Ù·Î Àü ÆäÀÌÁö(jspÆÄÀÏ)¿¡ Á¤ÀÇµÇ¾î ÀÖ´Â ¸Þ¼Òµå¸¦ È£ÃâÇÑ´Ù.
 
 
 -----
 
-<script> ÅÂ±×ÀÇ ÀûÀýÇÑ À§Ä¡
+parent.ë©”ì†Œë“œëª…
+
+: í˜„ìž¬ íŽ˜ì´ì§€ë¡œ ì˜¤ê¸° ë°”ë¡œ ì „ íŽ˜ì´ì§€(jspíŒŒì¼)ì— ì •ì˜ë˜ì–´ ìžˆëŠ” ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•œë‹¤.
 
 
-´Ü¼ø java script : <body> ÃÖÇÏ´Ü
+-----
+
+<script> íƒœê·¸ì˜ ì ì ˆí•œ ìœ„ì¹˜
+
+
+ë‹¨ìˆœ java script : <body> ìµœí•˜ë‹¨
 
 jQuery : <head>
 
 CSS : <head>
 
-ÀÌÀ¯µµ Ã£¾Æ¼­ È®ÀÎÇÏÀÚ
+ì´ìœ ë„ ì°¾ì•„ì„œ í™•ì¸í•˜ìž
 
 
 -----
-js ÆÄÀÏ »ý¼º ¹æ¹ý(java scriptÀÇ ¼Ò½º¸¸ ´ã°ÜÁ® ÀÖ´Â ÆÄÀÏ)
+js íŒŒì¼ ìƒì„± ë°©ë²•(java scriptì˜ ì†ŒìŠ¤ë§Œ ë‹´ê²¨ì ¸ ìžˆëŠ” íŒŒì¼)
 
-new > Java Script Source File »ý¼º
+new > Java Script Source File ìƒì„±
 
 
 -----
 
-js ¶Ç´Â cssÆÄÀÏÀÌ À¥ ºê¶ó¿ìÀú¿¡¼­ ¹Ù·Î¹Ù·Î Àû¿ëµÇÁö ¾ÊÀ» ¶§
+js ë˜ëŠ” cssíŒŒì¼ì´ ì›¹ ë¸Œë¼ìš°ì €ì—ì„œ ë°”ë¡œë°”ë¡œ ì ìš©ë˜ì§€ ì•Šì„ ë•Œ
 
-<script>ÀÇ ÀÔ·ÂÇÏ´Â °æ·ÎÀÇ ¸¶Áö¸·¿¡ "?ver=1"À» Ãß°¡ÇØÁØ´Ù.(¼ýÀÚ´Â ¾Æ¹«°Å³ª ÇØµµ »ó°ü ¾ø´Ù.)
+<script>ì˜ ìž…ë ¥í•˜ëŠ” ê²½ë¡œì˜ ë§ˆì§€ë§‰ì— "?ver=1"ì„ ì¶”ê°€í•´ì¤€ë‹¤.(ìˆ«ìžëŠ” ì•„ë¬´ê±°ë‚˜ í•´ë„ ìƒê´€ ì—†ë‹¤.)
 
-ºê¶ó¿ìÀú°¡ ±âÁ¸ Ä³½¬¿¡ ÀÖ´Â ÆÄÀÏ°ú ´Ù¸¥ ÆÄÀÏ·Î ÀÎ½ÄÇØ¼­ ¼öÁ¤ÇÑ ³»¿ëÀÌ ¹Ù·Î Àû¿ëµÈ´Ù.
+ë¸Œë¼ìš°ì €ê°€ ê¸°ì¡´ ìºì‰¬ì— ìžˆëŠ” íŒŒì¼ê³¼ ë‹¤ë¥¸ íŒŒì¼ë¡œ ì¸ì‹í•´ì„œ ìˆ˜ì •í•œ ë‚´ìš©ì´ ë°”ë¡œ ì ìš©ëœë‹¤.
 
 ex)
 
 <script type="text/javascript" src="/resources/js/upload.js?ver=1"></script>
 
-±×·¡µµ ¾ÈµÉ °æ¿ì
+ê·¸ëž˜ë„ ì•ˆë  ê²½ìš°
 
 \workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\work\Catalina\localhost\ROOT\org\apache\jsp\WEB_002dINF\views
 
-views Æú´õ¾È¿¡ ÀÖ´Â °ü·Ã ÆÄÀÏÀ» ¸ðµÎ »èÁ¦ÇÑ´Ù.
+views í´ë”ì•ˆì— ìžˆëŠ” ê´€ë ¨ íŒŒì¼ì„ ëª¨ë‘ ì‚­ì œí•œë‹¤.
 
 -----
 
 $(document).ready(function{
 
-// ÀÌ ¾È¿¡ ÀÛ¼ºÇÏ´Â ³»¿ëÀº Ã³À½ ÆäÀÌÁö·Î ÀÌµ¿ÇßÀ» ¶§¸¸ ½ÇÇàµÇ°í
+// ì´ ì•ˆì— ìž‘ì„±í•˜ëŠ” ë‚´ìš©ì€ ì²˜ìŒ íŽ˜ì´ì§€ë¡œ ì´ë™í–ˆì„ ë•Œë§Œ ì‹¤í–‰ë˜ê³ 
 
-click °°Àº ÀÌº¥Æ®°¡ ¹ß»ýÇßÀ» ¶§ ½ÇÇàµÇ´Â ³»¿ëÀº Àû¿ëµÇÁö ¾Ê´Â´Ù.
+click ê°™ì€ ì´ë²¤íŠ¸ê°€ ë°œìƒí–ˆì„ ë•Œ ì‹¤í–‰ë˜ëŠ” ë‚´ìš©ì€ ì ìš©ë˜ì§€ ì•ŠëŠ”ë‹¤.
 
 });
 
-±Ùµ¥ µÉ ¶§µµ ÀÖ³×..?(¾ÈµÉ ¶§´Â ¹¹°¡ ¹®Á¦Áö...)
+ê·¼ë° ë  ë•Œë„ ìžˆë„¤..?(ì•ˆë  ë•ŒëŠ” ë­ê°€ ë¬¸ì œì§€...)
 
 -----
 
 event.preventDefault();
 
-: ÇØ´ç ÀÌº¥Æ®(ex) Å¬¸¯)¸¦ ÇßÀ» ¶§ default·Î ¼³Á¤µÇ¾î ÀÖ´Â ½ÇÇà ³»¿ëÀÌ ½ÇÇàµÇÁö ¾Êµµ·Ï ÇØÁØ´Ù.
+: í•´ë‹¹ ì´ë²¤íŠ¸(ex) í´ë¦­)ë¥¼ í–ˆì„ ë•Œ defaultë¡œ ì„¤ì •ë˜ì–´ ìžˆëŠ” ì‹¤í–‰ ë‚´ìš©ì´ ì‹¤í–‰ë˜ì§€ ì•Šë„ë¡ í•´ì¤€ë‹¤.
 
-ex) ÀÌ¹ÌÁö Å¬¸¯ : ÆäÀÌÁö¸¦ ÀÌµ¿ÇÏ¿© ÇØ´ç ÀÌ¹ÌÁö¸¦ È®´ëÇØ¼­ º¸¿©ÁØ´Ù.
+ex) ì´ë¯¸ì§€ í´ë¦­ : íŽ˜ì´ì§€ë¥¼ ì´ë™í•˜ì—¬ í•´ë‹¹ ì´ë¯¸ì§€ë¥¼ í™•ëŒ€í•´ì„œ ë³´ì—¬ì¤€ë‹¤.
 
 -----
