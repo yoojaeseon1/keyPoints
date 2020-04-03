@@ -31,6 +31,22 @@ $.getJSON("/replies/all/"+bno, function(data) {
 
 ##### JSP파일 관련 오류는 웹 브라우저의 F12를 눌러 Console에서 확인하자(STS의 콘솔창에서는 view파일에서 발생한 오류를 확인할 수 없다.)
 
+##### var
+
+모든 자로형 / 자료구조는 var 타입으로 정의된다.
+
+typeof(변수명) 을 통해 세부타입을 확인할 수 있다.
+
+ex)
+
+	var name = "yoo";
+	
+	console.log(typeof(name)); // "String" 을 리턴한다.
+	
+	console.log(name.length); // name의 길이인 3을 리턴한다.
+	
+	
+
 ##### console
 
 ###### console.log
@@ -116,14 +132,14 @@ view이름이 test라면 path를 /test로 접근했을 때 /replies/all/해당bn
 
 write(text) : text를 웹페이지에 띄운다.
 
-getElementById(id) : id가 id인 요소를 가져온다.
+getElementById(id) : id가 id인 요소(객체)를 가져온다.(String, list 처럼 다양한 자료형/자료구조가 리턴될 수 있다.)
 
 
 -----
 
 alert(text) : text를 메세지로 하는 경고창을 화면에 출력
 
-confirm(text) : text를 메세지로 하는 창을 출력 확인 / 취소를 누를 수 있고 true / false를 반환한다.
+confirm(text) : text를 메세지로 하는 창을 출력. 확인 / 취소를 누를 수 있고 true / false를 반환한다.
 
 -----
 
@@ -201,7 +217,7 @@ modality : modal의 특성
 -----
 
 
-DOM(Document Object Model) : Java Script를 사용한 작업이 이루어지는 장소. Java Script로 하는 작업 = DOM API
+##### DOM(Document Object Model) : Java Script를 사용한 작업이 이루어지는 장소. Java Script로 하는 작업 = DOM API
 
 ex)
 
@@ -227,14 +243,14 @@ ex)
 
 -----
 
-parent.메소드명
+##### parent.메소드명
 
 : 현재 페이지로 오기 바로 전 페이지(jsp파일)에 정의되어 있는 메소드를 호출한다.
 
 
 -----
 
-<script> 태그의 적절한 위치
+##### <script> 태그의 적절한 위치
 
 
 단순 java script : <body> 최하단
@@ -247,14 +263,14 @@ CSS : <head>
 
 
 -----
-js 파일 생성 방법(java script의 소스만 담겨져 있는 파일)
+##### js 파일 생성 방법(java script의 소스만 담겨져 있는 파일)
 
 new > Java Script Source File 생성
 
 
 -----
 
-js 또는 css파일이 웹 브라우저에서 바로바로 적용되지 않을 때
+##### js 또는 css파일이 웹 브라우저에서 바로바로 적용되지 않을 때
 
 <script>의 입력하는 경로의 마지막에 "?ver=1"을 추가해준다.(숫자는 아무거나 해도 상관 없다.)
 
@@ -272,7 +288,7 @@ views 폴더안에 있는 관련 파일을 모두 삭제한다.
 
 -----
 
-$(document).ready(function{
+##### $(document).ready(function{
 
 // 이 안에 작성하는 내용은 처음 페이지로 이동했을 때만 실행되고
 
@@ -284,10 +300,48 @@ click 같은 이벤트가 발생했을 때 실행되는 내용은 적용되지 �
 
 -----
 
-event.preventDefault();
+##### event.preventDefault();
 
 : 해당 이벤트(ex) 클릭)를 했을 때 default로 설정되어 있는 실행 내용이 실행되지 않도록 해준다.
 
 ex) 이미지 클릭 : 페이지를 이동하여 해당 이미지를 확대해서 보여준다.
 
 -----
+
+##### form태그에서 submit 하기 전에 전송되는 데이터를 체크하고 싶을 때
+
+
+	<script>
+	
+		function checkMainImage(){
+		
+		var mainImage = document.getElementById("mainImage").value;
+		var subImages = document.getElementById("subImages").value;
+		
+		if(mainImage.length == 0 && subImages.length > 0) {
+			alert("메인 이미지를 첨부해주세요.");
+			return false;
+		} else
+			document.imageUpload.submit();
+		
+	}
+	
+	</script>
+
+	<form method="POST" enctype="multipart/form-data" name="imageUpload">
+		
+		<div>
+			<input  type="file" name="mainImage" id="mainImage" />
+		</div>		
+		<div>
+			<input type="file" name="subImages" id="subImages" multiple="multiple" />
+		</div>
+		
+		<button type="button" class="btn btn-default" onclick="checkMainImage()">완료</button>
+	</form>
+	
+	
+
+<button>의 type을 button으로 해준 다음 script에서 input의 값을 확인하고 submit을 실행하도록 한다.
+
+type이 submit일 경우 버튼을 누르면 script에서 submit을 실행하지 않아도 강제로 form의 데이터가 전송된다.

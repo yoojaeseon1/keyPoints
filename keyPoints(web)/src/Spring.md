@@ -510,3 +510,43 @@ JSP파일의 스크립트릿에서 setAttribute("attribute", value) 를 통해 �
 
 ---
 
+##### model.addAttribute / session.setAttribute 된 값 
+
+모두 jsp파일에서 ${atrribute명}으로 가져올 수 있다. model과 session의 atrribute명이 겹치치 않게 코딩하자
+
+
+---
+
+##### ajax통신에서의 model.addAttribute()
+
+ajax통신을 하는 controller의 메소드에서 model.addAttribute()를 해도 해당 페이지에서 적용된 attribute의 데이터를 사용할 수 없다.
+
+model.addAttribute()를 하고 return "해당 페이지" 가 되야 하는데 해당 페이지로 데이터만 전송되는 거니까 addAttribute가 의미가 없다.
+
+
+ex)
+
+	@ResponseBody
+	@RequestMapping(value = "/review_list/reviewLike", produces = "application/json; charset=utf-8")
+	public ResponseEntity<String> showReviewLikeCount(HttpSession session, Model likeModel) throws SQLException {
+
+		// 중략
+
+		likeModel.addAttribute("userID", id); // 했지만 ajax통신을 통한 데이터가 전송된 페이지에서 사용할 수 없다.
+
+
+		HttpHeaders responseHeaders = new HttpHeaders();
+		List<Map<String, Object>> likeList = new ArrayList<>();
+		Map<String, Object> temp = new HashMap<>();
+
+		temp.put("likeCount", likeCount);
+		temp.put("checked", bean.isChecked());
+
+		likeList.add((Map<String, Object>) temp);
+
+		JSONArray json = new JSONArray(likeList);
+
+		return new ResponseEntity<String>(json.toString(), responseHeaders, HttpStatus.CREATED);
+	}
+
+json.toString()을 데이터로 보내는 것이지 return을 통한 페이지의 이동은 없기 때문에 model.addAttribute()는 무용지물이다.

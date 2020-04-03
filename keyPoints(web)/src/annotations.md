@@ -97,14 +97,56 @@ URL에서 index에 해당하는 값을 변수 index에 초기화 해준다.
 -----
 
 
-#### @ModelAttribute(도메인 or Object) : 도메인 또는 객체로 url의 query string의 값을 가져올 때 사용한다.
+#### @ModelAttribute
 
 
-해당 값이 modelMap에 저장된다.
+model.addAttribute의 기능을 해주는 어노테이션이다.
 
-ex) @modelAttribute("cri") SearchCriteria cri -> (SearchCriteria)ModelMap.get(cri)에 바인딩 된다.
+	public String listReview(ReviewVo reviewVo, Model listModel, Model imageModel, HttpServletRequest request) throws Exception {
 
------
+		reviewVo.setContent("hahahoho");	
+
+		return "review/review_list";
+	}
+
+
+// 또는
+
+	public String listReview(@ModelAttribute ReviewVo reviewVo, Model listModel, Model imageModel, HttpServletRequest request) throws Exception {
+
+		reviewVo.setContent("hahahoho");	
+
+		return "review/review_list";
+	}
+
+
+
+할 경우
+
+	model.addAttribute("reviewVo", reviewVo);
+	
+가 실행된 것과 같다.
+
+review_list.jsp 페이지에서 ${reviewVo.content} 로 값을 가져올 수 있다.(@modelAttribute의 인자를 적지 않으면 어노테이션을 안쓴 것과 동일하게 실행된다.)
+
+
+	public String listReview(@ModelAttribute("reviewInfo") ReviewVo reviewVo, Model listModel, Model imageModel, HttpServletRequest request) throws Exception {
+
+		reviewVo.setContent("hahahoho");	
+
+		return "review/review_list";
+	}
+
+할 경우
+
+	model.addAttribute("reviewInfo", reviewVo);
+	
+가 실행된 것과 같다.
+
+review_list.jsp 페이지에서 ${reviewInfo.content} 로 값을 가져올 수 있다.
+
+
+---
 
 
 #### @RestController
@@ -258,5 +300,19 @@ String uploadPath;
 
 -----
 
+#### (#id).serialize()
 
+ajax 통신에서
+
+data:(#id).serialize() 와 같이 사용할 경우(#id 은 <form>태그의 id속성 값이다.)
+
+해당 form태그 안에있는 input태그들의 값을
+
+Cotroller에서 실행하는 메소드의 파라미터에 있는
+
+해당 input태그들의 name과 일치하는 VO 인스턴스의 필드명이 mapping된다.
+
+input 태그의 value 속성이 VO 인스턴스의 필드 값이 된다.
+
+@ResponseBody 어노테이션을 메소드 위에 입력해줘야 mapping이 된다.
 
