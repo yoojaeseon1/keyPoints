@@ -129,28 +129,67 @@ view이름이 test라면 path를 /test로 접근했을 때 /replies/all/해당bn
 
 headers에서 content-Type(context-Type으로 헷갈렸었다. 주의하자)
 
-ex)
+ex) 일반적인 방식
 
-$.ajax({
-type : 'post',
-url : '/replies',
-headers : {
-	"Content-Type" : "application/json"
-	"X-HTTP-Method-Override" : "POST"
-},
-dataType : 'text',
-data : JSON.stringify({
-	bno : bno,
-	replyer : replyer,
-	replyText : replytext
-}),
-success : function(result) {
-	if(result == 'SUCCESS') {
-		alert("등록되었습니다.")
+		function deleteReview(){
+		
+		$.ajax({
+			
+			url : "./reviewDelete",
+			type : "POST",
+			data : $("#deleteReviewForm").serialize(), 
+			// form 태그 안에있는 input태그의 값을 JSON객체로 바꿔준다. ({input의 name속성 : input의 value속성. .....})
+			success : function(data) {
+				if(data == "success") {
+					alert("정상적으로 삭제되었습니다.");
+					location.href = "./"; // review_list.jsp
+				} else if(data == "1")
+					alert("로그인 해주세요.");
+				else
+					alert("고객님이 등록한 리뷰가 아닙니다.");	
+			}
+		});
 	}
-}
-   }); // ajax end
-});
+	
+	
+
+	function editReview(){
+		
+		$.ajax({
+			url : "../checkLogined",
+			type : "GET",
+			data : {reviewIndex : ${bean.reviewIndex}, hahahoho : "1234"},
+			// JSON 형식으로 직접 입력해도 된다.(data를 쓰지 않아도 controller의 해당 url에 맵핑된 메소드로 이동한다.)
+			success : function(data) {
+				console.log("success data : " , data);
+			}
+		});
+	}
+
+
+
+ex) REST방식에서 JSON 객체를 보낼 때
+
+	$.ajax({
+	type : 'post',
+	url : '/replies',
+	headers : {
+		"Content-Type" : "application/json"
+		"X-HTTP-Method-Override" : "POST"
+	},
+	dataType : 'text',
+	data : JSON.stringify({
+		bno : bno,
+		replyer : replyer,
+		replyText : replytext
+	}),
+	success : function(result) {
+		if(result == 'SUCCESS') {
+			alert("등록되었습니다.")
+		}
+	}
+	   }); // ajax end
+	});
 
 
 data에서 JSON형식으로 보낼 때는 {VO객체의 필드 : 보낼 값}으로 해야 된다.

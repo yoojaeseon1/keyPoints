@@ -251,7 +251,19 @@ web.xml 파일에
 		<url-pattern>*</url-pattern>
 	</filter-mapping>
 
-추가 하면 왠만하면 된다.
+
+
+###### 한글이 ?(물음표)로 깨질 때
+
+	@RequestMapping(value = "/review_list/commentList", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+
+RequestMapping에
+
+	 produces = "application/json; charset=utf-8"
+	 
+produces / charset 속성을 추가해주면 된다.
+
+리턴 타입이 json이면 json, 문자면 String으로 바꿔주면 된다.
 
 ---
 
@@ -270,3 +282,7 @@ review_comment.jsp 파일에서
 \workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\www\org\apache\jsp 에 있는 폴더 지우기
 
 컴파일하면 다시 생긴다.
+
+##### java.lang.IllegalStateException: Optional int parameter 'reviewIndex' is present but cannot be translated into a null value due to being declared as a primitive type
+
+ajax통신으로 Controller의 메소드에서 변수가 mapping 될때 기본형 변수에 넣을 값이 ajax통신을 통해 넘어오지 않으면 기본형 변수가 null이 될 수 없으므로 오류가 난다.

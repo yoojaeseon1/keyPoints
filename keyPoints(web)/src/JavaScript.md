@@ -117,6 +117,31 @@ alist는 ArrayList 인스턴스다.
 
 역할(role) : $("form[role='해당role']");
 
+
+ex)
+
+		function updateComment(commentIndex) {
+
+			$.ajax({
+
+				url : "./editComment",
+				type : "POST",
+				data : {
+					commentIndex : commentIndex,
+					comment : $("#updatedComment").val() // 이 부분
+				},
+				success : function(data) {
+
+					if (data == "1") {
+						alert("수정이 완료되었습니다.");
+						getCommentList();
+					}
+				}
+			});
+		}
+		
+태그의 id 속성이 updatedComment인 태그의 값을 가져온다.
+
 ###### JQuery를 사용해 view에서 JSON객체를 받는 방법(getJSON(uri,function(data)) 메소드 사용)
 
 $.getJSON("/replies/all/" + bno, function(data) {
@@ -134,14 +159,20 @@ write(text) : text를 웹페이지에 띄운다.
 
 getElementById(id) : id가 id인 요소(객체)를 가져온다.(String, list 처럼 다양한 자료형/자료구조가 리턴될 수 있다.)
 
+document.form태그의id.submit() : 해당 id를 가지는 form태그를 전송한다.(버튼 없이 이렇게 메소드로 가능하다.)
 
------
+
+
+
+---
+
+##### 자주 쓰이는 메소드들
+
+location.href = "../review_edit/" + ${bean.reviewIndex} : 해당 URL로 이동시켜준다.(그냥 변수에 초기화 하는 것 같은데 메소드 처럼 작동한다.)
 
 alert(text) : text를 메세지로 하는 경고창을 화면에 출력
 
 confirm(text) : text를 메세지로 하는 창을 출력. 확인 / 취소를 누를 수 있고 true / false를 반환한다.
-
------
 
 prompt(text, defaultText) : dialbox를 띄운다. 사용자가 입력한 텍스트를 반환한다.
 
@@ -149,7 +180,11 @@ text : 입력칸 위에 안내 메세지
 
 defautText(선택) : 입력칸에 초기 메세지 출력
 
------
+
+
+---
+
+##### HTML 구성요소
 
 요소(Elements) : 
 
@@ -345,3 +380,16 @@ ex) 이미지 클릭 : 페이지를 이동하여 해당 이미지를 확대해�
 <button>의 type을 button으로 해준 다음 script에서 input의 값을 확인하고 submit을 실행하도록 한다.
 
 type이 submit일 경우 버튼을 누르면 script에서 submit을 실행하지 않아도 강제로 form의 데이터가 전송된다.
+
+---
+
+##### <script> 태그 안에서 el, jquery 사용
+
+<script> 태그 안에서도
+
+
+	data : { clientID : "${bean.clientID}"},
+
+와 같이 el표현으로 값을 가져올 수 있다.(controller에서 model.addAttribute("name", value)된 값을 사용하는 것이다.)
+
+같은 문서 내에서 태그안에 작성하는 것이니까 당연히 되는 것이라고 생각하면 된다.(JQuery를 사용한 값도 가져올 수 있다.)

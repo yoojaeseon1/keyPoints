@@ -176,6 +176,10 @@ JSON타입으로 데이터를 받아야 하기 때문에 JSP파일에서 ajax($.
 
 #### @ResponseBody
 
+- ajax통신을 할 때 controller에서 jsp로 보내기 위해서는 해당 메소드에 입력해야한다.
+
+jsp -> controller의 메소드는 @ResponseBody가 없어도 되지만 controller의 메소드 -> jsp로는 불가능하다.
+
 - 자바 객체를 HTTP 응답 body로 전송함
 
 - 자바 객체를 HTTP 요청의 body 내용으로 매핑하는 역할

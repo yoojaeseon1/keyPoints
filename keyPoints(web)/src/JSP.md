@@ -199,9 +199,17 @@ jsp 파일 동적/정적 include
 
 ##### pageContext 
 
-${pageContext.request.contextPath}
+	${pageContext.request.contextPath}
 
 : server.xml 파일에 설정한 context의 path속성을 읽어온다.
+
+: local 디렉토리의 workspace폴더에 있는 webapp(local 디렉토리의 workspace/src/main/webapp)을 root로 한다.
+
+controller에서 실행한 
+
+	servletRequest.getSession().getServletContext().getRealPath("/");
+	
+와 같은 디렉토리를 리턴한다.(HttpServletRequest / MultipartHttpServletRequest 모두 동일한 값이 나온다.)
 
 path를 / 으로 설정한 경우
 
