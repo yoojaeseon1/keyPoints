@@ -279,10 +279,51 @@ review_comment.jsp 파일에서
 
 ##### JSP파일 갱신 안될 때
 
-\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\www\org\apache\jsp 에 있는 폴더 지우기
+
+\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\www\org\apache\jsp\WEB_002dINF\views 에 있는 파일 전부 지우기
 
 컴파일하면 다시 생긴다.
+
+그래도 안되면 script 소스(html, java 말고)에 문법적으로 문제가 있는지 일일히 확인해야된다.
+
+---
 
 ##### java.lang.IllegalStateException: Optional int parameter 'reviewIndex' is present but cannot be translated into a null value due to being declared as a primitive type
 
 ajax통신으로 Controller의 메소드에서 변수가 mapping 될때 기본형 변수에 넣을 값이 ajax통신을 통해 넘어오지 않으면 기본형 변수가 null이 될 수 없으므로 오류가 난다.
+
+---
+
+##### Unterminated [&lt;c:if] tag
+
+별일 없어도 오류가 난다.
+
+해결법 : 해당 프로젝트 우클릭 -> Properties -> validation -> 전부 disable All 적용 -> clean project
+
+##### java.lang.NumberFormatException: For input string: "+pageMaker.startPage+"
+
+	pagingHTML += "<c:forEach begin="+pageMaker.startPage+" end="+pageMaker.endPage+" var='idx'>";
+
+"+pageMaker.startPage+"를 왜 문자열로 보는걸까
+
+"<c:forEach begin="
+
+pageMaker.startPage
+
+" end="
+
+pageMaker.endPage
+
+" var='idx'>"
+
+이렇게 구분되는걸 의도한건데 뭘 잘못 생각한걸까
+
+##### org.apache.jasper.JasperException: /WEB-INF/views/review/review_detail.jsp (행: [415], 열: [1]) /WEB-INF/views/review/review_comment.jsp (행: [167], 열: [40]) quote symbol expected
+
+둘다 따옴표 잘못써서 난 오류. 아직 해결책은 찾지 못했다.
+
+
+	pagingHTML += "<c:if test="+pageMaker.prev+">"; // 잘 돌아간다.
+
+	pagingHTML += "<c:if test=true>"; // 이건 오류난다.
+	

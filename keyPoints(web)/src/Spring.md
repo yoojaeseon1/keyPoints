@@ -583,3 +583,41 @@ ${pageContext.request.serverName}: localhost
 ${pageContext.request.serverPort}: 8080
 
 ---
+
+##### 메소드의 return type
+
+###### String
+
+JSP파일(view)의 경로.
+
+controller의 메소드에서 return하는 view 파일의 디렉토리는
+
+루트가 /WEB-INF/views 이다.
+
+return 다음에 오는 경로는 views를 기준으로 그 밑의 디렉토리를 명시하면 된다.
+
+###### void
+
+@RequestMapping(value="URI")
+
+에 사용되는 URI과 view의 이름(return type이 String일 때의 return value)이 같을 경우에 사용할 수 있다.
+
+---
+
+##### request.getParameter("parameter")
+
+GET/POST 방식으로 파라미터 값이 넘어올 때 그 값을 사용 할 수 있다.
+
+@RequestParam("parameter")로 값을 가져오는게 더 편할 수 있다.
+
+---
+
+##### request.getAttribute("attribute")
+
+page, request, response, session, application 과 같은 스코프 영역에서 값을 가져온다.
+
+setAttribute된 attribute를 가져오는 것이 아닐까??
+
+@ModelAttribute("attribute")로 가져오는게 더 편할 수 있다.
+
+---

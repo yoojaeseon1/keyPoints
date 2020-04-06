@@ -316,5 +316,9 @@ $(".uploadedList li").each(function(index) {
 
 -----
 
+##### ajax통신시 주의사항
 
+ajax통신할때 명시하는 url은 해당 ajax통신을 하는 function이 실행되면 url로 이동해 controller의 메소드를 실행하는 것이지
+
+단순히 해당 url로 이동했을 때 ajax통신이 실행되는 것이 아니다.(function이 실행된 것이 아니라 그냥 그 페이지로 이동한 것이니까)
 

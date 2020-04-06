@@ -180,7 +180,15 @@ text : 입력칸 위에 안내 메세지
 
 defautText(선택) : 입력칸에 초기 메세지 출력
 
+---
 
+##### 페이지 최초 이동시 자동으로 functions을 실행하도록 하는 방법
+
+			$(function() {
+
+				getCommentList(1); // 실행할 메소드를 명시하면 된다.
+
+			});
 
 ---
 
@@ -393,3 +401,42 @@ type이 submit일 경우 버튼을 누르면 script에서 submit을 실행하지
 와 같이 el표현으로 값을 가져올 수 있다.(controller에서 model.addAttribute("name", value)된 값을 사용하는 것이다.)
 
 같은 문서 내에서 태그안에 작성하는 것이니까 당연히 되는 것이라고 생각하면 된다.(JQuery를 사용한 값도 가져올 수 있다.)
+
+---
+
+##### function 파라미터의 타입
+
+			html += "<div><table class='table'><h6><strong>"
+					+ data[i].clientID
+					+ "</strong>&emsp;<a href='#' onClick='changeToTextArea("
+					+ data[i].commentIndex
+					+ ",\""
+					+ data[i].comment // <- 이부분
+					+ "\")'>수정</a>&emsp;<a href='#' onClick='deleteComment("
+					+ data[i].commentIndex
+					+ ")'>삭제</a></h6>";
+					
+					
+data[i].comment가 숫자일 경우 int가 되고 문자일 경우 String이 된다.
+
+하지만 두 경우 다 문자로 받아야 changeToTextArea메소드에서 파라미터로 사용할 수 있기 때문에
+
+타입을 통일시키기 위해서 양 옆에 ""로 씌워준다.
+
+"" 안에 ""를 작성하는 것이기 때문에 오류가 발생한다. 
+
+이를 해결하는 방법으로 "를 문자로 인식하기 위해서 \(이스케이프문자)를 "앞에 입력해줘야 된다.
+
+---
+
+##### 따옴표 사용(태그의 속성)
+
+	pagingHTML += "<c:if test="+pageMaker.prev+">"; // 오류난다.(못 읽는다.)
+
+	pagingHTML += "<c:if test=true>"; // 이건 오류난다.(문법 오류)
+	
+뭐가 문젠지 확인하자.
+
+---
+
+

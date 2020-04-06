@@ -26,13 +26,23 @@ Spring에서 필요할 때 객체를 생성해서 사용할 수 있도록 하는
 
 #### @RequestMapping(param) : param으로 시작하는 URI에 접근하면 해당 Controller 또는 Controller의 메소드를 실행한다.
 
-Controller의 맨위에 있는 경우 - param으로 시작하는 URI에 접근
+Controller의 맨위에 있는 경우 - controller에 있는 모든 메소드의 requestMapping(value="URI") 일때
 
-ex) @RequestMapping("/sample")
+ URI 앞에 controller 맨위에 있던 @RequestMapping의 value를 추가해준다.
+
+ex) 
+
+	@RequestMapping("/sample")
+	public class SampleContoller{
+	
+	}
+
 
 Controller 내부의 메소드에 있는 경우 - Controller 맨위의 param/메소드에 mapping 되어있는 param 인 URI에 접근
 
 ex) @RequestMapping("/list") : /sample/list 에 접근할 경우 해당 메소드 실행
+
+controller 맨 위에 
 
 
 ex)
@@ -47,7 +57,7 @@ ex)
 
 속성
 
-- value : 맵핑되는 URL
+- value : 맵핑되는 URI
 
 - method : 맵핑되는 전송방식(비울 경우 URL에 접근하는 모든 방식에서 해당 메소드가 실행된다.)
 
