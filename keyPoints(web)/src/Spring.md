@@ -590,11 +590,41 @@ ${pageContext.request.serverPort}: 8080
 
 JSP파일(view)의 경로.
 
+return 값 마지막에 .jsp를 붙여서 view 파일을 찾는다.
+
 controller의 메소드에서 return하는 view 파일의 디렉토리는
 
 루트가 /WEB-INF/views 이다.
 
 return 다음에 오는 경로는 views를 기준으로 그 밑의 디렉토리를 명시하면 된다.
+
+ex)
+
+	return review/review_detail;
+	
+review_detail.jsp파일을 찾는다.(마지막에 .jsp를 붙여서 view파일을 찾는다.)
+
+	return review/review_detail/;
+	
+review_detail/.jsp 파일을 찾기 때문에 없으면 오류가 난다.
+
+---
+
+###### URL로 이동하고 싶은 경우(jsp파일말고)
+
+
+
+	return "forward:" + URL // 이동하는 URL의 controller 메소드에서 현재 메소드가 가지고 있는 request parameterrequest.getParameter()를 통한 쿼리스트링 사용을 할 수 있다.
+
+또는
+
+	return "redirect:" + URL // 이동하는 URL의 controller 메소드에서 현재 메소드가 가지고 있는  request parameter(request.getParameter()를 통한 쿼리스트링 사용)를 사용할 수 없다.
+
+
+참고 사이트 : https://wondongho.tistory.com/65
+
+
+---	
 
 ###### void
 

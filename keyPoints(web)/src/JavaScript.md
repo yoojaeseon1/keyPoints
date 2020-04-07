@@ -153,13 +153,24 @@ $.getJSON("/replies/all/" + bno, function(data) {
 view이름이 test라면 path를 /test로 접근했을 때 /replies/all/해당bno로 접근해서 데이터를 가져온다는 의미다.
 
 
-##### document.
+##### document
+
+
 
 write(text) : text를 웹페이지에 띄운다.
 
 getElementById(id) : id가 id인 요소(객체)를 가져온다.(String, list 처럼 다양한 자료형/자료구조가 리턴될 수 있다.)
 
 document.form태그의id.submit() : 해당 id를 가지는 form태그를 전송한다.(버튼 없이 이렇게 메소드로 가능하다.)
+
+	document.ready(
+			function(){
+				
+				// 실행할 소스
+			
+			});
+
+
 
 
 
@@ -437,6 +448,35 @@ data[i].comment가 숫자일 경우 int가 되고 문자일 경우 String이 된
 	
 뭐가 문젠지 확인하자.
 
+---
+
+##### 다른 URL로 이동하는 방법
+
+	window.location = "URL";
+	
+	window.location.href = "URL";
+	
+	window.location.assign("URL");
+	
+	window.location.replace("URL");
+	
+	self.location = "URL";
+	
+	top.location = "URL";
+
+
+window.location은 단순히 location만 사용해도 된다. 위 코드 중 첫 내게는 아래와 같이 사용이 가능하다.
+
+	location = "URL";
+	
+	location.href = "URL";
+	
+	location.assign("URL");
+	
+	location.replace("URL");
+	
+참고사이트 : https://jamesdreaming.tistory.com/43
+	
 ---
 
 

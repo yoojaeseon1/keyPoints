@@ -265,6 +265,12 @@ produces / charset 속성을 추가해주면 된다.
 
 리턴 타입이 json이면 json, 문자면 String으로 바꿔주면 된다.
 
+###### URL로 들어가는 한글이 깨질 때
+
+	String keyword = URLEncoder.encode(cri.getKeyword(), "UTF-8");
+	
+와 같이 URLEncoder로 UTF-8 방식으로 인코딩한 String을 사용하면 된다.
+
 ---
 
 ##### javax.el.PropertyNotFoundException: [com.bit.yes.model.entity.ReviewVo] 타입에서 프로퍼티 [idx]을(를) 찾을 수 없습니다.
@@ -273,7 +279,11 @@ review_comment.jsp 파일에서
 
 주석으로 된 부분에 bean.idx가 있는데 그 주석을 지우거나, bean.reviewIndex로 vo 필드값을 정확히 써주면 해결
 
-왜 주석인데 오류가 발생하는지 모르겠다.
+왜 주석인데 오류가 발생하는지 모르겠다. : 주석을 /**/, // 이 아니라 <%--  --%>를 사용해야 정상적으로 비활성화 된다.
+
+HTML, JavaScript는 <%--  --%>로 주석을 처리해야한다.
+
+/**/, // 는 java 코드를 위한 주석이다.
 
 ---
 
@@ -318,12 +328,50 @@ pageMaker.endPage
 
 이렇게 구분되는걸 의도한건데 뭘 잘못 생각한걸까
 
+######에러가 발생한 이유
+
+JSTL에서
+
+	<c:forEach begin="+pageMaker.startPage+" end="+pageMaker.endPage+" var='idx'>
+
+만 쏙 빼내서 인식하기 때문에(맨앞의 pagingHTML += "  맨 뒤의 "; 은 무시한다.)
+
+begin 속성을 +pageMaker.startPage+
+
+end 속성을 +pageMaker.endPage+
+
+로 봤기 때문에 이게 숫자가 아니니까 NumberFormatException이 발생한 것이다.
+
+
 ##### org.apache.jasper.JasperException: /WEB-INF/views/review/review_detail.jsp (행: [415], 열: [1]) /WEB-INF/views/review/review_comment.jsp (행: [167], 열: [40]) quote symbol expected
 
 둘다 따옴표 잘못써서 난 오류. 아직 해결책은 찾지 못했다.
 
+###### 에러가 발생한 이유
 
-	pagingHTML += "<c:if test="+pageMaker.prev+">"; // 잘 돌아간다.
+javaScript 소스
 
-	pagingHTML += "<c:if test=true>"; // 이건 오류난다.
+	pagingHTML += "<c:if test="+pageMaker.prev+">";
+	
+JSTL이 인식한 소스	
+	
+	<c:if test="+pageMaker.prev+">
+
+만 쏙 빼네서 인식한다. 그렇기 때문에 test 속성을 +pageMaker.prev+로 보니까 
+
+위와 같은 NumberFormatException이 발생한 것이다.
+
+--
+
+javaScript 소스
+
+	pagingHTML += "<c:if test=true>";
+	
+JSTL이 인식한 소스
+
+	<c:if test=true>
+	
+test 속성을 감싸는 따옴표가 없으니까 따옴표가 예상된다는 에러가 발생한 것이다.
+
+---
 	

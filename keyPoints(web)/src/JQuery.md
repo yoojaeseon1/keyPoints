@@ -322,3 +322,24 @@ ajax통신할때 명시하는 url은 해당 ajax통신을 하는 function이 실
 
 단순히 해당 url로 이동했을 때 ajax통신이 실행되는 것이 아니다.(function이 실행된 것이 아니라 그냥 그 페이지로 이동한 것이니까)
 
+---
+
+##### jQuery 속성을 변수로 처리할 때
+
+		console.log($("input:radio[id='inlineRadio2']").is(":checked"));
+
+		for(radioI = 1; radioI <= 5; radioI++) {
+			if($("input:radio[id='inlineRadio"+radioI+"']").is(":checked")) {
+				isSelected = true;
+				break;
+			}
+		}
+
+
+for문의 if문이 String으로 써야되는 부분과 메소드 실행을 위해 String으로 쓰지 말아야 할 부분이 있기 때문에
+
+구분을 잘 해야한다.
+
+"input~]" 까지는 원래 ""로 묶여 String으로 들어가는 부분이고 ()괄호는 String이면 안된다.
+
+그리고 .is와 괄호 ()는 역시 String으로 처리하면 안된다. 그 안의 파라미터는 String이어야 한다.
