@@ -114,13 +114,17 @@ begin과 end를 모두 포함한다.(1~5까지)
 
  사용법 2
  
-	<c:forEach var="reviewVo" items="${bean}">
+	<c:forEach var="reviewVo" items="${bean}" varStatus="reviewIndex">
+	
+		<div>${reviewIndex.count}</div>
 		<div>${reviewVo.reviewIndex}</div>
 		<div>${reviewVo.title}</div>
 		<div>${reviewVo.content}</div>
 	</c:forEach>
 
 controller로부터 받은 데이터를 반복문을 통해 태그에 넣을 수 있다.
+
+varStatus는 count 필드를 통해 해당 자료구조의 인덱스를 확인할 수 있다.
 
 ###### if
 

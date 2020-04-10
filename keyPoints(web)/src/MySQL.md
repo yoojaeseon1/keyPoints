@@ -14,6 +14,45 @@ ex)
 
 ---
 
+##### 테이블 정보 수정
+
+###### 컬럼 추가
+
+	alter table [테이블명] add [컬럼명] [타입] [옵션]; 
+
+ex) alter table [테이블명] add [컬럼명] varchar(100) not null default '0'; 
+
+
+
+###### 컬럼 삭제
+
+alter table [테이블명] drop [컬럼명];
+
+
+
+###### 컬럼명 변경 및 타입 변경
+
+	alter table [테이블명] change [컬럼명] [변경할컬럼명] varchar(12);
+
+같은 타입에 속성명만 변경하더라도 타입을 명시 해야한다.
+
+###### 컬럼 타입 수정
+
+	alter table [테이블명] modify [컬럼명] varchar(14);
+
+
+
+###### 테이블명 수정
+
+	alter table [테이블명] rename [변경할테이블명];
+
+
+
+테이블 삭제
+
+drop table [테이블명];
+
+
 ##### CONCAT
 
 파라미터로 받는 문자열을 합쳐준다.
@@ -53,3 +92,9 @@ Cause: java.sql.SQLException: Parameter index out of range (1 > number of parame
 	<sql id="sqlID">쿼리문</sql>
 	
 사전에 작성되어 있는 쿼리문을 재사용 할 수 있다.
+
+##### selectOne해서 넘어오는 값이 없을 경우
+
+service 인스턴스를 통해 실행한 메소드에서 조건에 맞는 값이 없어 가져오지 못했을 경우
+
+null을 리턴한다.

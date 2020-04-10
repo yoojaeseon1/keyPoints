@@ -479,4 +479,32 @@ window.location은 단순히 location만 사용해도 된다. 위 코드 중 첫
 	
 ---
 
+##### 현재 페이지 새로고침
+
+	location.reload(true);
+
+	location.href = location.href;
+
+	history.go(0);
+
+##### javascript: 기능
+
+			<a class="btn btn-default" href="javascript:history.back();"
+			role="button">뒤로</a>
+
+javascript:history.back() : 이전페이지로 갈 수 있다.
+
+javascript:history.forward() : 이후 페이지로 갈 수 있다.
+
+javascript:history.go(page) : 원하는 만큼의 페이지로 이동할 수 있다.
+
+page
+
+양수 : 앞으로(forward를 원하는 만큼)
+
+음수 : 뒤로(back을 원하는 만큼)
+
+---
+
+
 
