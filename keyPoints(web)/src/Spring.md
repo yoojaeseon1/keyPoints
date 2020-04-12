@@ -651,3 +651,20 @@ setAttribute된 attribute를 가져오는 것이 아닐까??
 @ModelAttribute("attribute")로 가져오는게 더 편할 수 있다.
 
 ---
+
+##### 현재 페이지의 URL 주소 가져오기
+
+아래와 같은 주소가 있을 경우
+
+http://localhost:8080/logout
+
+INFO : com.bit.yes.controller.LoginController - URI : /logout
+INFO : com.bit.yes.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : com.bit.yes.controller.LoginController - URL : http://localhost:8080/logout
+INFO : com.bit.yes.controller.LoginController - contextPath : 
+INFO : com.bit.yes.controller.LoginController - servletPath : /logout
+INFO : com.bit.yes.controller.LoginController - before page : http://localhost:8080/
+
+---
+
+

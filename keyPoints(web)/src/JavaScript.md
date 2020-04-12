@@ -142,6 +142,11 @@ ex)
 		
 태그의 id 속성이 updatedComment인 태그의 값을 가져온다.
 
+
+###### 주의사항
+
+
+
 ###### JQuery를 사용해 view에서 JSON객체를 받는 방법(getJSON(uri,function(data)) 메소드 사용)
 
 $.getJSON("/replies/all/" + bno, function(data) {
@@ -157,11 +162,13 @@ view이름이 test라면 path를 /test로 접근했을 때 /replies/all/해당bn
 
 
 
-write(text) : text를 웹페이지에 띄운다.
+document.write(text) : text를 웹페이지에 띄운다.
 
-getElementById(id) : id가 id인 요소(객체)를 가져온다.(String, list 처럼 다양한 자료형/자료구조가 리턴될 수 있다.)
+document.getElementById(id) : id가 id인 요소(객체)를 가져온다.(String, list 처럼 다양한 자료형/자료구조가 리턴될 수 있다.)
 
 document.form태그의id.submit() : 해당 id를 가지는 form태그를 전송한다.(버튼 없이 이렇게 메소드로 가능하다.)
+
+document.ready : 안에 있는 소스는 페이지 이동과 동시에 실행된다.
 
 	document.ready(
 			function(){
@@ -169,9 +176,6 @@ document.form태그의id.submit() : 해당 id를 가지는 form태그를 전송�
 				// 실행할 소스
 			
 			});
-
-
-
 
 
 

@@ -98,3 +98,13 @@ Cause: java.sql.SQLException: Parameter index out of range (1 > number of parame
 service 인스턴스를 통해 실행한 메소드에서 조건에 맞는 값이 없어 가져오지 못했을 경우
 
 null을 리턴한다.
+
+##### 날짜(datetime) 검색
+
+	select * from reviewboard where date(registeredDate) = "2020-04-02";
+
+	select * from reviewboard where registeredDate >= "2020-04-02 00:00:00" and registeredDate <= "2020-04-02 23:59:59";
+	
+둘 다 같은 결과 값을 리턴한다.
+
+하지만 밑에 쿼리문이 날짜를 파싱하는 단계가 없기 때문에 더 빠르다.
