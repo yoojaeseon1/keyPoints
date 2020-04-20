@@ -328,7 +328,7 @@ pageMaker.endPage
 
 이렇게 구분되는걸 의도한건데 뭘 잘못 생각한걸까
 
-######에러가 발생한 이유
+###### 원인
 
 JSTL에서
 
@@ -347,7 +347,7 @@ end 속성을 +pageMaker.endPage+
 
 둘다 따옴표 잘못써서 난 오류. 아직 해결책은 찾지 못했다.
 
-###### 에러가 발생한 이유
+###### 원인
 
 javaScript 소스
 
@@ -363,6 +363,8 @@ JSTL이 인식한 소스
 
 --
 
+###### 해결방법
+
 javaScript 소스
 
 	pagingHTML += "<c:if test=true>";
@@ -374,4 +376,33 @@ JSTL이 인식한 소스
 test 속성을 감싸는 따옴표가 없으니까 따옴표가 예상된다는 에러가 발생한 것이다.
 
 ---
+
+##### spring java.lang.NoClassDefFoundError : com/bit/yes/model/adminDAO
+
+###### 원인
+
+- adminDao를 포함해서 Dao라고 되있는 클래스명을 전부 DAO로 바꿨다.
+
+- Impl클래스의 postfix에 01이 추가되어있는 것들이 있었는데 전부 제거했다.
+
+
+###### 해결 방법
+
+- 클래스명을 원상복귀 시키지 않고 pom.xml에 
+
+<dependency>
+   <groupId>org.apache.httpcomponents</groupId>
+   <artifactId>httpclient</artifactId>
+   <version>4.5.2</version>
+   <scope>runtime</scope>
+ </dependency>
+ 
+
+을 추가하니까 잘 된다. 추가 이후에 지워도 잘 된다. 
+
+정확한 해결 원리는 모르겠다.
+
+---
+
+
 	

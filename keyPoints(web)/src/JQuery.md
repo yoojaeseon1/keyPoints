@@ -29,7 +29,7 @@ ex)
 	    ex) onclick속성 : <button type="button" onclick="alert('반갑습니다.')">버튼을 누르세요!</button>
 
 
------
+---
 
 ##### 값 가져오는 방법
 
@@ -41,7 +41,7 @@ ex)
 
 역할(role) : $("form[role='해당role']");
 
------
+---
 
 ##### 자주 쓰이는 메서드
 
@@ -54,13 +54,13 @@ ex)
 var replyer = $("#newReplyWriter").val();
 
 
------
+---
 
 ###### $("#해당id").val(data);
 
  : 아이디가 해당id인 요소의 값을 data로 정한다.
 
------
+---
 
 ###### $("#testId").html() 
 
@@ -83,12 +83,12 @@ $("#testId").html(html data) : 해당 id를 가지는 태그의 내용을 인자
 
 $("#testId").text() : 해당 id를 가지는 태그의 값을 가져온다(태그 제외하고 태그 내의 값만) 
 
------
+---
 
 .val()과 .text()의 차이 : val()은 사용자가 입력한 input태그의 값을 가져오고, text()는 이미 지정되어 있는 text의 값을 가져온다.
 
 
------
+---
 
 $(class or id or name).on(event, selector, data);
 
@@ -101,7 +101,7 @@ data : 이벤트가 실행 될 때 전달되는 data(function(data)) 를 통해 
 
 
 
------
+---
 
 
 $(class or id or name).attr(tag's name)
@@ -109,7 +109,7 @@ $(class or id or name).attr(tag's name)
 해당 태그의 값을 가져온다.
 
 
------
+---
 
 ##### JQuery를 사용해 view에서 JSON객체를 받는 방법(getJSON() 메소드 사용)
 
@@ -121,7 +121,7 @@ $.getJSON("/replies/all/" + bno, function(data) {
 
 view이름이 test라면 path를 /test로 접근했을 때 /replies/all/해당bno로 접근해서 데이터를 가져온다는 의미다.
 
------
+---
 
 ##### Ajax 전송 형식 
 
@@ -194,7 +194,7 @@ ex) REST방식에서 JSON 객체를 보낼 때
 
 data에서 JSON형식으로 보낼 때는 {VO객체의 필드 : 보낼 값}으로 해야 된다.
 
------
+---
 
 
 ##### ajax 구성요소
@@ -228,7 +228,7 @@ contentType
 
 
 
------
+---
 
 ##### Ajax가 무반응 일때
 
@@ -236,7 +236,7 @@ contentType
 
 view관련 태그를 모두 작성하고 아래에다 써준다.
 
------
+---
 
 api : https://api.jquery.com/jquery.getjson/
 
@@ -258,7 +258,7 @@ data.list : 예제에서 Controller에서 mapping되는 메서드의 리턴 값�
 
 
 
------
+---
 
 $.getJSON(URL, function(data)
 $.each(data, fucntion(key,value))
@@ -267,7 +267,7 @@ $.each(data, fucntion(key,value))
 (따로 인자를 넣어줘야 하는 것이 아니라 첫 번째 인자에서 function의 인자로 알아서 인식한다.)
 
 
------
+---
 
 $(document).ready(function(){
    
@@ -290,7 +290,7 @@ window.onload = function(){
 
 
 
------
+---
 
 ex) 
 
@@ -300,11 +300,17 @@ that.parent("div").remove();
 : that 이 <small> 태그였을 경우 <small>태그 바깥쪽(부모)에서 가장 가까이 있는 <div>태그를 지우는 기능을 한다.
 
 
------
+---
 
-##### jQuery를 사용하는 <script>는 <body> 최하단에 작성하자(<head>에다 작성하면 인식하지 못하는 경우가 있다.)
+##### jQuery를 사용하는 script 태그는 body 태그 최하단에 작성하자
 
------
+
+
+- <head>에다 작성하면 인식하지 못하는 경우가 있다.
+
+
+---
+
 $(".class b") : 해당 class명을 가지는 태그 내부의 b 태그(id 또는 class) 
 
 
@@ -343,3 +349,23 @@ for문의 if문이 String으로 써야되는 부분과 메소드 실행을 위�
 "input~]" 까지는 원래 ""로 묶여 String으로 들어가는 부분이고 ()괄호는 String이면 안된다.
 
 그리고 .is와 괄호 ()는 역시 String으로 처리하면 안된다. 그 안의 파라미터는 String이어야 한다.
+
+---
+
+##### 태그의 값 가져오기
+
+	<input type="text" class="form-control id2" name="id"  placeholder="아이디를 입력해주세요"/>
+	
+	
+에서 class의 값을 가져올 때는 id2를 입력해야 한다.(공백으로 띄워져 있는 뒤의 값이 id가 된다.)
+
+	var id = $(".id2").val();
+
+
+
+---
+
+
+
+
+

@@ -667,4 +667,56 @@ INFO : com.bit.yes.controller.LoginController - before page : http://localhost:8
 
 ---
 
+##### ResponseEntity<>
 
+ajax 통신에 data를 ResponseEntity에 실어 보낼 때
+
+public ResponseEntity<String> listReviewComment(@ModelAttribute("commentVo") CommentVo commentVo, Model model,
+			HttpServletRequest request) throws Exception {
+
+
+이라면 
+
+return new ResponseEntity<>(json.toString(), responseHeaders, HttpStatus.CREATED);
+
+처럼 ResponseEntity의 첫 번째 인자로 ajax를 통해 보낼 data 해당 타입으로 넣어주면된다.
+
+String, List, Map 다 가능하다.
+
+---
+
+##### br태그, "\n" 
+
+	<br> = "/n"
+
+/r : 줄의 끝에서 시작위치로 돌아가는 것
+
+게시물에서 엔터 눌렀을 때의 경우 다음 줄의 시작위치로 돌아가기 때문에 /r/n이 동시에 일어난다.
+
+/n 만 <br>으로 바꿔주면 뷰에서 개행이 정상적으로 된 것을 확인할 수 있다.
+
+---
+
+##### mappper에 쿼리문 작성시 parameterType이 
+
+Map인 경우
+
+${key}
+
+
+VO객체의 필드인 경우 / 단일 기본형 parameter인 경우
+
+	#{field name}
+
+
+
+map 사용시 주의사항(${key})
+
+value값이 String인 경우 "${key}"를 해줘야 한다. 그래야 문자열로 인식한다.
+
+int인 경우는 따옴표로 묶지 않아도 된다.
+
+VO객체의 경우는 따옴표로 묶지 않아도 알맞은 타입으로 인식한다.
+
+
+---
