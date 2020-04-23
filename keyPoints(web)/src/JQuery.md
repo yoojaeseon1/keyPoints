@@ -78,14 +78,19 @@ console.log($(".test").html); // output : <button>test button</button>
 
 
 
-$("#testId").html(html data) : 해당 id를 가지는 태그의 내용을 인자의 값으로 바꾼다.
+###### $("#testId").html(html data)
+
+해당 id를 가지는 태그의 내용을 인자의 값으로 바꾼다.
 
 
-$("#testId").text() : 해당 id를 가지는 태그의 값을 가져온다(태그 제외하고 태그 내의 값만) 
+###### $("#testId").text()
 
----
+해당 id를 가지는 태그의 값을 가져온다(태그 제외하고 태그 내의 값만) 
 
-.val()과 .text()의 차이 : val()은 사용자가 입력한 input태그의 값을 가져오고, text()는 이미 지정되어 있는 text의 값을 가져온다.
+
+###### .val()과 .text()의 차이val()
+
+사용자가 입력한 input태그의 값을 가져오고, text()는 이미 지정되어 있는 text의 값을 가져온다.
 
 
 ---
@@ -366,6 +371,118 @@ for문의 if문이 String으로 써야되는 부분과 메소드 실행을 위�
 ---
 
 
+##### scroll 위치 이동
+
+	
+	$('.className').css('display','inline-block');
+	$('.className').scrollTop(0);
+
+해당 화면이 띄워진 이후에 실행해야 작동한다.	
+
+---
+
+##### form 안의 input validating
+
+직접 일일히 jQUery로 받아서 scirpt에서 조건문으로 확인해도 무관하다.
+
+하지만, jQuery의 validation plugin을 사용하면 편리하다.
 
 
+$('#findPW').click(function() {
+	
+	
+    jQuery("#findPWForm").validate({
+        rules:{
+            id:{required:true},
+            name:{required:true,minlength:2},
+            birthDate:{required:true},
+            email:{required:true, email:true},
+            pwQuestion:{required:true}
+        },
+        messages:{
+            name:{
+                required:"필수정보입니다"
+            },
+            birthDate:{
+                required:"필수정보입니다"
+            },
+            email:{
+                required:"필수정보입니다",
+                email:"이메일 주소를 입력해주세요"
+            },
+            pwQuestion:{
+                required:"필수정보입니다"
+            }
+        },
+        errorPlacement:function(error,element){
+            if(element.is(".form-control"))
+                {
+                error.appendTo(element.parent().parent());
+                }
+            else{
 
+            }
+        },
+        submitHandler:function(){
+            // $.css({cursor:"wait"});
+        	
+        	id = $('.id2').val();
+        	var name = $('.name2').val();
+        	var birth = $('.birth2').val();
+        	var email = $('.email2').val();
+        	var answer = $('.pwQuestion').val();
+        	
+        	console.log("finePW_btn id : ", id);
+        	
+        	$.ajax({
+        		type : "POST",
+        		url : "./find2",
+        		data : {
+        			"id" : id,
+        			"name" : name,
+        			"birth" : birth,
+        			"email" : email,
+        			"answer" : answer
+        		},
+        		success : function(data) {
+
+        			if (data == "error") {
+        				alert("일치하는 정보가 없습니다.");
+        			} else {
+        				alert("새로운 비밀번호를 설정해주세요.");
+        				$('#login-findPW').css('display', 'none');
+        				$('#login-findPW2').css('display', 'block');
+        			}
+        		}
+        	});
+            
+        },
+        success:function(element){
+        }
+    });
+});
+
+
+findPW 버튼을 클릭해 페이지(modal)을 이동하면 그 페이지에서 vaildating을 한다.
+
+이동한 페이지의 form태그(id=findPWForm)의 input 태그들을 확인한다.
+
+input태그의 name을 기준으로 확인하게 된다.
+
+submitHandler : submit 버튼을 눌럿을 때 모든 validating이 유효하면 실행되는 부분
+
+success : input태그 들의 유효성 검사(element로 어떤 id의 input태그인지 확인가능)
+
+---
+
+##### css에서의 jquery
+
+css파일에서 태그를 사라지게 할 수 있다.
+
+$('#modal').modal('hide');
+​​​​​​​
+반대로 닫혀있는 모달창을 열기위해서는
+
+$('#modal').modal('show');
+
+---

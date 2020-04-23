@@ -33,3 +33,11 @@ input태그의 type속성이 file일 경우 read only이므로 value속성에 �
 type이 text, hidden, check 일 경우엔 value에 값을 세팅할 수 있다.
 
 ---
+
+##### 공백 추가하고 싶을 때
+
+&nbsp; : Non-breaking Space
+
+&nbsp;를 원하는 만큼 추가해주면 된다.
+
+---
