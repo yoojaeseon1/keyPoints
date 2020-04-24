@@ -88,9 +88,15 @@ console.log($(".test").html); // output : <button>test button</button>
 해당 id를 가지는 태그의 값을 가져온다(태그 제외하고 태그 내의 값만) 
 
 
-###### .val()과 .text()의 차이val()
+###### .val()과 .text()의 차이
 
-사용자가 입력한 input태그의 값을 가져오고, text()는 이미 지정되어 있는 text의 값을 가져온다.
+val()
+
+사용자가 입력한 input태그의 value 값을 가져오고
+
+text()
+
+이미 지정되어 있는 text의 값을 가져온다.
 
 
 ---

@@ -61,9 +61,11 @@ ex)
 
 - method : 맵핑되는 전송방식(비울 경우 URL에 접근하는 모든 방식에서 해당 메소드가 실행된다.)
 
-- produces : 데이터 전송을 원활하게 하기 위한 방식
+- produces : controller -> jsp로 전송하는 데이터(return 값)의 형식을 지정
 
-ex) produces = "text/plain;charset=UTF-8"
+produces = "text/plain;charset=UTF-8" // 리턴 타입이 String
+
+produces = "application/json;charset=UTF-8" // 리턴타입이 Json
 
 
 

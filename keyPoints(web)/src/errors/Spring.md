@@ -404,5 +404,13 @@ test 속성을 감싸는 따옴표가 없으니까 따옴표가 예상된다는 
 
 ---
 
+##### Ajax통신으로 controller -> jsp파일로 전송이 안될 때
 
-	
+@RequestMapping의 produces 속성을 return 타입에 맞게 수정해주자
+
+String : "text/plain; charset=utf-8"
+
+Json : "application/json; charset=utf-8"
+
+---
+
