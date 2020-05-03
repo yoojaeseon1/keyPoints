@@ -5,3 +5,16 @@ root로 로그인 -> Navigator 메뉴 중 Administration -> User and Privileges
 -> 해당 아이디 / 비밀번호, Limit to Host Matching : localhost로 설정 후 Apply
 
 -> 메인 화면에서 생성한 아이디/비밀번호 동일하게 생성
+
+---
+
+##### A query was run and no Result Maps were found for the Mapped Statement 'reserve.selectTotalReservation'.  It's likely that neither a Result Type nor a Result Map was specified.
+
+select count(*) reserveList ~
+
+ 
+-> select count(*) from reserveList ~
+
+from을 빼먹어서 생긴 오류
+
+---

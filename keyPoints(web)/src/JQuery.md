@@ -41,6 +41,13 @@ ex)
 
 역할(role) : $("form[role='해당role']");
 
+
+ex)
+
+	$("[name=searchType] option:selected").val();
+	
+name이 searchType인 태그 안에 있는 option 태그 중 selected가 활성화된 option 태그의 value 
+
 ---
 
 ##### 자주 쓰이는 메서드
@@ -103,13 +110,15 @@ text()
 
 $(class or id or name).on(event, selector, data);
 
-event : 활성화 되는 이벤트(ex) "click")
+event : 활성화 되는 이벤트(ex) "click", "change")
+
+- click : button, a 태그등을 클릭할 때
+
+- change : select 태그에서 option을 변경할 때
 
 select : 실행 할 태그
 
 data : 이벤트가 실행 될 때 전달되는 data(function(data)) 를 통해 data를 사용한 실행 내용을 만들 수도 있다.
-
-
 
 
 ---
@@ -491,4 +500,10 @@ $('#modal').modal('hide');
 
 $('#modal').modal('show');
 
+---
+
+##### input date 타입 년도 4자리로 고정하기
+
+	input type="date" max="9999-12-31"
+	
 ---

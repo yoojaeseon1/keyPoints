@@ -1,5 +1,13 @@
 ##### <script> 태그로 둘러싼 스크립트 언어다. 
 
+<script type="text/javascript">
+
+</script>
+
+type을 명시하지 않아도 HTML5에서는 default가 javascript이기 때문에 무방하지만
+
+표준은 명시해주는 것이 맞다.
+
 jQuery 라이브러리를 가져오는 <script>태그를 먼저 써주고 그 밑에 코드를 작성하는 <Script>태그를 쓰자(그래야 둘다 인식한다.)
 
 ex)
@@ -45,7 +53,38 @@ ex)
 	
 	console.log(name.length); // name의 길이인 3을 리턴한다.
 	
+###### 배열
+
+	var array = new array();
+	var array = [];
 	
+	array[0] = "haha";
+	array[1] = "hoho";
+	
+	var array = new array("haha", "hoho"); 
+	
+	var date = "2020-05-04";
+	
+	var array = date.split("-");
+	
+	var array = ["2020", "05", "04"];
+	
+##### 반복문
+
+###### for
+
+	for(var index = 0; index < 5; index++){
+		console.log(index); // 0 1 2 3 4 의 순서로 출력된다.
+	}
+	
+
+###### for-in
+
+	for(var arrayIndex in array){
+		console.log(array[arrayIndex]);
+	}
+	
+배열의 크기만큼 알아서 반복문이 실행된다.
 
 ##### console
 
