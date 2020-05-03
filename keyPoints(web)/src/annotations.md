@@ -69,23 +69,26 @@ produces = "application/json;charset=UTF-8" // 리턴타입이 Json
 
 
 
------
+---
 
 #### @RequestParam(param) 
 
-해당 jsp파일에 접근할 때 url에 list?param=123 으로 되있는 123을 가져온다.(1:1로 파라미터를 가져올 때, @PathVariable이랑 헷갈리지 말자)
+URL의 쿼리스트링 값을 가져올 때 사용(1:1로 파라미터를 가져올 때, @PathVariable이랑 헷갈리지 말자)
+
+- 메소드의 파라미터안에서만 사용할 수 있다.(메소드의 실행문에서는 사용 불가)
 
 
-parameter가 배열일 경우 이름 옆에 []까지 입력해야 한다.
+
+- parameter가 배열일 경우 이름 옆에 []까지 입력해야 한다.
 
 ex) 
 
-@RequestParam("files[]") String[] files
+	@RequestParam("files[]") String[] files
 
 
------
+---
 
-@PathVariable
+#### @PathVariable
 
 REST방식으로 URL에서 필요한 값을 가져올 수 있도록 해준다.
 
@@ -331,4 +334,3 @@ Cotroller에서 실행하는 메소드의 파라미터에 있는
 input 태그의 value 속성이 VO 인스턴스의 필드 값이 된다.
 
 @ResponseBody 어노테이션을 메소드 위에 입력해줘야 mapping이 된다.
-

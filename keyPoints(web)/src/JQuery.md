@@ -502,6 +502,37 @@ $('#modal').modal('show');
 
 ---
 
+##### selected 된 option 값 사용하기
+
+	$(function(){
+		
+		$("[name='searchType']").change(function(){
+			var selectedType = $("[name=searchType] option:selected").val();
+	 			console.log("option changed : ", selectedType);
+	 			if(selectedType=='d') {
+	 				var dateSelected = "<input type='date' class='form-control' name='beginDate''>";
+	 				dateSelected += "<input type='date' class='form-control' name='endDate''>";
+	 				$("#dateSelected").html(dateSelected);
+	 			} else {
+	 				$("#dateSelected").html("<input type='text' class='form-control' name='keyword'>");
+	 			}
+			});
+	});
+
+
+
+$(function(){})
+
+안에 작성해야 실시간으로 selected 되는 내용을 확인할 수 있다.
+
+
+$("[name=searchType] option:selected").val();
+
+name이 searchType인 태그의 자식 태그(공백으로 구분) 중 option 태그 중 selected가 활성화 되어있는 option의 value를 확인하는 소스
+
+
+---
+
 ##### input date 타입 년도 4자리로 고정하기
 
 	input type="date" max="9999-12-31"
