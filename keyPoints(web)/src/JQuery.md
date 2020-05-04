@@ -99,7 +99,7 @@ console.log($(".test").html); // output : <button>test button</button>
 
 val()
 
-사용자가 입력한 input태그의 value 값을 가져오고
+사용자가 입력한 input태그의 value 속성값을 가져오고
 
 text()
 
@@ -108,7 +108,7 @@ text()
 
 ---
 
-$(class or id or name).on(event, selector, data);
+##### $(class or id or name).event(function(){});
 
 event : 활성화 되는 이벤트(ex) "click", "change")
 
@@ -116,17 +116,86 @@ event : 활성화 되는 이벤트(ex) "click", "change")
 
 - change : select 태그에서 option을 변경할 때
 
-select : 실행 할 태그
-
 data : 이벤트가 실행 될 때 전달되는 data(function(data)) 를 통해 data를 사용한 실행 내용을 만들 수도 있다.
 
+ex)
+
+	$("[name='searchButton']").click(function() {
+					
+					console.log("click button");
+		});
+
+
+##### $(class or id or name).on(event, function(){})
+
+event : 활성화 되는 이벤트(ex) "click", "change")
+
+- click : button, a 태그등을 클릭할 때
+
+- change : select 태그에서 option을 변경할 때
+
+	$("[name='searchButton']").on("click", function() {
+					console.log("click button");
+		});
+		
+		
+##### on("event")와 event()의 차이
+
+	<ul id="myTask">
+		<li>Coding</li>
+		<li>Answering</li>
+		<li>Getting Paid</li>
+	</ul>
+
+
+###### click()
+
+	$("#myTask").children().click(function(){
+		$(this).remove();
+	});
+	
+클릭한 li 태그에 바인딩 된 click 이벤트가 실행되어 해당 li 태그가 remove된다.
+
+하지만
+
+	$("#myTask").append("<li> New li Tag</li>");
+	
+한 뒤에 <li> New li Tag</li>를 클릭하면 click()메소드는 동작하지 않는다.
+
+click() 이벤트는 최초에 페이지를 로딩할 때 선언되어 있던 elememt에 이벤트를 바인딩하고
+
+그 이후에는 더이상 동적으로 바인딩하지 않기 떄문이다.
+
+###### on("click")
+
+click() 과는 달리 추가 된 element에도 해당 event가 바인딩된다.
+
+	$("#myTask").on("click", "li", function(event){
+		$(event.target).remove();
+	})
+	
+바인딩 한뒤에
+	
+	$("#myTask").append("<li> New li Tag</li>");
+	
+추가해줘도 <li> New li Tag</li> 도 클릭했을 때 event가 실행된다. 	
 
 ---
 
 
-$(class or id or name).attr(tag's name)
+##### $(class or id or name).attr(tag's attribute)
 
-해당 태그의 값을 가져온다.
+해당 태그의 해당 속성 값을 가져온다.
+
+ex)
+
+	$("#reviewForm").attr("id");
+	
+reviewForm 태그의 id속성의 값을 가져온다.
+
+	$("#reviewForm").attr("id", "haha");
+	
+reviewForm 태그의 id속성의 값을 haha로 초기화한다.
 
 
 ---
@@ -488,6 +557,28 @@ submitHandler : submit 버튼을 눌럿을 때 모든 validating이 유효하면
 
 success : input태그 들의 유효성 검사(element로 어떤 id의 input태그인지 확인가능)
 
+###### JQuery.validate
+
+remove method를 사용할 때 ajax통신 양식대로 작성한다.
+
+
+        id:{required:true,
+            minlength:4,
+            remote: {
+                    url:"/checkIDDup",
+                    type:"POST",
+                    data: {
+                    	id : function() {
+                           return $("#id").val();
+                        }
+                    }
+              }
+        }
+
+sucess는 작성하지 않고 Contoroller에서 /checkIDDup에 mapping되어있는 실행하고
+
+그 메소드에서는 String type으로 "true" 또는 "false"를 validation 결과에 따라 리턴해주면 된다.
+
 ---
 
 ##### css에서의 jquery
@@ -535,6 +626,9 @@ name이 searchType인 태그의 자식 태그(공백으로 구분) 중 option �
 
 ##### input date 타입 년도 4자리로 고정하기
 
-	input type="date" max="9999-12-31"
+	<input type="date" max="9999-12-31"/>
 	
 ---
+
+
+

@@ -2,6 +2,8 @@
 
 form 태그 안에 있는 input 태그의 value를 전송한다.
 
+GET, POST 방식만 지원한다.
+
 	<form method="GET" action="/reviewList">
 
 		<input value="123"/>
