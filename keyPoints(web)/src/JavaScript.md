@@ -53,6 +53,9 @@ ex)
 	
 	console.log(name.length); // name의 길이인 3을 리턴한다.
 	
+
+
+	
 ###### 배열
 
 	var array = new array();
@@ -549,4 +552,315 @@ page
 
 0 : 현재페이지 새로고침
 
+---
+
+##### 객체 생성
+
+JavaScript는 class가 없다. 하지만 객체를 생성할 때 프로토타입으로 만들어서 class처럼 사용할 수는 있다.
+
+이전에 공부한 방법으로는 new 키워드를 사용해 객체를 여러개 만들어 낼 수 없다.
+
+사용자 정의 객체 선언
+
+   function Point(xpos, ypos) {
+	
+	this.x = xpos;
+	this.y = ypos;
+	this.getDistance = function(){
+	   return Math.sqrt(this.x* this.x + this.y * this.y);
+	}
+
+   }
+
+
+객체 생성
+
+   var p1 = new Point(10,20);
+   var p2 = new Point(10,30); 
+
+
+객체의 변수 접근
+
+   p1.getDistance();
+   p2.xpos = 50;
+                                                                                                                                                                    
+생성된 객체에 새로운 속성/메소드 추가
+
+
+p1.turbo = 5;
+p1.showModel = function(){
+	alert("모델은" + this.model + "입니다.");
+   }                                             
+
+생성자를 변경할 필요없이 해당 객체만 추가해줄 수 있다.
+
+물론 공통적으로 추가하고 싶으면 생성자를 수정하면 된다.
+
+                                                                                 
+---
+
+##### 프로토타입
+
+위의 예시에서 getDistance는 모든 객체에서 동일하게 작동하기 때문에 객체별로 따로 메모리 공간을 차지할 필요가 없다.
+
+   function Point(xpos, ypos) {
+	
+	this.x = xpos;
+	this.y = ypos;
+	this.prototype.getDistance = function(){
+	   return Math.sqrt(this.x* this.x + this.y * this.y);
+	}
+
+   }
+
+prototype을 명시해주면 생성된 객체에서 getDistance를 공유한다.(java의 static 메소드가 된다.)
+
+---
+
+##### call by value / call by reference
+
+javaScript에서 기본형/객체 타입을 파라미터로 넘겼을 경우 call by value가 된다.(java와는 다르다.)
+
+하지만 배열을 파라미터로 넘기면 call by reference가 된다.(왠지는 모르겠다. 같은 객체인데..)
+
+
+---
+
+##### DOM(Document Object Model)
+
+- HTML(JSP)문서의 구조를 트리로 표현한 것
+
+- 이미 만들어져 있는 document 객체를 통해 HTML 요소들을 값을 확인, 조작할 수 있다.
+
+- 한 페이지의 root node가 document고 그 밑으로 태그를 생성할 때마다 document객체의 key값이 추가된다고 생각하면 된다.
+
+<div id="main">이것이 div 요소(element)입니다.</div>
+
+element는 태그 안에 있는 자식태그까지 모두 포함된다.
+
+var x = document.getElementById("main"); // id가 main인 element를 찾아서 반환(태그 그 자체를 반환한다고 생각하면 됨)
+
+var x = document.getElementById("main").innerHTML; // id가 main인 element의 내용(내부에 작성되어 있는 태그 코드)을 출력
+
+---
+
+##### 입력 양식 찾기
+
+<form> // document.forms[0]
+
+	<input type="text" value=""> // document.form[0].elements[0]
+	<input type="text" value=""> // document.form[0].elements[1]
+	<input type="submit">
+</form>
+
+
+마찬가지로 form이 여러개라면 작성된 순서대로 인덱스를 부여받는다.
+
+<form name="myForm"> // document.myForm
+	<input type="text" id="target1" name="text1" value=""> // document.myForm.text1
+	<input type="text" id="target2" name="text2" value=""> // document.myForm.text2
+	<input type="submit">
+</form>
+
+name속성이 정의되어 있는 경우 인덱스 대신 name속성명으로 접근 가능하다.
+
+---
+
+##### element의 검색 / 변경
+
+검색 : 메소드만 호출
+
+변경 : 메소드 호출 = 변경할 값;
+
+element의 내용(자식태그) 검색
+
+document.getElementById("main").innerHTML; // id 값을 String으로 입력해야 한다.
+
+element의 내용 변경
+
+document.getElementById("main").innerHTML = "<div>hahahoho<div>";
+
+
+element의 속성 값 검색
+
+document.getElementById("main").속성명(ex)value,src,class,id 등)
+
+element의 속성 변경
+
+document.getElementById("main").속성명 = 새로운 속성 값
+
+---
+
+##### BOM(Browser Object Model)
+
+DOM의 부모 개념
+
+DOM은 웹사이트의 한 페이지
+
+BOM은 페이지 간의 관계까지 포함
+
+windows객체로 BOM의 메소드를 사용할 수 있다.
+
+---
+
+##### 정규표현식(다른 언어에서도 공통적으로 사용되니까 잘 알아두자)
+
+- 문자열의 검색/치환을 위해 사용되는 수식
+
+element.value.match(정규표현식) 의 형식으로 사용된다.
+
+구성 : 메타문자(+수량한정자)
+
+메타문자
+
+^ : 문자열의 시작
+$ : 문자열의 끝
+. : 한 개의 문자와 일치
+\d : 한개의 숫자와 일치
+\w : 한 개의 문자나 숫자와 일치
+\s : 공백, 탭, 줄 바꿈, 캐리지 리턴 문자와 일치
+[] : 문자 종류, 문자 범위
+
+/ : 하나의 정규 표현식을 묶는 단위, 한 문자열에 여러 표현을 사용해서 정규표현식을 만들 수 있다.
+
+ex)
+
+/abc/ : 정확히 "abc"와 일치
+
+/./ : 한 자리의 문자
+
+/\d\d\d/ : 3자리의 숫자
+
+/[a-z]/ : a 부터 z 까지의 소문자 알파벳 한 글자
+
+
+수량한정자 : 메타문제 '뒤'에 올 수 있다.
+
+* : 0회이상 반복
++ : 1회 이상 반복
+? : 0회 또는 1회
+{m} : m회 이상
+{m,n} : m회 이상 n회 이하
+(ab) : 그룹화(정확히 이 표현식과 일치)
+
+
+ex)	
+
+		<form>
+			<input type="text" id="user" />
+			<input type="button" onclick="checkId(document.getElementById('user'))" value="확인" />	
+		</form>
+	
+		function checkId(id) {
+	
+		   var exp1 = "[a-z0-9]+"; // 문자열 내에 포함되어 있으면 true가 나온다. ("ㅋㅋㅋasdas123ㅇㅇㅇ" 도 true를 반환한다.)
+		   var exp2 = "^[a-z0-9]+$"; // 처음과 끝(String 내의 모든 문자)을 지정했기 때문에 숫자와 알파벳 소문자의 조합으로만 가능하다.
+		   var exp = "^[a-z0-9]+"; // 해당 정규식으로 시작만 하면 된다.("dfajmk123ㅋㅋㅋ"는 true를 반환한다.)
+		   var exp = "[a-z0-9]+$"; // 해당 정규식으로 끝나기만 하면 된다.("ㅋㅋㅋdfnakj123"는 true를 반환한다.)
+	   
+			}
+	
+	
+		}
+
+---
+
+validate 플러그인에 정규표현식으로 vaildating하는 것 추가하기
+
+addMethod 실행
+
+        jQuery.validator.addMethod(
+        		"regex",
+        		function(value, element, regexp) {
+        			console.log("value : ", value); // validating 할 문자열
+        			console.log("element : ", element); // vaildating할 태그(ex)<input type="text" class="form-control"
+								name="id" id="id" placeholder="아이디를 입력해주세요"
+								style="width: 493px; height: 34px;" />)
+        			console.log("regexp : ", regexp); // 정규표현식
+       			if(regexp.constructor != RegExp)
+        				regexp = new RegExp(regexp);
+        			else if(regexp.global)
+        				regexp.lastIndex = 0;
+        			
+        			return this.optional(element) || regexp.test(value); // test는 RegExp 객체에 있는 메소드
+
+			// this는 validate 객체
+
+        		}
+        )
+
+
+플러그인에 적용하기
+
+        id:{required:true,
+            minlength:4,
+            remote: {
+                    url:"/checkIDDup",
+                    type:"POST",
+                    data: {
+                    	id : function() {
+                           return $("#id").val();
+                        }
+                    }
+              },
+              regex : "^[0-9a-z]+$" // 이 부분, regex는 addMethod의 첫 번째 인자
+        }
+
+---
+
+##### $(document).ready(function(){}) 과 $(function(){}); 은 실행되는 내용이 같다.
+
+---
+
+##### addEventListener
+
+- event가 일어나는지 계속 듣고(listen) 있다가 event가 발생하면 메소드를 실행한다.
+
+
+이벤트 종류
+
+click : 클릭
+change : value의 변동
+focus : 포커스(커서)를 얻었을 때(<-> blur)
+keydown : 키보드를 눌렀을 때
+keyup : 눌렀던 키보드 버튼을 뗏을 때
+load : 로드가 완료되었을 때
+mousedown : 마우스를 클릭했을 때
+mouseup : 마우스에서 손을 뗐을 때 (mousedown+up : click과 같다.)
+mouseout : 마우스가 특정 객체 밖으로 나갔을 때
+mouseover : 마우스가 특정 객체 위로 올려졌을 때
+mousemove : 마우스가 움직였을 때
+
+option 태그 등에서 선택을 했을 때는 change로 이벤트를 확인하면 된다.(select의 value가 change됐으니까, 내가 본 자료에서는 이벤트명이 select라고 되어있었는데 아니다.)
+
+
+###### element.addEventListener
+
+- 지정한 element에 대해서 event가 일어났을 때 메소드를 실행한다.
+
+ex)
+
+   document.getElementById("email").addEventListener("click", function(){// 실행내용}) // email을 id속성으로 가지는 element에서 click 이벤트가 일어났을 때 메소드를 실행한다.
+
+
+
+###### document.addEventListener
+
+- 페이지 내에 있는 모든 element에서 특정 event가 일어났을 때 메소드를 실행한다.
+
+ex)
+
+   document.addEventListener("change", function(){// 실행내용}); // 페이지 내에 있는 어떤 태그에서 change이벤트가 발생해도 메소드가 실행된다.
+
+
+###### window.addEventListener
+
+- 브라우저에서 특정 event가 일어났을 때 메소드를 실행한다.
+
+ex)
+
+   window.addEventListener("load", function(){ // 실행내용}); // 페이지가 로드되면 메소드가 실행된다.
+
+   window.addEventListener("click", function(){ // 실행내용}); // 브라우저 내의 어떤 곳을 클릭하더라고 메소드가 실행된다.(빈 곳을 클릭해도 실행된다.)
+   
 ---
