@@ -1,8 +1,20 @@
 ##### Access denied for user 'root'@'localhost
 
-root·Î ·Î±×ÀÎ -> Navigator ¸Ş´º Áß Administration -> User and Privileges
+rootë¡œ ë¡œê·¸ì¸ -> Navigator ë©”ë‰´ ì¤‘ Administration -> User and Privileges
 
--> ÇØ´ç ¾ÆÀÌµğ / ºñ¹Ğ¹øÈ£, Limit to Host Matching : localhost·Î ¼³Á¤ ÈÄ Apply
+-> í•´ë‹¹ ì•„ì´ë”” / ë¹„ë°€ë²ˆí˜¸, Limit to Host Matching : localhostë¡œ ì„¤ì • í›„ Apply
 
--> ¸ŞÀÎ È­¸é¿¡¼­ »ı¼ºÇÑ ¾ÆÀÌµğ/ºñ¹Ğ¹øÈ£ µ¿ÀÏÇÏ°Ô »ı¼º
+-> ë©”ì¸ í™”ë©´ì—ì„œ ìƒì„±í•œ ì•„ì´ë””/ë¹„ë°€ë²ˆí˜¸ ë™ì¼í•˜ê²Œ ìƒì„±
 
+---
+
+##### A query was run and no Result Maps were found for the Mapped Statement 'reserve.selectTotalReservation'.  It's likely that neither a Result Type nor a Result Map was specified.
+
+select count(*) reserveList ~
+
+ 
+-> select count(*) from reserveList ~
+
+fromì„ ë¹¼ë¨¹ì–´ì„œ ìƒê¸´ ì˜¤ë¥˜
+
+---

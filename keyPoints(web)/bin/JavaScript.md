@@ -9,10 +9,12 @@ ex)
 <script>
 	var bno=10;
 	
-	$.getJSON("/replies/all/"+bno, function(data) {
+$.getJSON("/replies/all/"+bno, function(data) {
 		console.log(data.length);
 	});
 </script>								// 코드를 작성하는 태그 입력
+
+---
 
 ##### 일반적으로 <head> 태그 안에다 작성하고 <body> 태그에다 작성해도 무관하다.
 
@@ -28,6 +30,64 @@ ex)
 
 
 ##### JSP파일 관련 오류는 웹 브라우저의 F12를 눌러 Console에서 확인하자(STS의 콘솔창에서는 view파일에서 발생한 오류를 확인할 수 없다.)
+
+##### console
+
+###### console.log
+
+	var a = 1;
+	var b = "hello";
+	var c = true;
+
+	console.log(a); // 하나만 로그
+	
+	console.log(a,b,c); // 여러 개 동시에 로그
+	
+	console.log("idx : ", idx) // 텍스트와 변수 동시 출력
+	
+	console.log("idx : ", idx, ", val : ", val); // 여러 텍스트/변수 동시 출력
+	
+	console.log("${a}는 숫자, ${b}는 문자열"); // 변수와 텍스트 동시 출력(안되는데?)
+	
+* 주의 사항
+
+객체의 필드 값을 출력하고 싶을 땐 ${인스턴스.필드} 로 검색해야 한다.
+
+예시의 경우처럼 선언한 변수 또는 메소드의 인자의 경우는 바로 변수 명을 입력해야된다.
+
+객체의 변경사항이 실시간으로 반영된다.
+
+
+###### console.dir
+
+객체를 로깅할 경우 필드 값을 정리해서 출력한다.
+
+객체는 dir, 나머지는 log로 로깅하면 편리하다.
+
+ex)
+
+	console.dir("${alist}");
+	
+alist는 ArrayList 인스턴스다.
+
+###### console.count
+
+몇번이나 카운트되었는지 확인하고 싶을 때 사용한다.
+
+	console.count('카운터1'); // 카운터1: 1
+	console.count('카운터1'); // 카운터1: 2
+	console.count('카운터2'); // 카운터2: 1
+	console.count('카운터2'); // 카운터2: 2
+	console.count('카운터1'); // 카운터1: 3
+
+###### console.time, console.timeEnd
+
+코드의 수행시간을 확인할 때 사용한다.
+
+	console.time('타이머');
+	for (var i = 0; i < 1000000; i++) z = 5;
+	console.timeEnd('타이머'); // 타이머: 6.76611328125ms
+
 
 ##### JQuery(JavaScript를 편리하게 쓰기위한 라이브러리, 똑같이 <script>태그 안에다 작성한다.)
 

@@ -1,29 +1,29 @@
 ##### root-context.xml
 
-- sqlSession ¿¬°á : DBÀÇ id/passwordÀÔ·Â
+- sqlSession ì—°ê²° : DBì˜ id/passwordì…ë ¥
 
-- ÇÁ·ÎÁ§Æ®ÀÇ mapperÆÄÀÏµé°ú ¿¬°á
+- í”„ë¡œì íŠ¸ì˜ mapperíŒŒì¼ë“¤ê³¼ ì—°ê²°
 
 ---
 
 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 
-: ÀÚµ¿À¸·Î AspectJ ¶óÀÌºê·¯¸®¸¦ ÀÌ¿ëÇØ¼­ Proxy°´Ã¼¸¦ »ı¼ºÇØ ³»´Â ¿ëµµ·Î »ç¿ë
+: ìë™ìœ¼ë¡œ AspectJ ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ì´ìš©í•´ì„œ Proxyê°ì²´ë¥¼ ìƒì„±í•´ ë‚´ëŠ” ìš©ë„ë¡œ ì‚¬ìš©
 
 ---
 
-ÆĞÅ°Áö¸¦ ÀÎ½ÄÇÒ ¼ö ÀÖµµ·Ï ¼³Á¤ÇÑ´Ù
+íŒ¨í‚¤ì§€ë¥¼ ì¸ì‹í•  ìˆ˜ ìˆë„ë¡ ì„¤ì •í•œë‹¤
 
 ex)
 
 <context:component-scan base-package="org.zerock.service"></context:component-scan>
 
-base-package="package route" ¸¦ ÀÛ¼ºÇØÁÖ¸é µÈ´Ù.
+base-package="package route" ë¥¼ ì‘ì„±í•´ì£¼ë©´ ëœë‹¤.
 
 
 ---
 
-Æ®·£Àè¼ÇÀÇ Ã³¸®
+íŠ¸ëœì­ì…˜ì˜ ì²˜ë¦¬
 
 	<bean id="transactionManager"
 	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -34,7 +34,7 @@ base-package="package route" ¸¦ ÀÛ¼ºÇØÁÖ¸é µÈ´Ù.
 
 <tx:annotation-driven />
 
-: @Transctional ¾î³ëÅ×ÀÌ¼ÇÀ» ÀÌ¿ëÇÑ Æ®·£Àè¼Ç °ü¸®°¡ °¡´ÉÇÏµµ·Ï ÇØÁØ´Ù.
+: @Transctional ì–´ë…¸í…Œì´ì…˜ì„ ì´ìš©í•œ íŠ¸ëœì­ì…˜ ê´€ë¦¬ê°€ ê°€ëŠ¥í•˜ë„ë¡ í•´ì¤€ë‹¤.
 
 
 
@@ -42,21 +42,21 @@ base-package="package route" ¸¦ ÀÛ¼ºÇØÁÖ¸é µÈ´Ù.
 
 ##### pom.xml
 
-- ¿ÜºÎ ¶óÀÌºê·¯¸®¿ÍÀÇ ¿¬µ¿
+- ì™¸ë¶€ ë¼ì´ë¸ŒëŸ¬ë¦¬ì™€ì˜ ì—°ë™
 
 
-ex) ¶óÀÌºê·¯¸® ¸í
+ex) ë¼ì´ë¸ŒëŸ¬ë¦¬ ëª…
 
  <groupId> -> <artifactId>
 
 
-¶óÀÌºê·¯¸®
+ë¼ì´ë¸ŒëŸ¬ë¦¬
 
 jackson-databind 
 
-: °´Ã¼¸¦ JSONÅ¸ÀÔÀÇ µ¥ÀÌÅÍ·Î º¯È¯ÇÏ°Å³ª, ¹İ´ëÀÇ ÀÛ¾÷À» ÇÒ ¶§ »ç¿ë(JOSNÀ» ÀÌ¿ëÇØ¾ßÇÏ´Â ÇÁ·ÎÁ§Æ®¿¡¼­´Â ¹İµå½Ã ÇÊ¿ä)
+: ê°ì²´ë¥¼ JSONíƒ€ì…ì˜ ë°ì´í„°ë¡œ ë³€í™˜í•˜ê±°ë‚˜, ë°˜ëŒ€ì˜ ì‘ì—…ì„ í•  ë•Œ ì‚¬ìš©(JOSNì„ ì´ìš©í•´ì•¼í•˜ëŠ” í”„ë¡œì íŠ¸ì—ì„œëŠ” ë°˜ë“œì‹œ í•„ìš”)
 
-¿¹Á¦ÀÇ ÇÁ·ÎÁ§Æ®¿¡¼­´Â Map ÀÎ½ºÅÏ½º¸¦ JSONÇü½ÄÀ¸·Î º¯È¯ÇÏ¿© view¿¡ »Ñ·ÁÁØ´Ù.
+ì˜ˆì œì˜ í”„ë¡œì íŠ¸ì—ì„œëŠ” Map ì¸ìŠ¤í„´ìŠ¤ë¥¼ JSONí˜•ì‹ìœ¼ë¡œ ë³€í™˜í•˜ì—¬ viewì— ë¿Œë ¤ì¤€ë‹¤.
 
 ---
 
@@ -65,18 +65,18 @@ org.springframework -> spring-aop
 org.springframework -> spring-tx
 
 
-: Spring¿¡¼­ AOP¹æ½ÄÀ» »ç¿ëÇÏ±â À§ÇØ »ç¿ëÇÏ´Â ¶óÀÌºê·¯¸®
+: Springì—ì„œ AOPë°©ì‹ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•´ ì‚¬ìš©í•˜ëŠ” ë¼ì´ë¸ŒëŸ¬ë¦¬
 
 ---
 
-aspectj : AOPÀÇ ±â´ÉÀ» Àû¿ëÇÏ±âÀ§ÇÑ apectj ¾ğ¾îÀÇ ¹®¹ıÀ» »ç¿ëÇÏ±â À§ÇÑ ¶óÀÌºê·¯¸®
+aspectj : AOPì˜ ê¸°ëŠ¥ì„ ì ìš©í•˜ê¸°ìœ„í•œ apectj ì–¸ì–´ì˜ ë¬¸ë²•ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬
 
 
 ---
 
 ##### servlet-context.xml
 
-login¿¡ ÇÊ¿äÇÑ interceptor¸¦ ¼³Á¤ÇÑ´Ù.
+loginì— í•„ìš”í•œ interceptorë¥¼ ì„¤ì •í•œë‹¤.
 
 ex)
 
@@ -89,11 +89,11 @@ ex)
 		</interceptor>
 	</interceptors>
 
-mapping path¿¡ Á¢±ÙÇÒ ¶§ interceptor°¡ ½ÇÇàµÇ¾î login¿©ºÎ, ±ÇÇÑ µîÀ» È®ÀÎ ÇÒ ¼ö ÀÖ´Ù.
-beans:ref¿¡´Â À§¿¡¼­ ¼³Á¤ÇÑ beanÀÇ id¸¦ ÀÔ·ÂÇØÁØ´Ù.
+mapping pathì— ì ‘ê·¼í•  ë•Œ interceptorê°€ ì‹¤í–‰ë˜ì–´ loginì—¬ë¶€, ê¶Œí•œ ë“±ì„ í™•ì¸ í•  ìˆ˜ ìˆë‹¤.
+beans:refì—ëŠ” ìœ„ì—ì„œ ì„¤ì •í•œ beanì˜ idë¥¼ ì…ë ¥í•´ì¤€ë‹¤.
 
 
-¡Ú mapping path¿¡ Á¢±Ù -> beans:ref¿¡¼­ ¼³Á¤µÈ bean idÈ®ÀÎ -> bean id¿¡ ¼³Á¤µÈ class(interceptor)¿¡¼­ preHandle/postHandle ¸Ş¼Òµå ½ÇÇà
+â˜… mapping pathì— ì ‘ê·¼ -> beans:refì—ì„œ ì„¤ì •ëœ bean idí™•ì¸ -> bean idì— ì„¤ì •ëœ class(interceptor)ì—ì„œ preHandle/postHandle ë©”ì†Œë“œ ì‹¤í–‰
 
 
 ---
@@ -104,7 +104,7 @@ beans:ref¿¡´Â À§¿¡¼­ ¼³Á¤ÇÑ beanÀÇ id¸¦ ÀÔ·ÂÇØÁØ´Ù.
 
 ##### applicationContext.xml
 
-DB ¿¬µ¿°ú °ü·ÃµÈ ¼³Á¤À» ÇÑ´Ù.
+DB ì—°ë™ê³¼ ê´€ë ¨ëœ ì„¤ì •ì„ í•œë‹¤.
 
 ex)
 
@@ -119,3 +119,21 @@ ex)
 	</bean>
 	
 	
+---
+
+##### web.xml
+
+ì¸ì½”ë”© ë°©ì‹ ì„¤ì •(í•œê¸€ ê¹¨ì§€ì§€ ì•Šë„ë¡)
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>

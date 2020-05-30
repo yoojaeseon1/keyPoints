@@ -4,6 +4,19 @@ STS가 3버전인거다.
 
 -----
 
+##### 인코딩 방식 변경(UTF-8로)
+
+window -> Preferences -> General -> Appearance -> Content Type 
+
+-> Text클릭한 상태에서 맨 밑 Default encoding : UTF-8 쓰고 Update
+
+
+.java 파일 중에 default 인코딩 방식이 바뀌지 않은 것들이 있으면
+
+Content Type -> Text-> Java Source File의 인코딩 방식을 변경해주면 된다.
+
+---
+
 ##### HTTP 메소드
 
 GET : select
@@ -484,3 +497,242 @@ JSON타입의 데이터를 ajax방식으로 보낼 때 유용(댓글달기)
 
 -----
 
+##### HttpServletRequest의 getParameter(parameter) vs getAttrubute(parameter)
+
+###### getParameter
+
+JSP파일에서 <form> 태그안에 전송하는 태그에서 name이 parameter와 일치하는 값을 가져온다.
+
+
+###### getAttribute
+
+JSP파일의 스크립트릿에서 setAttribute("attribute", value) 를 통해 설정된 value값을 가져온다.
+
+---
+
+##### model.addAttribute / session.setAttribute 된 값 
+
+모두 jsp파일에서 ${atrribute명}으로 가져올 수 있다. model과 session의 atrribute명이 겹치치 않게 코딩하자
+
+
+---
+
+##### ajax통신에서의 model.addAttribute()
+
+ajax통신을 하는 controller의 메소드에서 model.addAttribute()를 해도 해당 페이지에서 적용된 attribute의 데이터를 사용할 수 없다.
+
+model.addAttribute()를 하고 return "해당 페이지" 가 되야 하는데 해당 페이지로 데이터만 전송되는 거니까 addAttribute가 의미가 없다.
+
+
+ex)
+
+	@ResponseBody
+	@RequestMapping(value = "/review_list/reviewLike", produces = "application/json; charset=utf-8")
+	public ResponseEntity<String> showReviewLikeCount(HttpSession session, Model likeModel) throws SQLException {
+
+		// 중략
+
+		likeModel.addAttribute("userID", id); // 했지만 ajax통신을 통한 데이터가 전송된 페이지에서 사용할 수 없다.
+
+
+		HttpHeaders responseHeaders = new HttpHeaders();
+		List<Map<String, Object>> likeList = new ArrayList<>();
+		Map<String, Object> temp = new HashMap<>();
+
+		temp.put("likeCount", likeCount);
+		temp.put("checked", bean.isChecked());
+
+		likeList.add((Map<String, Object>) temp);
+
+		JSONArray json = new JSONArray(likeList);
+
+		return new ResponseEntity<String>(json.toString(), responseHeaders, HttpStatus.CREATED);
+	}
+
+json.toString()을 데이터로 보내는 것이지 return을 통한 페이지의 이동은 없기 때문에 model.addAttribute()는 무용지물이다.
+
+---
+
+##### local workspace의 디렉토리
+
+	${pageContext.request.contextPath}
+
+: server.xml 파일에 설정한 context의 path속성을 읽어온다.
+
+: local 디렉토리의 workspace폴더에 있는 webapp(local 디렉토리의 workspace/src/main/webapp)을 root로 한다.
+
+controller에서 실행한 
+
+	servletRequest.getSession().getServletContext().getRealPath("/");
+	
+와 같은 디렉토리를 리턴한다.(HttpServletRequest / MultipartHttpServletRequest 모두 동일한 값이 나온다.)
+
+path를 / 으로 설정한 경우
+
+그 하위 폴더를 정확히 작성해야 정상적으로 mapping이 된다.
+
+ex)
+
+	href="${pageContext.request.contextPath}/resources/css/clndr.css?version=1
+	
+	
+${pageContext.request.scheme}: http
+
+${pageContext.request.serverName}: localhost
+
+${pageContext.request.serverPort}: 8080
+
+---
+
+##### 메소드의 return type
+
+###### String
+
+JSP파일(view)의 경로.
+
+return 값 마지막에 .jsp를 붙여서 view 파일을 찾는다.
+
+controller의 메소드에서 return하는 view 파일의 디렉토리는
+
+루트가 /WEB-INF/views 이다.
+
+return 다음에 오는 경로는 views를 기준으로 그 밑의 디렉토리를 명시하면 된다.
+
+ex)
+
+	return review/review_detail;
+	
+review_detail.jsp파일을 찾는다.(마지막에 .jsp를 붙여서 view파일을 찾는다.)
+
+	return review/review_detail/;
+	
+review_detail/.jsp 파일을 찾기 때문에 없으면 오류가 난다.
+
+---
+
+###### URL로 이동하고 싶은 경우(jsp파일말고)
+
+
+
+	return "forward:" + URL // 이동하는 URL의 controller 메소드에서 현재 메소드가 가지고 있는 request parameterrequest.getParameter()를 통한 쿼리스트링 사용을 할 수 있다.
+
+또는
+
+	return "redirect:" + URL // 이동하는 URL의 controller 메소드에서 현재 메소드가 가지고 있는  request parameter(request.getParameter()를 통한 쿼리스트링 사용)를 사용할 수 없다.
+
+
+참고 사이트 : https://wondongho.tistory.com/65
+
+
+---	
+
+###### void
+
+@RequestMapping(value="URI")
+
+에 사용되는 URI과 view의 이름(return type이 String일 때의 return value)이 같을 경우에 사용할 수 있다.
+
+---
+
+##### request.getParameter("parameter")
+
+GET/POST 방식으로 파라미터 값이 넘어올 때 그 값을 사용 할 수 있다.
+
+@RequestParam("parameter")로 값을 가져오는게 더 편할 수 있다.
+
+---
+
+##### request.getAttribute("attribute")
+
+page, request, response, session, application 과 같은 스코프 영역에서 값을 가져온다.
+
+setAttribute된 attribute를 가져오는 것이 아닐까??
+
+@ModelAttribute("attribute")로 가져오는게 더 편할 수 있다.
+
+---
+
+##### 현재 페이지의 URL 주소 가져오기
+
+아래와 같은 주소가 있을 경우
+
+http://localhost:8080/logout
+
+INFO : com.bit.yes.controller.LoginController - URI : /logout
+INFO : com.bit.yes.controller.HomeController - Welcome home! The client locale is ko_KR.
+INFO : com.bit.yes.controller.LoginController - URL : http://localhost:8080/logout
+INFO : com.bit.yes.controller.LoginController - contextPath : 
+INFO : com.bit.yes.controller.LoginController - servletPath : /logout
+INFO : com.bit.yes.controller.LoginController - before page : http://localhost:8080/
+
+---
+
+##### ResponseEntity<>
+
+ajax 통신에 data를 ResponseEntity에 실어 보낼 때
+
+public ResponseEntity<String> listReviewComment(@ModelAttribute("commentVo") CommentVo commentVo, Model model,
+			HttpServletRequest request) throws Exception {
+
+
+이라면 
+
+return new ResponseEntity<>(json.toString(), responseHeaders, HttpStatus.CREATED);
+
+처럼 ResponseEntity의 첫 번째 인자로 ajax를 통해 보낼 data 해당 타입으로 넣어주면된다.
+
+String, List, Map 다 가능하다.
+
+---
+
+##### br태그, "\n" 
+
+	<br> = "/n"
+
+/r : 줄의 끝에서 시작위치로 돌아가는 것
+
+게시물에서 엔터 눌렀을 때의 경우 다음 줄의 시작위치로 돌아가기 때문에 /r/n이 동시에 일어난다.
+
+/n 만 <br>으로 바꿔주면 뷰에서 개행이 정상적으로 된 것을 확인할 수 있다.
+
+---
+
+##### mappper에 쿼리문 작성시 parameterType이 
+
+Map인 경우
+
+${key}
+
+
+VO객체의 필드인 경우 / 단일 기본형 parameter인 경우
+
+	#{field name}
+
+
+
+map 사용시 주의사항(${key})
+
+value값이 String인 경우 "${key}"를 해줘야 한다. 그래야 문자열로 인식한다.
+
+int인 경우는 따옴표로 묶지 않아도 된다.
+
+VO객체의 경우는 따옴표로 묶지 않아도 알맞은 타입으로 인식한다.
+
+
+---
+
+##### session
+
+###### invalidate()
+
+session에 설정되어있는 값을 지우는 것이 아니라 무효화시키는 것이다.
+
+자바는 gabarge collector가 메모리를 관리하기 때문에 사용자는 session이 차지하고있는
+
+메모리를 삭제할 수 없고 그 공간에 있는 데이터를 의미없는 값으로 덮는 것이다.
+
+---
+
+#####  cookie관련 정보 확인
+
+F12 -> application -> 왼쪽 메뉴 중 cookies

@@ -1,70 +1,77 @@
-##### JQuery(JavaScript¸¦ Æí¸®ÇÏ°Ô ¾²±âÀ§ÇÑ ¶óÀÌºê·¯¸®, ¶È°°ÀÌ <script>ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÑ´Ù.)
+##### JQuery(JavaScriptë¥¼ í¸ë¦¬í•˜ê²Œ ì“°ê¸°ìœ„í•œ ë¼ì´ë¸ŒëŸ¬ë¦¬, ë˜‘ê°™ì´ <script>íƒœê·¸ ì•ˆì—ë‹¤ ì‘ì„±í•œë‹¤.)
 
-<script> ÅÂ±×·Î µÑ·¯½Ñ ½ºÅ©¸³Æ® ¾ğ¾î´Ù. 
+<script> íƒœê·¸ë¡œ ë‘˜ëŸ¬ì‹¼ ìŠ¤í¬ë¦½íŠ¸ ì–¸ì–´ë‹¤. 
 
-jQuery ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â <script>ÅÂ±×¸¦ ¸ÕÀú ½áÁÖ°í ±× ¹Ø¿¡ ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â <Script>ÅÂ±×¸¦ ¾²ÀÚ(±×·¡¾ß µÑ´Ù ÀÎ½ÄÇÑ´Ù.)
+jQuery ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” <script>íƒœê·¸ë¥¼ ë¨¼ì € ì¨ì£¼ê³  ê·¸ ë°‘ì— ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” <Script>íƒœê·¸ë¥¼ ì“°ì(ê·¸ë˜ì•¼ ë‘˜ë‹¤ ì¸ì‹í•œë‹¤.)
 
 ex)
 
 <head>
-<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ¶óÀÌºê·¯¸®¸¦ °¡Á®¿À´Â ÅÂ±×¸¦ ¸ÕÀú ÀÔ·Â ÈÄ
+<script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script> // ë¼ì´ë¸ŒëŸ¬ë¦¬ë¥¼ ê°€ì ¸ì˜¤ëŠ” íƒœê·¸ë¥¼ ë¨¼ì € ì…ë ¥ í›„
 <script>
 	var bno=10;
 	
 	$.getJSON("/replies/all/"+bno, function(data) {
 		console.log(data.length);
 	});
-</script>								// ÄÚµå¸¦ ÀÛ¼ºÇÏ´Â ÅÂ±× ÀÔ·Â
+</script>								// ì½”ë“œë¥¼ ì‘ì„±í•˜ëŠ” íƒœê·¸ ì…ë ¥
 
-ÀÏ¹İÀûÀ¸·Î <head> ÅÂ±× ¾È¿¡´Ù ÀÛ¼ºÇÏ°í <body> ÅÂ±×¿¡´Ù ÀÛ¼ºÇØµµ ¹«°üÇÏ´Ù.
+ì¼ë°˜ì ìœ¼ë¡œ <head> íƒœê·¸ ì•ˆì—ë‹¤ ì‘ì„±í•˜ê³  <body> íƒœê·¸ì—ë‹¤ ì‘ì„±í•´ë„ ë¬´ê´€í•˜ë‹¤.
 
-À§Ä¡
+ìœ„ì¹˜
 
-1. ³»ºÎ : <head>¼½¼Ç ¶Ç´Â <body>¼½¼Ç¿¡´Ù ÀÛ¼º
+1. ë‚´ë¶€ : <head>ì„¹ì…˜ ë˜ëŠ” <body>ì„¹ì…˜ì—ë‹¤ ì‘ì„±
 
-2. ¿ÜºÎ : ÀÏ¹İÀûÀ¸·Î <head>¼½¼Ç¿¡ ÀÛ¼ºÇÏ°í ¿ÜºÎ ÆÄÀÏÀÇ ½ºÅ©¸³Æ®¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+2. ì™¸ë¶€ : ì¼ë°˜ì ìœ¼ë¡œ <head>ì„¹ì…˜ì— ì‘ì„±í•˜ê³  ì™¸ë¶€ íŒŒì¼ì˜ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
 	  ex) <script src="myscript.js"></script>
 
-3. ÀÎ¶óÀÎ : HTML ÅÂ±× ³»ºÎ¿¡ ÀÌº¥Æ® ¼Ó¼ºÀ¸·Î »ğÀÔÇÑ´Ù.
-	    ex) onclick¼Ó¼º : <button type="button" onclick="alert('¹İ°©½À´Ï´Ù.')">¹öÆ°À» ´©¸£¼¼¿ä!</button>
+3. ì¸ë¼ì¸ : HTML íƒœê·¸ ë‚´ë¶€ì— ì´ë²¤íŠ¸ ì†ì„±ìœ¼ë¡œ ì‚½ì…í•œë‹¤.
+	    ex) onclickì†ì„± : <button type="button" onclick="alert('ë°˜ê°‘ìŠµë‹ˆë‹¤.')">ë²„íŠ¼ì„ ëˆ„ë¥´ì„¸ìš”!</button>
 
 
------
+---
 
-##### °ª °¡Á®¿À´Â ¹æ¹ı
+##### ê°’ ê°€ì ¸ì˜¤ëŠ” ë°©ë²•
 
-Å¬·¡½º : $(".ÇØ´çclass");
+í´ë˜ìŠ¤ : $(".í•´ë‹¹class");
 
-¾ÆÀÌµğ : $("#ÇØ´çid");
+ì•„ì´ë”” : $("#í•´ë‹¹id");
 
-ÀÌ¸§ : $('[name="ÇØ´çname"]');
+ì´ë¦„ : $('[name="í•´ë‹¹name"]');
 
-¿ªÇÒ(role) : $("form[role='ÇØ´çrole']");
+ì—­í• (role) : $("form[role='í•´ë‹¹role']");
 
------
 
-##### ÀÚÁÖ ¾²ÀÌ´Â ¸Ş¼­µå
+ex)
 
-###### $("#ÇØ´çid").val();
+	$("[name=searchType] option:selected").val();
+	
+nameì´ searchTypeì¸ íƒœê·¸ ì•ˆì— ìˆëŠ” option íƒœê·¸ ì¤‘ selectedê°€ í™œì„±í™”ëœ option íƒœê·¸ì˜ value 
 
- : ÇØ´ç id¿¡ ÀÔ·ÂµÈ °ª(input ÅÂ±×ÀÇ °ª)À» °¡Á®¿Â´Ù.
+---
+
+##### ìì£¼ ì“°ì´ëŠ” ë©”ì„œë“œ
+
+###### $("#í•´ë‹¹id").val();
+
+ : í•´ë‹¹ idì— ì…ë ¥ëœ ê°’(input íƒœê·¸ì˜ ê°’)ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 ex)
 
 var replyer = $("#newReplyWriter").val();
 
 
------
+---
 
-###### $("#ÇØ´çid").val(data);
+###### $("#í•´ë‹¹id").val(data);
 
- : ¾ÆÀÌµğ°¡ ÇØ´çidÀÎ ¿ä¼ÒÀÇ °ªÀ» data·Î Á¤ÇÑ´Ù.
+ : ì•„ì´ë””ê°€ í•´ë‹¹idì¸ ìš”ì†Œì˜ ê°’ì„ dataë¡œ ì •í•œë‹¤.
 
------
+---
 
 ###### $("#testId").html() 
 
-: ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ ÀÚ½ÄÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù(ÅÂ±× Æ÷ÇÔ, ÀÚ½ÄÅÂ±× ¾øÀÌ ÇØ´ç ÅÂ±×ÀÇ °ª¸¸ ÀÖÀ¸¸é ±× °ª¸¸ °¡Á®¿Â´Ù.)
+: í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ìì‹íƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤(íƒœê·¸ í¬í•¨, ìì‹íƒœê·¸ ì—†ì´ í•´ë‹¹ íƒœê·¸ì˜ ê°’ë§Œ ìˆìœ¼ë©´ ê·¸ ê°’ë§Œ ê°€ì ¸ì˜¨ë‹¤.)
 
 ex) <div class="test">haha</div>
 
@@ -78,40 +85,122 @@ console.log($(".test").html); // output : <button>test button</button>
 
 
 
-$("#testId").html(html data) : ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ ³»¿ëÀ» ÀÎÀÚÀÇ °ªÀ¸·Î ¹Ù²Û´Ù.
+###### $("#testId").html(html data)
+
+í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ë‚´ìš©ì„ ì¸ìì˜ ê°’ìœ¼ë¡œ ë°”ê¾¼ë‹¤.
 
 
-$("#testId").text() : ÇØ´ç id¸¦ °¡Áö´Â ÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù(ÅÂ±× Á¦¿ÜÇÏ°í ÅÂ±× ³»ÀÇ °ª¸¸) 
+###### $("#testId").text()
 
------
-
-.val()°ú .text()ÀÇ Â÷ÀÌ : val()Àº »ç¿ëÀÚ°¡ ÀÔ·ÂÇÑ inputÅÂ±×ÀÇ °ªÀ» °¡Á®¿À°í, text()´Â ÀÌ¹Ì ÁöÁ¤µÇ¾î ÀÖ´Â textÀÇ °ªÀ» °¡Á®¿Â´Ù.
+í•´ë‹¹ idë¥¼ ê°€ì§€ëŠ” íƒœê·¸ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤(íƒœê·¸ ì œì™¸í•˜ê³  íƒœê·¸ ë‚´ì˜ ê°’ë§Œ) 
 
 
------
+###### .val()ê³¼ .text()ì˜ ì°¨ì´
 
-$(class or id or name).on(event, selector, data);
+val()
 
-event : È°¼ºÈ­ µÇ´Â ÀÌº¥Æ®(ex) "click")
+ì‚¬ìš©ìê°€ ì…ë ¥í•œ inputíƒœê·¸ì˜ value ì†ì„±ê°’ì„ ê°€ì ¸ì˜¤ê³ 
 
-select : ½ÇÇà ÇÒ ÅÂ±×
+text()
 
-data : ÀÌº¥Æ®°¡ ½ÇÇà µÉ ¶§ Àü´ŞµÇ´Â data(function(data)) ¸¦ ÅëÇØ data¸¦ »ç¿ëÇÑ ½ÇÇà ³»¿ëÀ» ¸¸µé ¼öµµ ÀÖ´Ù.
-
-
+ì´ë¯¸ ì§€ì •ë˜ì–´ ìˆëŠ” textì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
 
 
------
+---
+
+##### $(class or id or name).event(function(){});
+
+event : í™œì„±í™” ë˜ëŠ” ì´ë²¤íŠ¸(ex) "click", "change")
+
+- click : button, a íƒœê·¸ë“±ì„ í´ë¦­í•  ë•Œ
+
+- change : select íƒœê·¸ì—ì„œ optionì„ ë³€ê²½í•  ë•Œ
+
+data : ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ ë  ë•Œ ì „ë‹¬ë˜ëŠ” data(function(data)) ë¥¼ í†µí•´ dataë¥¼ ì‚¬ìš©í•œ ì‹¤í–‰ ë‚´ìš©ì„ ë§Œë“¤ ìˆ˜ë„ ìˆë‹¤.
+
+ex)
+
+	$("[name='searchButton']").click(function() {
+					
+					console.log("click button");
+		});
 
 
-$(class or id or name).attr(tag's name)
+##### $(class or id or name).on(event, function(){})
 
-ÇØ´ç ÅÂ±×ÀÇ °ªÀ» °¡Á®¿Â´Ù.
+event : í™œì„±í™” ë˜ëŠ” ì´ë²¤íŠ¸(ex) "click", "change")
+
+- click : button, a íƒœê·¸ë“±ì„ í´ë¦­í•  ë•Œ
+
+- change : select íƒœê·¸ì—ì„œ optionì„ ë³€ê²½í•  ë•Œ
+
+	$("[name='searchButton']").on("click", function() {
+					console.log("click button");
+		});
+		
+		
+##### on("event")ì™€ event()ì˜ ì°¨ì´
+
+	<ul id="myTask">
+		<li>Coding</li>
+		<li>Answering</li>
+		<li>Getting Paid</li>
+	</ul>
 
 
------
+###### click()
 
-##### JQuery¸¦ »ç¿ëÇØ view¿¡¼­ JSON°´Ã¼¸¦ ¹Ş´Â ¹æ¹ı(getJSON() ¸Ş¼Òµå »ç¿ë)
+	$("#myTask").children().click(function(){
+		$(this).remove();
+	});
+	
+í´ë¦­í•œ li íƒœê·¸ì— ë°”ì¸ë”© ëœ click ì´ë²¤íŠ¸ê°€ ì‹¤í–‰ë˜ì–´ í•´ë‹¹ li íƒœê·¸ê°€ removeëœë‹¤.
+
+í•˜ì§€ë§Œ
+
+	$("#myTask").append("<li> New li Tag</li>");
+	
+í•œ ë’¤ì— <li> New li Tag</li>ë¥¼ í´ë¦­í•˜ë©´ click()ë©”ì†Œë“œëŠ” ë™ì‘í•˜ì§€ ì•ŠëŠ”ë‹¤.
+
+click() ì´ë²¤íŠ¸ëŠ” ìµœì´ˆì— í˜ì´ì§€ë¥¼ ë¡œë”©í•  ë•Œ ì„ ì–¸ë˜ì–´ ìˆë˜ elememtì— ì´ë²¤íŠ¸ë¥¼ ë°”ì¸ë”©í•˜ê³ 
+
+ê·¸ ì´í›„ì—ëŠ” ë”ì´ìƒ ë™ì ìœ¼ë¡œ ë°”ì¸ë”©í•˜ì§€ ì•Šê¸° ë–„ë¬¸ì´ë‹¤.
+
+###### on("click")
+
+click() ê³¼ëŠ” ë‹¬ë¦¬ ì¶”ê°€ ëœ elementì—ë„ í•´ë‹¹ eventê°€ ë°”ì¸ë”©ëœë‹¤.
+
+	$("#myTask").on("click", "li", function(event){
+		$(event.target).remove();
+	})
+	
+ë°”ì¸ë”© í•œë’¤ì—
+	
+	$("#myTask").append("<li> New li Tag</li>");
+	
+ì¶”ê°€í•´ì¤˜ë„ <li> New li Tag</li> ë„ í´ë¦­í–ˆì„ ë•Œ eventê°€ ì‹¤í–‰ëœë‹¤. 	
+
+---
+
+
+##### $(class or id or name).attr(tag's attribute)
+
+í•´ë‹¹ íƒœê·¸ì˜ í•´ë‹¹ ì†ì„± ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+
+ex)
+
+	$("#reviewForm").attr("id");
+	
+reviewForm íƒœê·¸ì˜ idì†ì„±ì˜ ê°’ì„ ê°€ì ¸ì˜¨ë‹¤.
+
+	$("#reviewForm").attr("id", "haha");
+	
+reviewForm íƒœê·¸ì˜ idì†ì„±ì˜ ê°’ì„ hahaë¡œ ì´ˆê¸°í™”í•œë‹¤.
+
+
+---
+
+##### JQueryë¥¼ ì‚¬ìš©í•´ viewì—ì„œ JSONê°ì²´ë¥¼ ë°›ëŠ” ë°©ë²•(getJSON() ë©”ì†Œë“œ ì‚¬ìš©)
 
 $.getJSON("/replies/all/" + bno, function(data) {
 
@@ -119,85 +208,124 @@ $.getJSON("/replies/all/" + bno, function(data) {
 
 });
 
-viewÀÌ¸§ÀÌ test¶ó¸é path¸¦ /test·Î Á¢±ÙÇßÀ» ¶§ /replies/all/ÇØ´çbno·Î Á¢±ÙÇØ¼­ µ¥ÀÌÅÍ¸¦ °¡Á®¿Â´Ù´Â ÀÇ¹Ì´Ù.
+viewì´ë¦„ì´ testë¼ë©´ pathë¥¼ /testë¡œ ì ‘ê·¼í–ˆì„ ë•Œ /replies/all/í•´ë‹¹bnoë¡œ ì ‘ê·¼í•´ì„œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¨ë‹¤ëŠ” ì˜ë¯¸ë‹¤.
 
------
+---
 
-##### Ajax Àü¼Û Çü½Ä 
+##### Ajax ì „ì†¡ í˜•ì‹ 
 
-: jqueryÀÇ ºñµ¿±â Àü¼Û¹æ½Ä Áß ÇÑ°³($.ajax(), $.get(), $.post() ÃÑ 3°¡Áö°¡ ÀÖ´Ù.)
+: jqueryì˜ ë¹„ë™ê¸° ì „ì†¡ë°©ì‹ ì¤‘ í•œê°œ($.ajax(), $.get(), $.post() ì´ 3ê°€ì§€ê°€ ìˆë‹¤.)
 
-headers¿¡¼­ content-Type(context-TypeÀ¸·Î Çò°¥·È¾ú´Ù. ÁÖÀÇÇÏÀÚ)
+headersì—ì„œ content-Type(context-Typeìœ¼ë¡œ í—·ê°ˆë ¸ì—ˆë‹¤. ì£¼ì˜í•˜ì)
 
-ex)
+ex) ì¼ë°˜ì ì¸ ë°©ì‹
 
-$.ajax({
-type : 'post',
-url : '/replies',
-headers : {
-	"Content-Type" : "application/json"
-	"X-HTTP-Method-Override" : "POST"
-},
-dataType : 'text',
-data : JSON.stringify({
-	bno : bno,
-	replyer : replyer,
-	replyText : replytext
-}),
-success : function(result) {
-	if(result == 'SUCCESS') {
-		alert("µî·ÏµÇ¾ú½À´Ï´Ù.")
+		function deleteReview(){
+		
+		$.ajax({
+			
+			url : "./reviewDelete",
+			type : "POST",
+			data : $("#deleteReviewForm").serialize(), 
+			// form íƒœê·¸ ì•ˆì—ìˆëŠ” inputíƒœê·¸ì˜ ê°’ì„ JSONê°ì²´ë¡œ ë°”ê¿”ì¤€ë‹¤. ({inputì˜ nameì†ì„± : inputì˜ valueì†ì„±. .....})
+			success : function(data) {
+				if(data == "success") {
+					alert("ì •ìƒì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
+					location.href = "./"; // review_list.jsp
+				} else if(data == "1")
+					alert("ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”.");
+				else
+					alert("ê³ ê°ë‹˜ì´ ë“±ë¡í•œ ë¦¬ë·°ê°€ ì•„ë‹™ë‹ˆë‹¤.");	
+			}
+		});
 	}
-}
-   }); // ajax end
-});
+	
+	
+
+	function editReview(){
+		
+		$.ajax({
+			url : "../checkLogined",
+			type : "GET",
+			data : {reviewIndex : ${bean.reviewIndex}, hahahoho : "1234"},
+			// JSON í˜•ì‹ìœ¼ë¡œ ì§ì ‘ ì…ë ¥í•´ë„ ëœë‹¤.(dataë¥¼ ì“°ì§€ ì•Šì•„ë„ controllerì˜ í•´ë‹¹ urlì— ë§µí•‘ëœ ë©”ì†Œë“œë¡œ ì´ë™í•œë‹¤.)
+			success : function(data) {
+				console.log("success data : " , data);
+			}
+		});
+	}
 
 
-data¿¡¼­ JSONÇü½ÄÀ¸·Î º¸³¾ ¶§´Â {VO°´Ã¼ÀÇ ÇÊµå : º¸³¾ °ª}À¸·Î ÇØ¾ß µÈ´Ù.
 
------
+ex) RESTë°©ì‹ì—ì„œ JSON ê°ì²´ë¥¼ ë³´ë‚¼ ë•Œ
+
+	$.ajax({
+	type : 'post',
+	url : '/replies',
+	headers : {
+		"Content-Type" : "application/json"
+		"X-HTTP-Method-Override" : "POST"
+	},
+	dataType : 'text',
+	data : JSON.stringify({
+		bno : bno,
+		replyer : replyer,
+		replyText : replytext
+	}),
+	success : function(result) {
+		if(result == 'SUCCESS') {
+			alert("ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.")
+		}
+	}
+	   }); // ajax end
+	});
 
 
-##### ajax ±¸¼º¿ä¼Ò
+dataì—ì„œ JSONí˜•ì‹ìœ¼ë¡œ ë³´ë‚¼ ë•ŒëŠ” {VOê°ì²´ì˜ í•„ë“œ : ë³´ë‚¼ ê°’}ìœ¼ë¡œ í•´ì•¼ ëœë‹¤.
 
-type : Àü¼Û¹æ½Ä
+---
 
-url : ÀÔ·ÂÇÑ url·Î data¸¦ Àü¼Û
 
-headers : ¾ÆÁ÷ Àß ¸ğ¸£°Ú´Ù.
+##### ajax êµ¬ì„±ìš”ì†Œ
 
-dataType : Àü¼ÛÇÒ µ¥ÀÌÅÍÀÇ Å¸ÀÔ
+type : ì „ì†¡ë°©ì‹
 
-data : Àü¼ÛÇÏ°íÀÚ ÇÏ´Â µ¥ÀÌÅÍ
+url : ì…ë ¥í•œ urlë¡œ dataë¥¼ ì „ì†¡
 
-success : ¼º°øÇßÀ» ¶§ ½ÇÇàÇÒ ³»¿ë
+headers : ì•„ì§ ì˜ ëª¨ë¥´ê² ë‹¤.
+
+dataType : ì „ì†¡í•  ë°ì´í„°ì˜ íƒ€ì…
+
+data : ì „ì†¡í•˜ê³ ì í•˜ëŠ” ë°ì´í„°
+
+success : ì„±ê³µí–ˆì„ ë•Œ ì‹¤í–‰í•  ë‚´ìš©
 
 processData
 
-- µ¥ÀÌÅÍ¸¦ ÀÏ¹İÀûÀÎ query stringÀ¸·Î º¯È¯ÇÒ °ÍÀÎÁö¸¦ °áÁ¤
+- ë°ì´í„°ë¥¼ ì¼ë°˜ì ì¸ query stringìœ¼ë¡œ ë³€í™˜í•  ê²ƒì¸ì§€ë¥¼ ê²°ì •
 
-- ±âº»°ª : 'application / x-www-form-urlencoded'
+- ê¸°ë³¸ê°’ : 'application / x-www-form-urlencoded'
 
-- ´Ù¸¥ Çü½ÄÀÇ µ¥ÀÌÅÍ¸¦ º¸³»±â À§ÇØ ÀÚµ¿ º¯È¯ÇÏ°í ½ÍÁö ¾ÊÀº °æ¿ì false¸¦ ÁöÁ¤ÇÏ¸é µÈ´Ù.
+- ë‹¤ë¥¸ í˜•ì‹ì˜ ë°ì´í„°ë¥¼ ë³´ë‚´ê¸° ìœ„í•´ ìë™ ë³€í™˜í•˜ê³  ì‹¶ì§€ ì•Šì€ ê²½ìš° falseë¥¼ ì§€ì •í•˜ë©´ ëœë‹¤.
 
 contentType
 
-- ±âº»°ª : 'application / x-wwwform-urlencoded'
+- ê¸°ë³¸ê°’ : 'application / x-wwwform-urlencoded'
 
-- ÆÄÀÏÀÇ °æ¿ì multipart/form-data ¹æ½ÄÀ¸·Î Àü¼ÛÇÏ±â À§ÇØ false·Î ÁöÁ¤ÇØ¾ß ÇÑ´Ù.
-
-
+- íŒŒì¼ì˜ ê²½ìš° multipart/form-data ë°©ì‹ìœ¼ë¡œ ì „ì†¡í•˜ê¸° ìœ„í•´ falseë¡œ ì§€ì •í•´ì•¼ í•œë‹¤.
 
 
------
 
-##### Ajax°¡ ¹«¹İÀÀ ÀÏ¶§
 
-<sciprt>ÅÂ±×¸¦ <body>ÅÂ±× ¾È¿¡¼­
+---
 
-view°ü·Ã ÅÂ±×¸¦ ¸ğµÎ ÀÛ¼ºÇÏ°í ¾Æ·¡¿¡´Ù ½áÁØ´Ù.
+##### Ajaxê°€ ë¬´ë°˜ì‘ ì¼ë•Œ
 
------
+<sciprt>íƒœê·¸ë¥¼ <body>íƒœê·¸ ì•ˆì—ì„œ
+
+viewê´€ë ¨ íƒœê·¸ë¥¼ ëª¨ë‘ ì‘ì„±í•˜ê³  ì•„ë˜ì—ë‹¤ ì¨ì¤€ë‹¤.
+
+---
 
 api : https://api.jquery.com/jquery.getjson/
 
@@ -213,22 +341,22 @@ $.getJSON(URL, function(data) {
 
 });
 
-data : uri¿¡ Á¢±Ù ÇßÀ» ¶§ Controller¿¡¼­ mappingµÇ´Â ¸Ş¼­µåÀÇ return °ªÀ» ¾òÀ» ¼ö ÀÖ´Ù.
+data : uriì— ì ‘ê·¼ í–ˆì„ ë•Œ Controllerì—ì„œ mappingë˜ëŠ” ë©”ì„œë“œì˜ return ê°’ì„ ì–»ì„ ìˆ˜ ìˆë‹¤.
 
-data.list : ¿¹Á¦¿¡¼­ Controller¿¡¼­ mappingµÇ´Â ¸Ş¼­µåÀÇ ¸®ÅÏ °ªÀÌ mapÀÎµ¥ key°ªÀ¸·Î list°¡ ÀÖ¾î¼­ ¹Ù·Î Á¢±ÙÇØ ¹İº¹¹®À» µ¹¸®´Â °ÍÀÌ´Ù.
+data.list : ì˜ˆì œì—ì„œ Controllerì—ì„œ mappingë˜ëŠ” ë©”ì„œë“œì˜ ë¦¬í„´ ê°’ì´ mapì¸ë° keyê°’ìœ¼ë¡œ listê°€ ìˆì–´ì„œ ë°”ë¡œ ì ‘ê·¼í•´ ë°˜ë³µë¬¸ì„ ëŒë¦¬ëŠ” ê²ƒì´ë‹¤.
 
 
 
------
+---
 
 $.getJSON(URL, function(data)
 $.each(data, fucntion(key,value))
 
-¿Í °°Àº jQueryÀÇ Ã¹ ¹øÂ° ÀÎÀÚ¿¡¼­ ¹İÈ¯ÇÏ´Â µ¥ÀÌÅÍ¸¦ functionÀÇ ÀÎÀÚ·Î ³ÖÀ» ¼ö ÀÖ´Ù.
-(µû·Î ÀÎÀÚ¸¦ ³Ö¾îÁà¾ß ÇÏ´Â °ÍÀÌ ¾Æ´Ï¶ó Ã¹ ¹øÂ° ÀÎÀÚ¿¡¼­ functionÀÇ ÀÎÀÚ·Î ¾Ë¾Æ¼­ ÀÎ½ÄÇÑ´Ù.)
+ì™€ ê°™ì€ jQueryì˜ ì²« ë²ˆì§¸ ì¸ìì—ì„œ ë°˜í™˜í•˜ëŠ” ë°ì´í„°ë¥¼ functionì˜ ì¸ìë¡œ ë„£ì„ ìˆ˜ ìˆë‹¤.
+(ë”°ë¡œ ì¸ìë¥¼ ë„£ì–´ì¤˜ì•¼ í•˜ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ì²« ë²ˆì§¸ ì¸ìì—ì„œ functionì˜ ì¸ìë¡œ ì•Œì•„ì„œ ì¸ì‹í•œë‹¤.)
 
 
------
+---
 
 $(document).ready(function(){
    
@@ -237,9 +365,9 @@ $(document).ready(function(){
 });
 
 
-ÇÁ·ÎÁ§Æ®¸¦ ½ÇÇàÇÔ°ú µ¿½Ã¿¡ ½ÇÇàµÇ´Â ºÎºĞ
+í”„ë¡œì íŠ¸ë¥¼ ì‹¤í–‰í•¨ê³¼ ë™ì‹œì— ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„
 
-Java ScriptÀÇ
+Java Scriptì˜
 
 window.onload = function(){
 
@@ -247,35 +375,260 @@ window.onload = function(){
 
 }
 
-¿Í µ¿ÀÏÇÑ ±â´ÉÀ» ÇÏÁö¸¸ window.onloadº¸´Ù document°¡ ¸ÕÀú ½ÇÇàµÈ´Ù.(1.document > 2.window.onload)
+ì™€ ë™ì¼í•œ ê¸°ëŠ¥ì„ í•˜ì§€ë§Œ window.onloadë³´ë‹¤ documentê°€ ë¨¼ì € ì‹¤í–‰ëœë‹¤.(1.document > 2.window.onload)
 
 
 
------
+---
 
 ex) 
 
 that.parent("div").remove();
 
 
-: that ÀÌ <small> ÅÂ±×¿´À» °æ¿ì <small>ÅÂ±× ¹Ù±ùÂÊ(ºÎ¸ğ)¿¡¼­ °¡Àå °¡±îÀÌ ÀÖ´Â <div>ÅÂ±×¸¦ Áö¿ì´Â ±â´ÉÀ» ÇÑ´Ù.
+: that ì´ <small> íƒœê·¸ì˜€ì„ ê²½ìš° <small>íƒœê·¸ ë°”ê¹¥ìª½(ë¶€ëª¨)ì—ì„œ ê°€ì¥ ê°€ê¹Œì´ ìˆëŠ” <div>íƒœê·¸ë¥¼ ì§€ìš°ëŠ” ê¸°ëŠ¥ì„ í•œë‹¤.
 
 
------
+---
 
-##### jQuery¸¦ »ç¿ëÇÏ´Â <script>´Â <body> ÃÖÇÏ´Ü¿¡ ÀÛ¼ºÇÏÀÚ(<head>¿¡´Ù ÀÛ¼ºÇÏ¸é ÀÎ½ÄÇÏÁö ¸øÇÏ´Â °æ¿ì°¡ ÀÖ´Ù.)
+##### jQueryë¥¼ ì‚¬ìš©í•˜ëŠ” script íƒœê·¸ëŠ” body íƒœê·¸ ìµœí•˜ë‹¨ì— ì‘ì„±í•˜ì
 
------
-$(".class b") : ÇØ´ç class¸íÀ» °¡Áö´Â ÅÂ±× ³»ºÎÀÇ b ÅÂ±×(id ¶Ç´Â class) 
+
+
+- <head>ì—ë‹¤ ì‘ì„±í•˜ë©´ ì¸ì‹í•˜ì§€ ëª»í•˜ëŠ” ê²½ìš°ê°€ ìˆë‹¤.
+
+
+---
+
+$(".class b") : í•´ë‹¹ classëª…ì„ ê°€ì§€ëŠ” íƒœê·¸ ë‚´ë¶€ì˜ b íƒœê·¸(id ë˜ëŠ” class) 
 
 
 $(".uploadedList li").each(function(index) {
 			arr.push($(this)("data-src"))
 		});
 
-ÀÇ °æ¿ì class¸íÀÌ uploadedListÀÎ ÅÂ±× ¾È¿¡ ¼±¾ğµÇ¾î ÀÖ´Â liÅÂ±×¿¡ ´ëÇØ Àû¿ëÇÏ´Â ÇÔ¼ö´Ù.
+ì˜ ê²½ìš° classëª…ì´ uploadedListì¸ íƒœê·¸ ì•ˆì— ì„ ì–¸ë˜ì–´ ìˆëŠ” liíƒœê·¸ì— ëŒ€í•´ ì ìš©í•˜ëŠ” í•¨ìˆ˜ë‹¤.
 
 -----
+
+##### ajaxí†µì‹ ì‹œ ì£¼ì˜ì‚¬í•­
+
+ajaxí†µì‹ í• ë•Œ ëª…ì‹œí•˜ëŠ” urlì€ í•´ë‹¹ ajaxí†µì‹ ì„ í•˜ëŠ” functionì´ ì‹¤í–‰ë˜ë©´ urlë¡œ ì´ë™í•´ controllerì˜ ë©”ì†Œë“œë¥¼ ì‹¤í–‰í•˜ëŠ” ê²ƒì´ì§€
+
+ë‹¨ìˆœíˆ í•´ë‹¹ urlë¡œ ì´ë™í–ˆì„ ë•Œ ajaxí†µì‹ ì´ ì‹¤í–‰ë˜ëŠ” ê²ƒì´ ì•„ë‹ˆë‹¤.(functionì´ ì‹¤í–‰ëœ ê²ƒì´ ì•„ë‹ˆë¼ ê·¸ëƒ¥ ê·¸ í˜ì´ì§€ë¡œ ì´ë™í•œ ê²ƒì´ë‹ˆê¹Œ)
+
+---
+
+##### jQuery ì†ì„±ì„ ë³€ìˆ˜ë¡œ ì²˜ë¦¬í•  ë•Œ
+
+		console.log($("input:radio[id='inlineRadio2']").is(":checked"));
+
+		for(radioI = 1; radioI <= 5; radioI++) {
+			if($("input:radio[id='inlineRadio"+radioI+"']").is(":checked")) {
+				isSelected = true;
+				break;
+			}
+		}
+
+
+forë¬¸ì˜ ifë¬¸ì´ Stringìœ¼ë¡œ ì¨ì•¼ë˜ëŠ” ë¶€ë¶„ê³¼ ë©”ì†Œë“œ ì‹¤í–‰ì„ ìœ„í•´ Stringìœ¼ë¡œ ì“°ì§€ ë§ì•„ì•¼ í•  ë¶€ë¶„ì´ ìˆê¸° ë•Œë¬¸ì—
+
+êµ¬ë¶„ì„ ì˜ í•´ì•¼í•œë‹¤.
+
+"input~]" ê¹Œì§€ëŠ” ì›ë˜ ""ë¡œ ë¬¶ì—¬ Stringìœ¼ë¡œ ë“¤ì–´ê°€ëŠ” ë¶€ë¶„ì´ê³  ()ê´„í˜¸ëŠ” Stringì´ë©´ ì•ˆëœë‹¤.
+
+ê·¸ë¦¬ê³  .isì™€ ê´„í˜¸ ()ëŠ” ì—­ì‹œ Stringìœ¼ë¡œ ì²˜ë¦¬í•˜ë©´ ì•ˆëœë‹¤. ê·¸ ì•ˆì˜ íŒŒë¼ë¯¸í„°ëŠ” Stringì´ì–´ì•¼ í•œë‹¤.
+
+---
+
+##### íƒœê·¸ì˜ ê°’ ê°€ì ¸ì˜¤ê¸°
+
+	<input type="text" class="form-control id2" name="id"  placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”"/>
+	
+	
+ì—ì„œ classì˜ ê°’ì„ ê°€ì ¸ì˜¬ ë•ŒëŠ” id2ë¥¼ ì…ë ¥í•´ì•¼ í•œë‹¤.(ê³µë°±ìœ¼ë¡œ ë„ì›Œì ¸ ìˆëŠ” ë’¤ì˜ ê°’ì´ idê°€ ëœë‹¤.)
+
+	var id = $(".id2").val();
+
+
+
+---
+
+
+##### scroll ìœ„ì¹˜ ì´ë™
+
+	
+	$('.className').css('display','inline-block');
+	$('.className').scrollTop(0);
+
+í•´ë‹¹ í™”ë©´ì´ ë„ì›Œì§„ ì´í›„ì— ì‹¤í–‰í•´ì•¼ ì‘ë™í•œë‹¤.	
+
+---
+
+##### form ì•ˆì˜ input validating
+
+ì§ì ‘ ì¼ì¼íˆ jQUeryë¡œ ë°›ì•„ì„œ scirptì—ì„œ ì¡°ê±´ë¬¸ìœ¼ë¡œ í™•ì¸í•´ë„ ë¬´ê´€í•˜ë‹¤.
+
+í•˜ì§€ë§Œ, jQueryì˜ validation pluginì„ ì‚¬ìš©í•˜ë©´ í¸ë¦¬í•˜ë‹¤.
+
+
+$('#findPW').click(function() {
+	
+	
+    jQuery("#findPWForm").validate({
+        rules:{
+            id:{required:true},
+            name:{required:true,minlength:2},
+            birthDate:{required:true},
+            email:{required:true, email:true},
+            pwQuestion:{required:true}
+        },
+        messages:{
+            name:{
+                required:"í•„ìˆ˜ì •ë³´ì…ë‹ˆë‹¤"
+            },
+            birthDate:{
+                required:"í•„ìˆ˜ì •ë³´ì…ë‹ˆë‹¤"
+            },
+            email:{
+                required:"í•„ìˆ˜ì •ë³´ì…ë‹ˆë‹¤",
+                email:"ì´ë©”ì¼ ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”"
+            },
+            pwQuestion:{
+                required:"í•„ìˆ˜ì •ë³´ì…ë‹ˆë‹¤"
+            }
+        },
+        errorPlacement:function(error,element){
+            if(element.is(".form-control"))
+                {
+                error.appendTo(element.parent().parent());
+                }
+            else{
+
+            }
+        },
+        submitHandler:function(){
+            // $.css({cursor:"wait"});
+        	
+        	id = $('.id2').val();
+        	var name = $('.name2').val();
+        	var birth = $('.birth2').val();
+        	var email = $('.email2').val();
+        	var answer = $('.pwQuestion').val();
+        	
+        	console.log("finePW_btn id : ", id);
+        	
+        	$.ajax({
+        		type : "POST",
+        		url : "./find2",
+        		data : {
+        			"id" : id,
+        			"name" : name,
+        			"birth" : birth,
+        			"email" : email,
+        			"answer" : answer
+        		},
+        		success : function(data) {
+
+        			if (data == "error") {
+        				alert("ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+        			} else {
+        				alert("ìƒˆë¡œìš´ ë¹„ë°€ë²ˆí˜¸ë¥¼ ì„¤ì •í•´ì£¼ì„¸ìš”.");
+        				$('#login-findPW').css('display', 'none');
+        				$('#login-findPW2').css('display', 'block');
+        			}
+        		}
+        	});
+            
+        },
+        success:function(element){
+        }
+    });
+});
+
+
+findPW ë²„íŠ¼ì„ í´ë¦­í•´ í˜ì´ì§€(modal)ì„ ì´ë™í•˜ë©´ ê·¸ í˜ì´ì§€ì—ì„œ vaildatingì„ í•œë‹¤.
+
+ì´ë™í•œ í˜ì´ì§€ì˜ formíƒœê·¸(id=findPWForm)ì˜ input íƒœê·¸ë“¤ì„ í™•ì¸í•œë‹¤.
+
+inputíƒœê·¸ì˜ nameì„ ê¸°ì¤€ìœ¼ë¡œ í™•ì¸í•˜ê²Œ ëœë‹¤.
+
+submitHandler : submit ë²„íŠ¼ì„ ëˆŒëŸ¿ì„ ë•Œ ëª¨ë“  validatingì´ ìœ íš¨í•˜ë©´ ì‹¤í–‰ë˜ëŠ” ë¶€ë¶„
+
+success : inputíƒœê·¸ ë“¤ì˜ ìœ íš¨ì„± ê²€ì‚¬(elementë¡œ ì–´ë–¤ idì˜ inputíƒœê·¸ì¸ì§€ í™•ì¸ê°€ëŠ¥)
+
+###### JQuery.validate
+
+remove methodë¥¼ ì‚¬ìš©í•  ë•Œ ajaxí†µì‹  ì–‘ì‹ëŒ€ë¡œ ì‘ì„±í•œë‹¤.
+
+
+        id:{required:true,
+            minlength:4,
+            remote: {
+                    url:"/checkIDDup",
+                    type:"POST",
+                    data: {
+                    	id : function() {
+                           return $("#id").val();
+                        }
+                    }
+              }
+        }
+
+sucessëŠ” ì‘ì„±í•˜ì§€ ì•Šê³  Contorollerì—ì„œ /checkIDDupì— mappingë˜ì–´ìˆëŠ” ì‹¤í–‰í•˜ê³ 
+
+ê·¸ ë©”ì†Œë“œì—ì„œëŠ” String typeìœ¼ë¡œ "true" ë˜ëŠ” "false"ë¥¼ validation ê²°ê³¼ì— ë”°ë¼ ë¦¬í„´í•´ì£¼ë©´ ëœë‹¤.
+
+---
+
+##### cssì—ì„œì˜ jquery
+
+cssíŒŒì¼ì—ì„œ íƒœê·¸ë¥¼ ì‚¬ë¼ì§€ê²Œ í•  ìˆ˜ ìˆë‹¤.
+
+$('#modal').modal('hide');
+â€‹â€‹â€‹â€‹â€‹â€‹â€‹
+ë°˜ëŒ€ë¡œ ë‹«í˜€ìˆëŠ” ëª¨ë‹¬ì°½ì„ ì—´ê¸°ìœ„í•´ì„œëŠ”
+
+$('#modal').modal('show');
+
+---
+
+##### selected ëœ option ê°’ ì‚¬ìš©í•˜ê¸°
+
+	$(function(){
+		
+		$("[name='searchType']").change(function(){
+			var selectedType = $("[name=searchType] option:selected").val();
+	 			console.log("option changed : ", selectedType);
+	 			if(selectedType=='d') {
+	 				var dateSelected = "<input type='date' class='form-control' name='beginDate''>";
+	 				dateSelected += "<input type='date' class='form-control' name='endDate''>";
+	 				$("#dateSelected").html(dateSelected);
+	 			} else {
+	 				$("#dateSelected").html("<input type='text' class='form-control' name='keyword'>");
+	 			}
+			});
+	});
+
+
+
+$(function(){})
+
+ì•ˆì— ì‘ì„±í•´ì•¼ ì‹¤ì‹œê°„ìœ¼ë¡œ selected ë˜ëŠ” ë‚´ìš©ì„ í™•ì¸í•  ìˆ˜ ìˆë‹¤.
+
+
+$("[name=searchType] option:selected").val();
+
+nameì´ searchTypeì¸ íƒœê·¸ì˜ ìì‹ íƒœê·¸(ê³µë°±ìœ¼ë¡œ êµ¬ë¶„) ì¤‘ option íƒœê·¸ ì¤‘ selectedê°€ í™œì„±í™” ë˜ì–´ìˆëŠ” optionì˜ valueë¥¼ í™•ì¸í•˜ëŠ” ì†ŒìŠ¤
+
+
+---
+
+##### input date íƒ€ì… ë…„ë„ 4ìë¦¬ë¡œ ê³ ì •í•˜ê¸°
+
+	<input type="date" max="9999-12-31"/>
+	
+---
 
 
 

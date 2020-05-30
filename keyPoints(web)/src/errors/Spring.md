@@ -208,3 +208,209 @@ ex)
 
 -----
 
+404 Not Found : The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+
+프로젝트 우클릭 -> Properties -> Web Project Settings -> Context root를 '/'로 변경
+
+-----
+
+Current request is not of type [org.springframework.web.multipart.MultipartHttpServletRequest]
+
+1. 전송하는 <form> 태그에서 enctype="multipart/form-data"로 속성 값을 입력해준다.
+
+2. applicationContext.xml 파일에 멀티 파일 전송을 위한 bean 객체를 추가해준다.
+
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	
+---
+
+##### 한글 깨질 때
+
+window -> preferences 에서 할 수 있는 모든 것들 UTF-8로 설정
+
+그래도 안되면
+
+server.xml 파일에서
+
+<connector> 태그에 URIEncoding="UTF-8" 추가
+
+그래도 안되면
+
+web.xml 파일에
+
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>*</url-pattern>
+	</filter-mapping>
+
+
+
+###### 한글이 ?(물음표)로 깨질 때
+
+	@RequestMapping(value = "/review_list/commentList", method = RequestMethod.GET, produces = "application/json; charset=utf-8")
+
+RequestMapping에
+
+	 produces = "application/json; charset=utf-8"
+	 
+produces / charset 속성을 추가해주면 된다.
+
+리턴 타입이 json이면 json, 문자면 String으로 바꿔주면 된다.
+
+###### URL로 들어가는 한글이 깨질 때
+
+	String keyword = URLEncoder.encode(cri.getKeyword(), "UTF-8");
+	
+와 같이 URLEncoder로 UTF-8 방식으로 인코딩한 String을 사용하면 된다.
+
+---
+
+##### javax.el.PropertyNotFoundException: [com.bit.yes.model.entity.ReviewVo] 타입에서 프로퍼티 [idx]을(를) 찾을 수 없습니다.
+
+review_comment.jsp 파일에서
+
+주석으로 된 부분에 bean.idx가 있는데 그 주석을 지우거나, bean.reviewIndex로 vo 필드값을 정확히 써주면 해결
+
+왜 주석인데 오류가 발생하는지 모르겠다. : 주석을 /**/, // 이 아니라 <%--  --%>를 사용해야 정상적으로 비활성화 된다.
+
+HTML, JavaScript는 <%--  --%>로 주석을 처리해야한다.
+
+/**/, // 는 java 코드를 위한 주석이다.
+
+---
+
+##### JSP파일 갱신 안될 때
+
+
+\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\work\Catalina\localhost\www\org\apache\jsp\WEB_002dINF\views 에 있는 파일 전부 지우기
+
+컴파일하면 다시 생긴다.
+
+그래도 안되면 script 소스(html, java 말고)에 문법적으로 문제가 있는지 일일히 확인해야된다.
+
+---
+
+##### java.lang.IllegalStateException: Optional int parameter 'reviewIndex' is present but cannot be translated into a null value due to being declared as a primitive type
+
+ajax통신으로 Controller의 메소드에서 변수가 mapping 될때 기본형 변수에 넣을 값이 ajax통신을 통해 넘어오지 않으면 기본형 변수가 null이 될 수 없으므로 오류가 난다.
+
+---
+
+##### Unterminated [&lt;c:if] tag
+
+별일 없어도 오류가 난다.
+
+해결법 : 해당 프로젝트 우클릭 -> Properties -> validation -> 전부 disable All 적용 -> clean project
+
+##### java.lang.NumberFormatException: For input string: "+pageMaker.startPage+"
+
+	pagingHTML += "<c:forEach begin="+pageMaker.startPage+" end="+pageMaker.endPage+" var='idx'>";
+
+"+pageMaker.startPage+"를 왜 문자열로 보는걸까
+
+"<c:forEach begin="
+
+pageMaker.startPage
+
+" end="
+
+pageMaker.endPage
+
+" var='idx'>"
+
+이렇게 구분되는걸 의도한건데 뭘 잘못 생각한걸까
+
+###### 원인
+
+JSTL에서
+
+	<c:forEach begin="+pageMaker.startPage+" end="+pageMaker.endPage+" var='idx'>
+
+만 쏙 빼내서 인식하기 때문에(맨앞의 pagingHTML += "  맨 뒤의 "; 은 무시한다.)
+
+begin 속성을 +pageMaker.startPage+
+
+end 속성을 +pageMaker.endPage+
+
+로 봤기 때문에 이게 숫자가 아니니까 NumberFormatException이 발생한 것이다.
+
+
+##### org.apache.jasper.JasperException: /WEB-INF/views/review/review_detail.jsp (행: [415], 열: [1]) /WEB-INF/views/review/review_comment.jsp (행: [167], 열: [40]) quote symbol expected
+
+둘다 따옴표 잘못써서 난 오류. 아직 해결책은 찾지 못했다.
+
+###### 원인
+
+javaScript 소스
+
+	pagingHTML += "<c:if test="+pageMaker.prev+">";
+	
+JSTL이 인식한 소스	
+	
+	<c:if test="+pageMaker.prev+">
+
+만 쏙 빼네서 인식한다. 그렇기 때문에 test 속성을 +pageMaker.prev+로 보니까 
+
+위와 같은 NumberFormatException이 발생한 것이다.
+
+--
+
+###### 해결방법
+
+javaScript 소스
+
+	pagingHTML += "<c:if test=true>";
+	
+JSTL이 인식한 소스
+
+	<c:if test=true>
+	
+test 속성을 감싸는 따옴표가 없으니까 따옴표가 예상된다는 에러가 발생한 것이다.
+
+---
+
+##### spring java.lang.NoClassDefFoundError : com/bit/yes/model/adminDAO
+
+###### 원인
+
+- adminDao를 포함해서 Dao라고 되있는 클래스명을 전부 DAO로 바꿨다.
+
+- Impl클래스의 postfix에 01이 추가되어있는 것들이 있었는데 전부 제거했다.
+
+
+###### 해결 방법
+
+- 클래스명을 원상복귀 시키지 않고 pom.xml에 
+
+<dependency>
+   <groupId>org.apache.httpcomponents</groupId>
+   <artifactId>httpclient</artifactId>
+   <version>4.5.2</version>
+   <scope>runtime</scope>
+ </dependency>
+ 
+
+을 추가하니까 잘 된다. 추가 이후에 지워도 잘 된다. 
+
+정확한 해결 원리는 모르겠다.
+
+---
+
+##### Ajax통신으로 controller -> jsp파일로 전송이 안될 때
+
+@RequestMapping의 produces 속성을 return 타입에 맞게 수정해주자
+
+String : "text/plain; charset=utf-8"
+
+Json : "application/json; charset=utf-8"
+
+---
+
